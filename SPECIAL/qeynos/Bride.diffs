@@ -1,0 +1,74 @@
+=== modified file 'quests/qeynos/Tabure_Ahendle.pl'
+--- quests/qeynos/Tabure_Ahendle.pl	2015-09-07 17:24:47 +0000
++++ quests/qeynos/Tabure_Ahendle.pl	2015-12-18 18:22:35 +0000
+@@ -1,9 +1,29 @@
++my $wedding_state=0;
+ sub EVENT_SAY 
+ 	{ 
+-	if($text=~/Hail/i)
++	if($text=~/Hail/i && $wedding_state == 0)
++		{
++		quest::say("Hello, $name.  How are you tonight?  I am steadying my nerves with a string drink.  I am to be married soon to a very handsome man!");
++		}
++	elsif($text=~/Hail/i && $wedding_state > 0)
++		{
++		quest::say("Thank you for attending, $name!");
++		}
++	elsif($text=~/Hail/i)
+ 		{
+ 		quest::say("What have we here? Perhaps a future Ebon Strongbear? A [member of the Steel Warriors]? If the way of the warrior is not to your liking, might I suggest joining the League of Antonican Bards? The only damage you might take there is a sore throat! HAHAHA!");
+ 		}
++	elsif ($text=~/ready/i)
++		{
++		quest::say("It is time?  Really?  Oh my!  How do I look");
++		quest::emote("plays with her hair and checks her gown");
++		quest::start(68);
++		$wedding_state = 1;
++		}
++	elsif ($text=~/devoted husband/i)
++		{
++		quest::signalwith(2078,2); # Tell Jahnda Deret is done.
++		}
+ 	elsif ($faction > 4)
+ 		{
+ 		quest::say("The Steel Warriors have no cause to dislike you, but you have yet to truly prove your worth to this guild."); 
+@@ -72,4 +92,38 @@
+ 	#do all other handins first with plugin, then let it do disciplines
+ 	plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+ 	}
++
++sub EVENT_WAYPOINT_ARRIVE
++	{
++	if ($wp == 11)
++		{
++		quest::say("Oh boy.. Here we go.... Fighting is much easier than this...");
++		}
++	if ($wp == 15)
++		{
++		quest::emote("smiles warmly at Deret");
++		quest::signalwith(2078,1); # Tell Jahnda to start
++		}
++	}
++
++sub EVENT_SIGNAL
++	{
++	if ($signal > 10) # turn to face Deret
++		{
++		quest::follow($signal);
++		}
++	if ($signal == 1) # Time to do our vows
++		{
++		quest::settimer("myvows", 4);
++		}
++	}
++sub EVENT_TIMER
++	{
++	quest::stoptimer("myvows");
++	quest::say("Deret, my heart glows.  From the first time you came to these halls, I have been happier than I ever knew a warrior could be.");
++	quest::say("You know I am not good with words, just know that my heart is yours.");
++	quest::doanim(77);
++	quest::signalwith(2078,3); # Tell Jahnda I am done
++	}
++
+ #END of FILE Zone:qeynos  ID:1098 -- Tabure_Ahendle 
+

@@ -94,11 +94,9 @@ sub EVENT_ITEM
 		quest::say("You walk a dangerous path if you seek to construct a phylactery. I can indeed assist you, but you must both pay my price of knowledge for knowledge and prove to me that you are capable of controlling the forces you might unleash. I seek six volumes of magical power and knowledge that are spread across the commonly known lands of Norrath and even beyond, in the planes. For each you bring me I shall instruct you on the next step in the process and provide you with one of the required pieces. Completing each step will require acquiring even more items. The process is time-consuming, but the power of a phylactery is such that it will benefit even a bearer who does not aspire to lichdom. When you are certain you are ready to begin, talk to my assistant, Jeyular and hand him. hmmm, where shall we start? I think it would be fitting to begin with a tome by the great lich himself, Miragul."); 
 		quest::setglobal("phylactory", 1, 5, "F");
 		}
-	else 
-		{
-		quest::say("I have no need for this item, $name. You can have it back.");
-		plugin::return_items(\%itemcount);
-		}
+
+	quest::say("I have no need for this item, $name. You can have it back.");
+	plugin::return_items(\%itemcount);
 	}
 
 

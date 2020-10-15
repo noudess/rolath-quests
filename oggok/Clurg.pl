@@ -49,6 +49,7 @@ sub EVENT_ITEM {
 			quest::summonitem(6359);
 			#:: Ding!
 			quest::ding();
+			# Factions Verified on Zam
 			#:: Set factions
 			quest::faction(228, 50);	#:: + Clurg
 			quest::faction(274, -50); 	#:: - Kazon Stormhammer

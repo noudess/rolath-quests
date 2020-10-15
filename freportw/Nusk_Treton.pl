@@ -44,7 +44,7 @@ sub EVENT_ITEM
 			quest::faction(281,"2");# Faction Knights of Truth 
 			quest::faction(296,"-1");# Faction Opal Dark Briar
 			quest::faction(330,"-1");# Faction Freeport Militia 
-			quest::givecash("2","10","0","0");
+			quest::givecash("8","3","1","0");
 			}
 		}
 	plugin::return_items(\%itemcount);

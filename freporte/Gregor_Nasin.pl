@@ -100,6 +100,7 @@ sub EVENT_ITEM
    quest::summonitem("13379");
    quest::givecash("0","0","0","2");
 
+   # Factions verified on Zam
    # Coalition of Tradefolk Underground Faction
    quest::faction(336,5);
    # Coalition of Trade Folk Faction

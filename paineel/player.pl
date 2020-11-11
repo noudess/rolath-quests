@@ -53,10 +53,17 @@ sub EVENT_CLICKDOOR
 				{
 				if (!$liftUp)
 					{
+					quest::forcedooropen(246);
 					quest::forcedooropen(25);
-					quest::forcedoorclose(246);
 					quest::settimer("home", 23);
 					$liftUp = 1;
+					}
+				else
+					{
+					quest::stoptimer("home");
+					quest::forcedoorclose(246);
+					quest::forcedoorclose(25);
+					$liftUp=0;
 					}
 				}
 			}

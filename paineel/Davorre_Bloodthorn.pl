@@ -30,40 +30,57 @@ sub EVENT_SAY
 		}
 	}
 
-sub EVENT_ITEM {
-  if($faction < 5 && plugin::check_handin(\%itemcount, 12997 => 1)) { #Veisha's Engagement Ring
-    quest::say("Only a few years have passed and her heart has already forgotten me. No doubt she has found another to warm her bed. Go, find her new lover, and bring me nothing less than his head.");
-	# Faction Verified
-    quest::faction(265,5);  #Heretics
-    quest::faction(242,-5);  #Deepwater Knights
-    quest::faction(254,-5); #Gate Callers
-    quest::faction(231,-5);  #Craftkeepers
-    quest::faction(233,-5);  #Crimson Hands
-  }
-  elsif($faction < 5 && plugin::check_handin(\%itemcount, 12996 => 1)) { #Phaeril Nightshire's Head
-    quest::say("Apparently her choice in suitors has drifted to the most pathetic of wretches ever to slither Odus. You have done well, child. I ask of you one last task before my message to Veisha is complete. Here, deliver this to her with my most sincere regards.");
-    quest::summonitem(12995); #A Locked Chest
-    quest::faction(265,5);  #Heretics
-    quest::faction(242,-5);  #Deepwater Knights
-    quest::faction(254,-5); #Gate Callers
-    quest::faction(231,-5);  #Craftkeepers
-    quest::faction(233,-5);  #Crimson Hands
-  }
-  elsif($faction < 5 && plugin::check_handin(\%itemcount, 12994 => 1)) { #Veisha Fathomwalker's Head
-    quest::say("My revenge has been satisfied. Thank you, my child. You have proven yourself to be a most worthy asset to our cause. Here, I no longer have any use for this, my ties to the old life are now severed.");
-    quest::summonitem(5526); #Battle Worn Halberd
-    quest::exp(6000);
-	quest::ding();
-    quest::faction(265,20);  #Heretics
-    quest::faction(242,-20);  #Deepwater Knights
-    quest::faction(254,-20); #Gate Callers
-    quest::faction(231,-20);  #Craftkeepers
-    quest::faction(233,-20);  #Crimson Hands
-  }
-  else {
-    plugin::try_tome_handins(\%itemcount, $class, 'Shadowknight'); #Disciplines
-    quest::say("I have no need of this, $name.");
-    plugin::return_items(\%itemcount);
-  }
-}
-#EndFile: Davorre_Bloodthorn.pl
+sub EVENT_ITEM 
+	{
+	if ($faction > 4)
+		{
+		plugin::reject_say();
+		}
+	elsif (plugin::check_handin(\%itemcount, 12997 => 1)) 
+		{ #Veisha's Engagement Ring
+		quest::say("Only a few years have passed and her heart has already forgotten me. No doubt she has found another to warm her bed. Go, find her new lover, and bring me nothing less than his head.");
+		# Faction Verified
+		quest::faction(265,5);  #Heretics
+		quest::faction(242,-5);  #Deepwater Knights
+		quest::faction(254,-5); #Gate Callers
+		quest::faction(231,-5);  #Craftkeepers
+		quest::faction(233,-5);  #Crimson Hands
+		}
+	elsif (plugin::check_handin(\%itemcount, 12996 => 1)) 
+		{ #Phaeril Nightshire's Head
+		quest::say("Apparently her choice in suitors has drifted to the most pathetic of wretches ever to slither Odus. You have done well, child. I ask of you one last task before my message to Veisha is complete. Here, deliver this to her with my most sincere regards.");
+		quest::summonitem(12995); #A Locked Chest
+		quest::faction(265,5);  #Heretics
+		quest::faction(242,-5);  #Deepwater Knights
+		quest::faction(254,-5); #Gate Callers
+		quest::faction(231,-5);  #Craftkeepers
+		quest::faction(233,-5);  #Crimson Hands
+		}
+	elsif (plugin::check_handin(\%itemcount, 12994 => 1)) 
+		{ #Veisha Fathomwalker's Head
+		quest::say("My revenge has been satisfied. Thank you, my child. You have proven yourself to be a most worthy asset to our cause. Here, I no longer have any use for this, my ties to the old life are now severed.");
+		quest::say("Perhaps you would be interested in a new task?  I seek to experiment with the dead and the effects of infusing recently dead souls into their remains.  If you bring me two souls, and my experiment works, I will reward you with one of the resulting formulas.");
+		if (!quest::istaskcompleted(108) && !quest::istaskactive(108))
+			{
+			quest::assigntask(108);
+			}
+		quest::summonitem(5526); #Battle Worn Halberd
+		quest::exp(6000);
+		quest::ding();
+		quest::faction(265,20);  #Heretics
+		quest::faction(242,-20);  #Deepwater Knights
+		quest::faction(254,-20); #Gate Callers
+		quest::faction(231,-20);  #Craftkeepers
+		quest::faction(233,-20);  #Crimson Hands
+		}
+	elsif ($itemcount{70734} >=1) 
+		{
+		# Just so we eat them.
+		}
+	else 
+		{
+		plugin::try_tome_handins(\%itemcount, $class, 'Shadowknight'); #Disciplines
+		quest::say("I have no need of this, $name.");
+		plugin::return_items(\%itemcount);
+		}
+	}

@@ -83,7 +83,7 @@ sub EVENT_ITEM
 		quest::say("Very good. Very good indeed. Karana does not need the blind obedience that so many deities require. Trust your instincts, they are more often right than not. Here, take this to Blinza. Hurry, she is expecting them. You may keep the donation she gives you in return.");
 		quest::summonitem(13957);
 		quest::ding();
-		quest::exp(10);
+		quest::exp(5);
 		}
 	elsif(plugin::check_handin(\%itemcount, 13972 => 1)) 
 		{

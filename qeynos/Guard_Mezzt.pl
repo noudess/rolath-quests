@@ -25,6 +25,7 @@ sub EVENT_SAY {
       }elsif($random_result<=125){
         quest::say("Oh good. Another fine example of why I am growing to hate this city. If Commander Bayle were running things here, we would not have to put up with weaklings like you walking our streets.");
       }
+  quest::signalwith(1006, 2, 0);
   }
 }
 

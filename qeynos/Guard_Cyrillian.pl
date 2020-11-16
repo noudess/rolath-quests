@@ -49,27 +49,35 @@ sub EVENT_ITEM {
   plugin::return_items(\%itemcount);
 }
 
-sub EVENT_SIGNAL {
-  #response to Lieutenant_Arathur
-  if ($signal == 1) {
-    # Lieutenant Arathur ID:1085
-    my $npc_checkID = 1085;
-    my $mob_check = $entity_list->GetMobByNpcTypeID($npc_checkID);
-    my $mobX = int($mob_check->GetX());
-    my $mobY = int($mob_check->GetY());
-    my $mobZ = int($mob_check->GetZ());
+sub EVENT_SIGNAL 
+	{
+	#response to Lieutenant_Arathur
+	if ($signal == 1) 
+		{
+		# Lieutenant Arathur ID:1085
+		my $npc_checkID = 1085;
+		my $mob_check = $entity_list->GetMobByNpcTypeID($npc_checkID);
+		my $mobX = int($mob_check->GetX());
+		my $mobY = int($mob_check->GetY());
+		my $mobZ = int($mob_check->GetZ());
 
-    # get distance from npc
-    my $npc_dist = int($npc->CalculateDistance($mobX, $mobY, $mobZ));
-	
-    #Checking if within range of Lieutenant_Arathur to respond.
-    if ($mute != 1 && $npc_dist <= 60) {
-		quest::settimer("unmute", 10);
-		$mute=1;
-      quest::say("Yes, sir!");
-    }
-  }
-}
+		# get distance from npc
+		my $npc_dist = int($npc->CalculateDistance($mobX, $mobY, $mobZ));
+
+		#Checking if within range of Lieutenant_Arathur to respond.
+		if ($mute != 1 && $npc_dist <= 60) 
+			{
+			quest::settimer("unmute", 10);
+			$mute=1;
+			quest::say("Yes, sir!");
+			}
+		}
+	elsif ($signal == 2) 
+		{
+		#:: Signal sent from qeynos/Guard_Mezzt.pl
+		quest::say("Hey! Quit pestering Mezzt! Can't you see he has no tongue. And before you ask, it is none of your business what happened to him. Bug off.");
+		}
+	}
  
 sub EVENT_TIMER
 	{

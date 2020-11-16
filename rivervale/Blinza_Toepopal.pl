@@ -31,7 +31,7 @@ quest::faction(292, -1);
 quest::faction(329, 1);
 quest::faction(223, 1);
 quest::faction(336, 1);
-quest::exp(100);
+quest::exp(5);
 quest::ding();
 }
 if (plugin::check_handin(\%itemcount, 13957 => 1)){

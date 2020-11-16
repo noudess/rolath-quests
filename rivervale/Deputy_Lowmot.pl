@@ -22,7 +22,7 @@ sub EVENT_ITEM
 		quest::faction(355, 1); #Storm Reapers
 		quest::faction(292, 1);	#Merchants of Rivervale
 		quest::faction(334, -1);	#Dreadguard Outer
-		quest::exp(100); 
+		quest::exp(5); 
 		quest::ding();
 		}
 	plugin::return_items(\%itemcount); # return unused items

@@ -14,7 +14,7 @@ sub EVENT_ITEM
 		{
 		quest::say("What's this?  Oh dear.  I am very sorry.  Please take this to Uner with my apologies.");
 		quest::summonitem(13240); 
-		quest::exp(10);
+		quest::exp(75);
 		quest::ding();
 		}
 	}

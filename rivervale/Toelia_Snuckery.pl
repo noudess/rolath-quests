@@ -51,11 +51,7 @@ sub EVENT_ITEM
 		quest::ding();
 		quest::givecash(5,0,0,0);
 		} 
-	else 
-		{ 
-		quest::say("I have no need for this item $name, you can have it back.");
-		plugin::return_items(\%itemcount);
-		}
+
 	plugin::try_tome_handins(\%itemcount, $class, 'Rogue');
 	}
 

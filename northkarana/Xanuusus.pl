@@ -39,6 +39,7 @@ sub EVENT_ITEM
 		quest::faction(292,1);  #Merchants of Rivervale
 		quest::faction(324,-1); #Unkempt Druids
 		quest::givecash(0,8,0,0);
+		quest::exp(2500);
 		quest::ding();
 		}
 	else 

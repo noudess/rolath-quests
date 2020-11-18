@@ -17,7 +17,7 @@ quest::faction(355, 5);
 quest::faction(292, 5);
 quest::faction(334, -10);
 quest::givecash(0,0,1,0);
-quest::exp(500);
+quest::exp(50);
 quest::ding();
 }
   }

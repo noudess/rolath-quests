@@ -45,7 +45,7 @@ sub EVENT_ITEM
 		quest::faction(292,1); #Merchants of Rivervale
 		quest::faction(334,-1);	#Dreadguard Outer
 		quest::givecash(0,0,2,0);
-		quest::exp(200);
+		quest::exp(5000);
 		quest::ding();
 		} 
 	else 

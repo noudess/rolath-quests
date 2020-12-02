@@ -5,6 +5,11 @@ sub EVENT_POPUPRESPONSE{
 
 sub EVENT_ENTERZONE 
 	{
+	if ($name eq "Prexus")
+		{
+		quest::playersize(15);
+		}
+
 	#::: Dismount on indoor zone
 	$ex = plugin::LoadMysql()->prepare("SELECT `castoutdoor` from `zone` WHERE `zoneidnumber` = ? AND `castoutdoor` = 0");
 	$ex->execute($zoneid);

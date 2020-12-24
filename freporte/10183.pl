@@ -19,6 +19,8 @@ sub EVENT_SPAWN
 
 sub EVENT_WAYPOINT_ARRIVE
 	{
+	MOVE_TO_BOAT(69, -10500, -300, -23, 0);
+
 	if ($wp == 17)
 		{
 	    quest::spawn_condition("oot", $cond, 1);
@@ -26,7 +28,7 @@ sub EVENT_WAYPOINT_ARRIVE
 	elsif ($wp == 18)
 		{
 		quest::shout("This is where the action is");
-		MOVE_TO_BOAT(69, -10500, -300, -23);
+		MOVE_TO_BOAT(69, -10500, -300, -23, 1);
 		}
 	elsif ($wp == 19)
 		{
@@ -40,8 +42,8 @@ sub EVENT_WAYPOINT_ARRIVE
 
 sub MOVE_TO_BOAT
 	{
-	local($zid, $zx, $zy, $zz);
-	($zid, $zx, $zy, $zz) = ($_[0], $_[1], $_[2], $_[3]);
+	local($zid, $zx, $zy, $zz, $doit);
+	($zid, $zx, $zy, $zz, $doit) = ($_[0], $_[1], $_[2], $_[3], $_[4]);
 
 	# Find all clients in proximity and ship them to destination.
 	my @riders = $entity_list->GetClientList();
@@ -76,7 +78,10 @@ sub MOVE_TO_BOAT
 			quest::shout("diff $xdiff $ydiff $zdiff");
 			quest::shout("dest $destx $desty $destz");
 
-			$rider->MovePC($zid,$destx, $desty, $destz, 0);
+			if ($doit)
+				{
+				$rider->MovePC($zid,$destx, $desty, $destz, 0);
+				}
 			}
 		}
 	}

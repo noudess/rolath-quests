@@ -46,6 +46,8 @@ sub EVENT_WAYPOINT_ARRIVE
 	{
 	my $bg = $npc->GetGrid();
 
+	MOVE_TO_BOAT(10, -2186, 294, -77, 0);
+
 	if ($bg == 63)
 		{
 		# (Freporte -> BB)
@@ -56,7 +58,7 @@ sub EVENT_WAYPOINT_ARRIVE
 			}
 		elsif ($wp == 23)
 			{
-			MOVE_TO_BOAT(68, 3682, -907, -13);
+			MOVE_TO_BOAT(68, 3682, -907, -13,1);
 			}
 		elsif ($wp == 24)
 			{
@@ -74,7 +76,7 @@ sub EVENT_WAYPOINT_ARRIVE
 			}
 		elsif ($wp == 12)
 			{
-			MOVE_TO_BOAT(10, -2186, 294, -77);
+			MOVE_TO_BOAT(10, -2186, 294, -77, 1);
 			}
 		elsif ($wp == 13)
 			{
@@ -89,8 +91,8 @@ sub EVENT_WAYPOINT_ARRIVE
 
 sub MOVE_TO_BOAT
 	{
-	local($zid, $zx, $zy, $zz);
-	($zid, $zx, $zy, $zz) = ($_[0], $_[1], $_[2], $_[3]);
+	local($zid, $zx, $zy, $zz, $doit);
+	($zid, $zx, $zy, $zz, $doit) = ($_[0], $_[1], $_[2], $_[3], $_[4]);
 
 	# Find all clients in proximity and ship them to destination.
 	my @riders = $entity_list->GetClientList();
@@ -125,7 +127,10 @@ sub MOVE_TO_BOAT
 			quest::shout("diff $xdiff $ydiff $zdiff");
 			quest::shout("dest $destx $desty $destz");
 
-			$rider->MovePC($zid,$destx, $desty, $destz, 0);
+			if ($doit)
+				{
+				$rider->MovePC($zid,$destx, $desty, $destz, 0);
+				}
 			}
 		}
 	}

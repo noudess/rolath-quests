@@ -12,7 +12,7 @@ sub EVENT_ENTER
 		}
 	else
 		{
-		quest::say("$class!  The Dark Truth reports the news without all the usual propaganda and lies spewed by the mouthpieces of other Kingdoms and principalities. Buy a copy today for just a few silver and find out the real truth behind what has happened to the dogs guarding our city.");
+		quest::say("$class!  The Dark Truth reports the news without all the usual propaganda and lies spewed by the mouthpieces of other Kingdoms and principalities. Buy a copy today for just a few silver and find out the real truth behind what has happened to the dogs guarding our city. Or if you are looking for something to do, go see Librarian Kesler, he has been looking down of late.");
 		}
 	#quest::say("$class!  Don't miss your chance to get back issues of the Dark Truth!  Get them now while we still have stock!");
 	}

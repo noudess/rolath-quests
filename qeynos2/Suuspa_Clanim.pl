@@ -31,7 +31,7 @@ sub EVENT_SAY {
 }
 
 sub EVENT_ITEM {
-  if (plugin::check_handin(\%itemcount, 13301 => 1)) {
+  if ($faction <= 5 && plugin::check_handin(\%itemcount, 13301 => 1)) {
     quest::say("You have cleansed Norrath of another follower of the Plaguebringer.  You have done well.  Take this reward and continue your search for others who wear this ring.");
 	# Faction verified on Live
     quest::givecash(0,2,1,0); # Random from 20cp20sp

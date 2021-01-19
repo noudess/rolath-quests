@@ -39,7 +39,9 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM { 
   my $i = 10070; #Moonstone
-  my $c = $itemcount{$i}; #count of moonstones
+  my $c = 0;
+
+  $c = $itemcount{$i}; #count of moonstones
   if($c > 0) {
     if (plugin::check_handin(\%itemcount, $i => $c )) {
       for ($i = 1; $i<=$c ; $i++) {

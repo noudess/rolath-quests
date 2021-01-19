@@ -52,7 +52,7 @@ sub EVENT_ITEM
 			if ($faction < 5)
 				{
 				quest::say("Oh, turning in your key, are you? Very well, defender of life. Here you are.");
-				quest::summonitem(quest::ChooseRandom(15126,15126,15248,59575));
+				quest::summonitem(quest::ChooseRandom(59575));
 				}
 			else
 				{

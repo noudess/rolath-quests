@@ -51,6 +51,16 @@ sub EVENT_SPAWN
 			quest::addloot(13422, 1, 1);
 			}
 		}
+
+	if ($NPCRace == 8)
+		{
+		# Dwarven Blood
+		my $roll = plugin::RandomRange(1,100);
+		if ($roll <= 8)
+			{
+			quest::addloot(22516, 1, 1);
+			}
+		}
 	}
 
 sub EVENT_COMBAT 

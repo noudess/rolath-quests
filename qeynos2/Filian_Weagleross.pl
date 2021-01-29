@@ -87,7 +87,6 @@ sub EVENT_ITEM
 		{
 		quest::say("You have completed an important mission, this report will be key in our efforts against the gnolls of Blackburrow.  Please accept this imagic shard and sealer container.  The special sealer container will allow you to affix this shard to any weapon you choose to use.");
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		}

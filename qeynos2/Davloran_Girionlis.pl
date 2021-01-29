@@ -93,7 +93,6 @@ sub EVENT_ITEM
 		{
 		quest::say("These are exactly what I needed! Its for sure that I have a lot to learn about Smithing but low and behold I was able to create this fine blade out of my remaining materials. I must ask your understanding, in that this weapon is needed by the church.  Please accept this symbol of my gratitude in it's stead. Rodcet smiles down upon you young $name, you have done well.");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		# Factions verified on live

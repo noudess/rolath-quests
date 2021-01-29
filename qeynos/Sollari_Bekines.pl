@@ -89,7 +89,6 @@ sub EVENT_ITEM
         #text made up
         quest::say( "Great work, $name.  You have rid the world of more gnolls and brought me the components I require.");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 
         #not completely sure about the faction hits
         quest::faction(284, 10 );    #League of Antonican Bards

@@ -57,7 +57,6 @@ sub EVENT_ITEM
 		quest::emote("Wellis Pestule fashions a grip out of the giant king snake skin, sharpens the edge of the blade to be razor sharp, and polishes the weapon with a strange blood like substance."); 
 		quest::say("A fine weapon for the Bloodsabers. We must keep this for the war.  Please accept this powerful shard in its stead.  Go now and spread the Disease!");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		}
 
 	if (quest::istaskactivityactive($taskid, 7))

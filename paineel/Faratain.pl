@@ -83,7 +83,6 @@ sub EVENT_ITEM
 		{
 		quest::emote("Faratain fashions a grip from the large briar snake skin, fastens the petrified eyeball to the pommel of the hilt, and polishes the blade with a shimmering black substance. This is a fine Fell Blade Cutlass. We need this internally to serve Cazic Thule. In it's stead, please accept this shard and sealer container.  With it, you can fasten the shard to any weapon you choose to use.");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		}

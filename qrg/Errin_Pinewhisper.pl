@@ -104,7 +104,6 @@ sub EVENT_ITEM
 		quest::faction(262,1); #guards of qeynos
 		quest::ding();
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		}
 
 	if (quest::istaskactivityactive(58, 7))

@@ -100,7 +100,6 @@ sub EVENT_ITEM
 		quest::faction(262,2); # Guards of Qeynos
 		quest::faction(324,-2); # Unkempt Druids
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		}
 
 	if (quest::istaskactivityactive(57, 7))

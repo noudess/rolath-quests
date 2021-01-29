@@ -61,7 +61,6 @@ sub EVENT_ITEM
 		quest::exp(15000);
 quest::ding();
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		}
 
 	if (quest::istaskactivityactive($taskid, 7))

@@ -132,7 +132,6 @@ sub EVENT_ITEM
 		# Silent Fist Clansman Hand Wraps ID-27494
 		quest::summonitem(27494);
 		quest::summonitem(1270);
-		quest::summonitem(66180);
 		# Silent Fist Clan faction
 		quest::faction(309,1);
 		# Guards of Qeynos faction

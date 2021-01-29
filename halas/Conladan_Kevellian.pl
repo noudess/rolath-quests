@@ -129,7 +129,6 @@ sub EVENT_ITEM
 		{
 		quest::say("I must say, $name, I am impressed. You have passed your training and should now have a full set of armor to begin your adventures. Take this as a symbol of your dedication and hard work. You have earned it. Your training with me has ended. Farewell.");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		quest::faction(305,30);

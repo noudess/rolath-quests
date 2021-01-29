@@ -83,7 +83,6 @@ sub EVENT_ITEM
 		{
 		quest::say("Very good work.  We will need to use this internally.  In it's stead, take this shard and sealer box.  With it, you can attach this shard to any weapon you acquire.");
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		quest::faction(265,10);
 		quest::exp(500);
 		quest::ding();

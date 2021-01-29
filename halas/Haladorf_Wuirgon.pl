@@ -109,7 +109,6 @@ sub EVENT_ITEM
 		{
 		quest::say("Well done, $name.  Take this shard, and use it with pride!");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		}

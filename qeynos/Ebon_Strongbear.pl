@@ -78,7 +78,6 @@ sub EVENT_ITEM
 		{
 		quest::say("I salute you young warrior! Take this reward with pride.");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		}

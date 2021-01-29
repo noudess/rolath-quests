@@ -82,7 +82,6 @@ sub EVENT_ITEM
 		quest::say("You truly have justice in your heart. The spirits know this too. No doubt you are now beginning to hear their faint whispers. Soon you shall hear them clearly and you shall no longer need my guidance. I have one more [favor] to ask of you if you are [willing].");
 		quest::summonitem(7368); # Field Priest's Claw
 		quest::summonitem(1266); # Rolath Shard of Battle
-		quest::summonitem(66180); # Augmentation Sealer
 		quest::faction(327, 10);  # Shamen of Justice
 		quest::faction(328, 1);  # Merchants of Halas
 		quest::faction(223, -1);  # Circle Of Unseen Hands

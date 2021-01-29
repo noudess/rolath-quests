@@ -92,7 +92,6 @@ sub EVENT_ITEM
 		{
 		quest::say("This will help us outfit our priests well.  You, however, are deserving of a greater gift.  In it's stead, please accept this shard and sealer container.  With it you will be able to affix this shard to any weapon you choose to use.");
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		}

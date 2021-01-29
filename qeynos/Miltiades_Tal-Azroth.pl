@@ -69,7 +69,6 @@ sub EVENT_ITEM
 	if (plugin::check_handin(\%itemcount, 27414 => 1, 27415 => 2)) 
 		{
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		quest::say("Good! Now the Bloodsabers know that Karana will not allow them to live forever! Here, take this to aid you.");    

@@ -62,7 +62,6 @@ sub EVENT_ITEM
 		{
 		quest::say("Excellent work. Use this gift to further our mission.");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		quest::exp(100);
 		quest::ding();
 		}

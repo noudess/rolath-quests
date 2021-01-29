@@ -93,7 +93,6 @@ sub EVENT_ITEM
     if (plugin::check_handin(\%itemcount, 19552 => 1, 19659 => 1, 13424 => 1, 63125 => 1)) 
 		{ # New shard & container (was weapon)
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		quest::say("Very good, $name! However, I find that I still need my walking stick.  In it's stead, please accept this shard and sealer container.  With it you will be able to affix this shard to any weapon you choose to use."); 
 		quest::exp(500);
 		quest::ding();

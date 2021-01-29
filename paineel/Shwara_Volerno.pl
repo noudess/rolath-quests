@@ -91,7 +91,6 @@ sub EVENT_ITEM
 		quest::emote("fashions a grip out of the Giant Briar Snake Skin, fastens the Petrified Eyeball to a steel mount on one end of the staff, and tarnishes the wood of the staff with a shimmering black substance.");
 		quest::say("This is a well made Abattoirs Initiate Staff, $name. We have need of it internally.  Instead accept this shard and sealer container.  With it you may apply this shard to any weapon you choose to wield.");
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		quest::faction(265, 1);
 		quest::faction(242, -3);
 		quest::faction(254, -3);

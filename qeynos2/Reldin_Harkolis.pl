@@ -70,7 +70,6 @@ sub EVENT_ITEM
 		{
 		quest::say("Excellent work!  However we must keep this dagger for other, more accomplished members.  This shard will be of use to you."); #not actual text
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		}
 
 	if (quest::istaskactivityactive($taskid, 7))

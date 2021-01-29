@@ -75,7 +75,6 @@ sub EVENT_ITEM
 		quest::faction(262,30); # Guards of Qeynos
 		quest::faction(296,-30); # Opal Dark Briar
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		}
 
 	if (quest::istaskactivityactive(46, 7))

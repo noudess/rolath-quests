@@ -88,7 +88,6 @@ sub EVENT_ITEM
 		{
 		quest::say("Please accept this shard and sealer container.  With it you will be able to affix this shard to any weapon you choose to use.");
 		quest::summonitem(1266);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		}

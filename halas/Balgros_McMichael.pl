@@ -117,7 +117,6 @@ sub EVENT_ITEM
 		{
 		quest::say("You have done well and learned much during your training. You have made me proud, $name. Take this as a symbol of your dedication and hard work. You have earned it. Your training with me has ended. Farewell.");
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		quest::exp(500);
 		quest::ding();
 		quest::faction(327,30); #shamen of justice

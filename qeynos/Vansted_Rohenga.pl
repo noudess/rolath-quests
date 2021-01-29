@@ -116,7 +116,6 @@ sub EVENT_ITEM
 		quest::exp(500);
 		quest::ding();
 		quest::summonitem(1264);
-		quest::summonitem(66180);
 		# Faction verified on live.
 		quest::faction(262,7 );
 		quest::faction(280,10 );

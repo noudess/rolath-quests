@@ -117,7 +117,6 @@ sub EVENT_ITEM
 			$staff_count = $staff_count -1;
 			quest::say("Excellent work! I must keep this staff for our internal uses, but take this shard as your reward.");
 			quest::summonitem(1264);
-			quest::summonitem(66180);
 			quest::exp(150);
 			quest::ding();
 			# Factions Verified on Live

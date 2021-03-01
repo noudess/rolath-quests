@@ -1,5 +1,5 @@
 sub EVENT_SPAWN {
-  quest::shout("I shall have my revenge!!");
+  quest::shout("AH HAH! I am corporeal once more! I cannot hold this form for long, but it will be long enough for me to rip open that flea brothel and..well, I wont spoil it for you, heheheheh. Come! Assist me in the attack on the Kejekan village! The one that wears the iron beads must die at my hands and NO OTHER! Just make sure I get to him and you will be rewarded.");
   quest::SetRunning(1);
 }
 

@@ -71,6 +71,11 @@ sub EVENT_ITEM
 		quest::summonitem(1266);
 		quest::exp(500);
 		quest::ding();
+        # Factions verified on Zam (plus Mackel formula for ones posted as could not get any better/worse.
+        quest::faction(280,10);
+        quest::faction(221,-10);
+        quest::faction(341,7);
+        quest::faction(262,7);
 		quest::say("Good! Now the Bloodsabers know that Karana will not allow them to live forever! Here, take this to aid you.");    
 		}
 

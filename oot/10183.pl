@@ -5,7 +5,6 @@ my $newzone;
 sub EVENT_SPAWN
 	{
 	my $boatid = $npc->GetNPCTypeID();
-	quest::shout("Boat $boatid");
 
 	if ($boatid == 68228)
 		{
@@ -37,32 +36,26 @@ sub EVENT_SPAWN
 			$oldcond = 5;
 			}
 		}
-
-	quest::shout("Headed to $newzone.  Will set condition $newcond.");
-	quest::shout("and turn off condition $oldcond in oot.");
 	}
 
 sub EVENT_WAYPOINT_ARRIVE
 	{
 	my $bg = $npc->GetGrid();
 
-	MOVE_TO_BOAT(10, -2186, 294, -77, 0);
-
 	if ($bg == 63)
 		{
 		# (Freporte -> BB)
-		if ($wp == 22)
+		if ($wp == 23)
 			{
-			quest::shout("Turning on condition $newcond in $newzone.");
 			quest::spawn_condition("butcher", $newcond, 1);
-			}
-		elsif ($wp == 23)
-			{
-			MOVE_TO_BOAT(68, 3682, -907, -13,1);
 			}
 		elsif ($wp == 24)
 			{
-			quest::shout("Turning off condition $oldcond in oot.");
+			# Moving to Z 10 higher to ensure we don't fall through
+			MOVE_TO_BOAT(68, 3682, -907, -3,1);
+			}
+		elsif ($wp == 25)
+			{
 			quest::spawn_condition("oot", $oldcond, 0);
 			}
 		}
@@ -71,16 +64,15 @@ sub EVENT_WAYPOINT_ARRIVE
 		# (BB -> Freporte)
 		if ($wp == 11)
 			{
-			quest::shout("Turning on condition $newcond in $newzone.");
 			quest::spawn_condition("freporte", $newcond, 1);
 			}
 		elsif ($wp == 12)
 			{
-			MOVE_TO_BOAT(10, -2186, 294, -77, 1);
+			# Moving to Z 10 higher to ensure we don't fall through
+			MOVE_TO_BOAT(10, -2186, 294, -67, 1);
 			}
 		elsif ($wp == 13)
 			{
-			quest::shout("Turning off condition $oldcond in oot.");
 			quest::spawn_condition("oot", $oldcond, 0);
 			}
 		}
@@ -101,29 +93,24 @@ sub MOVE_TO_BOAT
 		{
 		# Is the person on the boat?
 
-		my $mobX = int($rider->GetX());	
-		my $mobY = int($rider->GetY());	
-		my $mobZ = int($rider->GetZ());	
-		my $mobH = int($rider->GetHeading());	
+		my $mobX = $rider->GetX();	
+		my $mobY = $rider->GetY();	
+		my $mobZ = $rider->GetZ();	
 	
-		my $cdist = int($npc->CalculateDistance($mobX, $mobY, $mobZ));		
+		my $cdist = $npc->CalculateDistance($mobX, $mobY, $mobZ);		
 	
-		if ($cdist <= 75)
+		if ($cdist <= 300)
 			{
-			my $rx = int($rider->GetX());
-			my $ry = int($rider->GetY());
-			my $rz = int($rider->GetZ());
-
-			my $xdiff = $rx - $x;
-			my $ydiff = $ry - $y;	
-			my $zdiff = $rz - $z;	
+			my $xdiff = $mobX - $x;
+			my $ydiff = $mobY - $y;	
+			my $zdiff = $mobZ - $z;	
 			
 			my $destx = $zx + $xdiff;
 			my $desty = $zy + $ydiff;
 			my $destz = $zz + $zdiff;
 
 			quest::shout("Boat $x $y $z $h");
-			quest::shout("Rider $rx $ry $rz");
+			quest::shout("Rider $mobX $mobY $mobZ");
 			quest::shout("diff $xdiff $ydiff $zdiff");
 			quest::shout("dest $destx $desty $destz");
 

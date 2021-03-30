@@ -4,34 +4,32 @@ sub EVENT_SPAWN
 	{
 	my $boatid = $npc->GetNPCTypeID();
 
-    quest::shout("$boatid");
-
 	if ($boatid == 68228)
 		{
+		quest::shout("SirensBane will be arriving at the docks shortly.");
 		$cond = 4;
 		}
 	elsif ($boatid == 10183)
 		{
+		quest::shout("Stormbreaker will be arriving at the docks shortly.");
 		$cond = 5;
 		}
-
-    quest::shout("$cond");
 	}
 
 sub EVENT_WAYPOINT_ARRIVE
 	{
-	if ($wp == 11)
+	quest::shout("Arrived at $wp");
+	if ($wp == 12)
 		{
 	    quest::spawn_condition("oot", $cond, 1);
 		}
-	elsif ($wp == 12)
-		{
-		quest::shout("This is where the action is");
-		MOVE_TO_BOAT(69, 11050, 1000, -23);
-		}
 	elsif ($wp == 13)
 		{
-		quest::shout("Bye");
+		# Z is 10 higher to ensure we don't fall through
+		MOVE_TO_BOAT(69, 11050, 1000, -13);
+		}
+	elsif ($wp == 14)
+		{
 	    quest::spawn_condition("butcher", $cond, 0);
 		}
 	}
@@ -51,29 +49,24 @@ sub MOVE_TO_BOAT
 		{
 		# Is the person on the boat?
 
-		my $mobX = int($rider->GetX());	
-		my $mobY = int($rider->GetY());	
-		my $mobZ = int($rider->GetZ());	
-		my $mobH = int($rider->GetHeading());	
+		my $mobX = $rider->GetX();	
+		my $mobY = $rider->GetY();	
+		my $mobZ = $rider->GetZ();	
 	
-		my $cdist = int($npc->CalculateDistance($mobX, $mobY, $mobZ));		
+		my $cdist = $npc->CalculateDistance($mobX, $mobY, $mobZ);
 	
-		if ($cdist <= 75)
+		if ($cdist <= 300)
 			{
-			my $rx = int($rider->GetX());
-			my $ry = int($rider->GetY());
-			my $rz = int($rider->GetZ());
-
-			my $xdiff = $rx - $x;
-			my $ydiff = $ry - $y;	
-			my $zdiff = $rz - $z;	
+			my $xdiff = $mobX - $x;
+			my $ydiff = $mobY - $y;	
+			my $zdiff = $mobZ - $z;	
 			
 			my $destx = $zx + $xdiff;
 			my $desty = $zy + $ydiff;
 			my $destz = $zz + $zdiff;
 
 			quest::shout("BB Boat $x $y $z $h");
-			quest::shout("Rider $rx $ry $rz");
+			quest::shout("Rider $mobX $mobY $mobZ");
 			quest::shout("diff $xdiff $ydiff $zdiff");
 			quest::shout("dest $destx $desty $destz");
 

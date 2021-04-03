@@ -18,7 +18,6 @@ sub EVENT_SPAWN
 
 sub EVENT_WAYPOINT_ARRIVE
 	{
-	quest::shout("Arrived at $wp");
 	if ($wp == 12)
 		{
 	    quest::spawn_condition("oot", $cond, 1);

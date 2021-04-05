@@ -27,7 +27,33 @@ sub EVENT_ITEM
 		quest::faction(281, -1);
 		quest::faction(362, -1);
 		quest::givecash(0,0,6,0);
-		quest::exp(100);
+		$client->AddLevelBasedExp(4, 14);
+		quest::MerchantSetItem(10062, 13014, 20);
 		quest::ding();
+		}
+
+	#:: Match a 1838 - Bag of Bread Loaves
+	if (plugin::takeItems(1838 => 1))
+		{
+		quest::say("'Well now, what do we have here? You actually went out of your way to fetch bread for me? Thank ye so kindly. Please accept this payment for your service.");
+
+		#:: Ding!
+		quest::ding();
+
+		#:: Create a hash for storing cash - 1300 to 2200cp
+		my %cash = plugin::RandomCash(1300, 2200);
+
+		#:: Grant a random cash reward
+		quest::givecash($cash{copper}, $cash{silver}, $cash{gold},
+						$cash{platinum});
+
+		#:: Grant a moderate amount of experience
+		$client->AddLevelBasedExp(4, 14);
+
+		#:: Factions Verified on ZAM
+		quest::faction(330, 2);
+		quest::faction(336, 1);
+		quest::faction(281, -1);
+		quest::faction(362, -1);
 		}
 	}

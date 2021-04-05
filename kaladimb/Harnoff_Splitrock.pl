@@ -32,6 +32,20 @@ sub EVENT_ITEM
 		quest::faction(322, -1);        #Miners Guild 628
 		quest::faction(293, 1);         #Miners Guild 249
 		quest::faction(312, 15);         #Storm Guard
+
+		if (quest::MerchantCountItem(67057, 10468) < 50)
+			{
+			quest::MerchantSetItem(67057, 10468, 50);
+			}
+		if (quest::MerchantCountItem(67057, 10469) < 100)
+			{
+			quest::MerchantSetItem(67057, 10469, 100);
+			}
+		if (quest::MerchantCountItem(67057, 10480) < 200)
+			{
+			quest::MerchantSetItem(67057, 10480, 200);
+			}
+
 		quest::givecash(0, 0, 0, 14);
 		}
 	elsif (plugin::check_handin(\%itemcount, 10953 => 1))
@@ -44,6 +58,20 @@ sub EVENT_ITEM
 		quest::faction(322, -1);         #Miners Guild 628
 		quest::faction(293, 1);          #Miners Guild 249
 		quest::faction(312, 1);          #Storm Guard
+
+		if (quest::MerchantCountItem(67057, 10468) < 75)
+			{
+			quest::MerchantSetItem(67057, 10468, 75);
+			}
+		if (quest::MerchantCountItem(67057, 10469) < 150)
+			{
+			quest::MerchantSetItem(67057, 10469, 150);
+			}
+		if (quest::MerchantCountItem(67057, 10480) < 300)
+			{
+			quest::MerchantSetItem(67057, 10480, 300);
+			}
+
 		quest::givecash(0, 0, 0, 44);
 		}
 	else

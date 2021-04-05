@@ -1,72 +1,91 @@
-sub EVENT_SAY { 
-if($text=~/Hail/i){
-quest::say("Step forward and speak up. young $name! Kaladim can always use another warrior. Are you [ready to serve Kaladim] or has a yellow streak appeared down your back?");
-}
-if($text=~/i am ready to serve kaladim/i){
-quest::say("Then serve you shall. Let your training begin on the battlefields of Faydwer. Seek out and destroy all [Crushbone orcs]. Return their belts to me.  I shall also reward you for every two orc legionnaire shoulder pads  returned.  A warrior great enough to slay one legionnaire shall surely have no problem with another.  Go. and let the cleansing of Faydwer begin.");
-}
-if($text=~/what crushbone orcs/i){
-quest::say("The army of the Crushbone orcs is deadly indeed. They are great military strategists. It was a legion of them that brought down the great [Trondle Ogrebane]. Speak with Furtog Ogrebane about the Crushbones. He has need of warriors such as you.");
-}
-if($text=~/who is crushbone orcs/i){
-quest::say("The army of the Crushbone orcs is deadly indeed. They are great military strategists. It was a legion of them that brought down the great [Trondle Ogrebane]. Speak with Furtog Ogrebane about the Crushbones. He has need of warriors such as you.");
-}
-if($text=~/who is trondle ogrebane/i){
-quest::say("Trondle Ogrebane is the legendary dwarven warrior who single-handedly exterminated the ogre clan called the [Mudtoes]. He was recently killed in battle. It took an entire legion of Crushbone orcs to bring him down. Furtog is still fuming about that.");
-}
-if($text=~/what mudtoes/i){
-quest::say("The Mudtoes were a small clan of ogres. They lived somewhere in the Butcherblock Mountains. They had an insatiable appetite for dwarves. They were finally destroyed by the hand of Trondle Ogrebane.");
-}
-}
-
-
-sub EVENT_ITEM { 
-
- if($itemcount{13318} >= 1){
-	quest::say("Good work. warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
-	BELT_REWARD($itemcount{13318});
- } elsif($itemcount{13319} == 2){
-	quest::say("Aha!! You have downed a Crushbone legionnaire!! You have shown yourself to be a strong warrior. Take this. This is more becoming of a great warrior such as yourself. Let no creature stand in the way of the Stormguard!");
-	quest::summonitem("10017","1");
-	quest::exp(7290);
-quest::ding();
-	quest::givecash("0","4","4","0");
-quest::faction(312,10);
-quest::faction(274,10);
-quest::faction(293,10);
-quest::faction(290,10);
-quest::faction(232,-30);
- } else {
-  #do all other handins first with plugin, then let it do disciplines
-  plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
-  plugin::return_items(\%itemcount);
- }
-}
-
-sub BELT_REWARD
+sub EVENT_SAY
 	{
-	local($count);
-	($count) = ($_[0]);
-	my $silver;
-
-	if ($count > 0)
+	if ($text =~ /hail/i)
 		{
-		quest::summonitem(quest::ChooseRandom(2116,2118,2120,2123,2124,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,9009,9010,9011,9012,9014,9015));
-		$silver = plugin::RandomRange(5,15);
-		quest::givecash("0","$silver","0","0");
-		quest::faction(312,10);
-		quest::faction(274,10);
-		quest::faction(293,10);
-		quest::faction(290,10);
-		quest::faction(232,-30);
-		quest::exp(3645);
-quest::ding();
-		$count = $count-1;
-		BELT_REWARD($count);
+		quest::say("Step forward and speak up, young $name! Kaladim can always use another warrior. Are you [ready to serve Kaladim] or has a yellow streak appeared down your back?");
 		}
-	else
+	elsif ($text =~ /ready to serve kaladim/i)
 		{
-		# We're done
+		quest::say("Then serve you shall. Let your training begin on the battlefields of Faydwer. Seek out and destroy all [Crushbone Orcs]. Return their belts to me. I shall also reward you for every two orc legionnaire shoulder pads returned. A warrior great enough to slay one legionnaire shall surely have no problem with another. Go, and let the cleansing of Faydwer begin.");
+		}
+	elsif ($text =~ /crushbone orcs/i)
+		{
+		quest::say("The army of the Crushbone orcs is deadly indeed. They are great military strategists. It was a legion of them that brought down the great [Trondle Ogrebane]. Speak with Furtog Ogrebane about the Crushbones. He has need of warriors such as you.");
+		}
+	elsif ($text =~ /trondle ogrebane/i)
+		{
+		quest::say("Trondle Ogrebane is the legendary dwarven warrior who single-handedly exterminated the ogre clan called the [Mudtoes]. He was recently killed in battle. It took an entire legion of Crushbone orcs to bring him down. Furtog is still fuming about that.");
+		}
+	elsif ($text =~ /mudtoes/i)
+		{
+		quest::say("The Mudtoes were a small clan of ogres. They lived somewhere in the Butcherblock Mountains. They had an insatiable appetite for dwarves. They were finally destroyed by the hand of Trondle Ogrebane.");
+		}
+	elsif ($text > 6)
+		{
+		quest::say("Your shifty eyes tell me that you are no ally of the Stormguard.");
+		}
+	elsif ($text =~ /irontoe/i)
+		{
+		quest::say("The Irontoe Brigade was formed by Drumpy Irontoe. It was once the finest band of warriors in Kaladim. They were the elite branch of the Stormguard. King Kazon sent them on a mission to the lands of the Crushbone orcs. At the Battle of Busted Skull they met their fate.");
+		}
+	elsif ($text =~ /bloodforge brigade/i)
+		{
+		quest::say("The Bloodforge Brigade is the elite force of the Stormguard. They took the place of the Irontoe Brigade. They are led by Byzar Bloodforge.");
 		}
 	}
-#END of FILE Zone:kaladima  ID:60005 -- Canloe_Nusback 
+
+sub EVENT_ITEM
+	{
+	#:: Match four 13318 - Crushbone Belt
+	if (itemcount{13318} > 0)
+		{
+        plugin::mass_handin(13318, 1, \&BeltReward);
+		quest::say("Good work, warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
+		}
+
+	#:: Match four 13319 - Crushbone Shoulderpads
+	if (itemcount{13319} > 0)
+		{
+		plugin::mass_handin(13319, 2, \&ShoulderReward);
+		quest::say("Aha!! You have downed a Crushbone legionnaire!! You have shown yourself to be a strong warrior. Take this. This is more becoming of a great warrior such as yourself. Let no creature stand in the way of the Stormguard!");
+		}
+
+	plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+	plugin::returnUnusedItems();
+	}
+
+sub BeltReward
+	{
+	quest::summonitem(quest::ChooseRandom(9009, 2113, 2114, 2115, 2116, 2117, 2118, 2119, 2120, 2122, 2123, 2124));
+
+	quest::ding();
+
+	# Verified on Zam
+	quest::faction(312, 10);	#:: + Storm Guard
+	quest::faction(274, 1);		#:: + Kazon Stormhammer
+	quest::faction(293, 2);		#:: + Miners Guild 249
+	quest::faction(290, 1);		#:: + Merchants of Kaladim
+	quest::faction(232, -2);	#:: - Craknek Warriors
+	quest::exp(7000);
+	#:: Create a hash for storing cash - 200 to 250cp
+	my %cash = plugin::RandomCash(50, 90);
+	#:: Grant a random cash reward
+	quest::givecash($cash{copper}, $cash{silver}, $cash{gold}, $cash{platinum});
+	}
+
+sub ShoulderReward
+	{
+	quest::summonitem(10017, 1);
+	quest::ding();
+
+	#:: Verified
+	quest::faction(312, 15);	#:: + Storm Guard
+	quest::faction(274, 2);		#:: + Kazon Stormhammer
+	quest::faction(293, 2);		#:: + Miners Guild 249
+	quest::faction(290, 3);		#:: + Merchants of Kaladim
+	quest::faction(232, -3);	#:: - Craknek Warriors
+	quest::exp(32000);
+
+	my %cash = plugin::RandomCash(350, 450);
+	quest::givecash($cash{copper}, $cash{silver}, $cash{gold}, $cash{platinum});
+	}

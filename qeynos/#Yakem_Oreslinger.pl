@@ -30,10 +30,20 @@ sub EVENT_ITEM
 		my $pp = int(rand(28));
 		quest::givecash(0, 0, 0, $pp);
 		#Spawn the one with hq ore
-		quest::spawn2(1030, 0, 0, $x, $y, $z, $h);
 		quest::ding();
 		quest::exp(2000);
-		quest::depop();
+		if (quest::MerchantCountItem(1304, 10468) < 50)
+			{
+			quest::MerchantSetItem(1304, 10468, 50);
+			}
+		if (quest::MerchantCountItem(1304, 10469) < 100)
+			{
+			quest::MerchantSetItem(1304, 10469, 100);
+			}
+		if (quest::MerchantCountItem(1304, 10480) < 200)
+			{
+			quest::MerchantSetItem(1304, 10480, 200);
+			}
 		}
 	elsif (plugin::check_handin(\%itemcount, 10953 => 1)) 
 		{#Large Shipment of High Quality Ore 
@@ -43,10 +53,20 @@ sub EVENT_ITEM
 		my $pp = int(rand(88));
 		quest::givecash(0, 0, 0, $pp);
 		#Spawn the one with hq ore
-		quest::spawn2(1030, 0, 0, $x, $y, $z, $h);
 		quest::ding();
 		quest::exp(4000);
-		quest::depop();
+		if (quest::MerchantCountItem(1304, 10468) < 75)
+			{
+			quest::MerchantSetItem(1304, 10468, 75);
+			}
+		if (quest::MerchantCountItem(1304, 10469) < 150)
+			{
+			quest::MerchantSetItem(1304, 10469, 150);
+			}
+		if (quest::MerchantCountItem(1304, 10480) < 300)
+			{
+			quest::MerchantSetItem(1304, 10480, 300);
+			}
 		}
 	else 
 		{

@@ -57,7 +57,7 @@ sub EVENT_ITEM
 			quest::faction(229,10); # +Tradefolk
 			quest::faction(336,10); # +Coalition of Tradefolk Underground
 			quest::faction(281,10); # +Knights of Truth
-			quest::faction(291,17); # +Merchants of Qeynos
+			quest::faction(291,7); # +Merchants of Qeynos
 			quest::ding();
 			quest::exp(10);
 			quest::givecash(5,4,2,0);

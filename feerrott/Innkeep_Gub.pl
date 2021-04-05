@@ -25,9 +25,9 @@ sub EVENT_ITEM
 		{
 		quest::say("Mmm, dez look like gud muffinz. Here's sum money. Tanks. Now meez all stocked again.");
 		quest::givecash(0,8,0,0);
-		quest::exp(100);
+		$client->AddLevelBasedExp(4, 14);
 		quest::ding();
-		#Factions per ZAM, quest not active on live
+		quest::MerchantSetItem(47144, 13014, 20);
 		quest::faction(228,1); #Clurg
 		quest::faction(338,2); #Merchants of Ogguk
 		quest::faction(337,1); #Ogguk Guards
@@ -36,11 +36,10 @@ sub EVENT_ITEM
 		{
 		quest::say("You take some money. Weeze happy now dat weeze got more bread for sale. You maybe check back later if weeze run out of bread again.");
 		quest::givecash(0,0,3,1);
-		quest::exp(100);
+		$client->AddLevelBasedExp(4, 14);
 		quest::ding();
-		#Factions per ZAM (assumed to be same as muffins), quest not active on live
 		quest::faction(228,1); #Clurg
-		quest::faction(338,2); #Merchants of Ogguk
+		quest::faction(338,4); #Merchants of Ogguk
 		quest::faction(337,1); #Ogguk Guards
 		}
 	}

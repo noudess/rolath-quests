@@ -29,6 +29,7 @@ sub EVENT_ITEM
 		quest::say("I shall display this in the guard hall. Let it be a warning to all those who dare to run from battle. As for you, that was splendid work, but next time, remember to wrap decapitated heads in something drip-proof. Those stains will never come out! Oh yes, and here is your reward.");
 		quest::exp(5000);
 		quest::ding();
+		# Factions verified.
 		quest::faction( 274, 2 );
 		quest::faction( 312, 15 );
 		quest::faction( 293, 2 );

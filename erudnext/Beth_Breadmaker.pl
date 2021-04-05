@@ -24,21 +24,22 @@ sub EVENT_ITEM
 	if (plugin::check_handin(\%itemcount, 1839 => 1))
 		{
 		quest::say("Thanks, you are a dear. You are one top notch baker!  Here's some coin for your trouble.");
-		quest::faction(289,1);	#Merchants of Erudin
+		quest::faction(289,2);	#Merchants of Erudin
 		quest::faction(266,1);	#High Guard of Erudin
 		quest::faction(267,1);	#High Council of Erudin
+		quest::MerchantSetItem(24059, 13014, 20);
 		quest::givecash(0,4,2,0);
-		quest::exp(100);
+		$client->AddLevelBasedExp(4, 14);
 		quest::ding();
 		}
 	if (plugin::check_handin(\%itemcount, 1838 => 1))
 		{
 		quest::say("Oh, wonderful fresh bread! Thank you for making the trip, that is such a long way. Here, I hope this covers your travel expenses. You have my deepest thanks.");
-		quest::faction(289,1);	#Merchants of Erudin
+		quest::faction(289,4);	#Merchants of Erudin
 		quest::faction(266,1);	#High Guard of Erudin
 		quest::faction(267,1);	#High Council of Erudin
 		quest::givecash(0,0,7,1);
-		quest::exp(100);
+		$client->AddLevelBasedExp(4, 14);
 		quest::ding();
 		}
 	}

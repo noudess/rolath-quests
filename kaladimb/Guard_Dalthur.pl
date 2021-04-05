@@ -4,6 +4,11 @@ sub EVENT_COMBAT {
 		if($cur_target) {
 		my $target_name = $cur_target->GetCleanName();
 		quest::say("Time to die $target_name!");
+		quest::say($zonesn);
+		if ($zonesn eq 'kaladima')
+			{
+			plugin::attack_insult();
+			}
 		}
 	}
 }

@@ -27,7 +27,27 @@ sub EVENT_ITEM
 	if (plugin::check_handin(\%itemcount, 13073 => 4))
 		{
 		quest::say("You have done well. We thank you for your deed with this humble reward. The power behind the raising of our dead shall soon be found. You will earn more respect with more bone chips. I only wish you could assist in the return of the [remains of Cromil].");
-		quest::summonitem(quest::ChooseRandom(2116, 2122, 5013, 5014, 5016, 5023, 6011, 13002, 13003));
+
+		my $reward;
+		my $roll = int(rand(27));
+
+		if ($roll < 12)
+			{
+			# Small Armor 2113-2124  (12 items)
+			$reward = plugin::RandomRange(2113,2124);
+			}
+		elsif ($roll < 25)
+			{
+			# Rusty 5013-5025 (13 items)
+			$reward = plugin::RandomRange(5013,5025);
+			}
+		else
+			{
+			# Light 13002-13003 (2 items)
+			$reward = plugin::RandomRange(13002,13003);
+			}
+
+		quest::summonitem($reward);
 		quest::exp(10);    # Experience
 		quest::ding();
 		quest::givecash("7", "10", "0", "0");    # Cash

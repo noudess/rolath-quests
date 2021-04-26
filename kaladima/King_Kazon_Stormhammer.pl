@@ -1,3 +1,12 @@
+sub EVENT_SAY {
+	if ($text=~/bloodforge brigade/i) {
+		quest::say("The Bloodforge Brigade was created to take the place of the now defunct Irontoe Brigade. I hear they are a much stronger force to reckon with.");
+	}
+	elsif ($text=~/stormguard/i) {
+		quest::say("In South Kaladim you will find the Stormguard, the warrior guild. They train on the arena grounds.");
+	}
+}
+
 sub EVENT_SPAWN
 	{
 	quest::delete_data("kingkazon_aggroer");

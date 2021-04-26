@@ -111,7 +111,7 @@ sub EVENT_ITEM
 		}
 
 	# Handin: Scalded Rat Skins
-	if(plugin::check_handin(\%itemcount, 55470 => 4))
+	if($class eq "Berserker" && plugin::check_handin(\%itemcount, 55470 => 4))
 		{
 		quest::say("I see you have embraced the rage burning from within and have accomplished your task.");
 		quest::summonitem(1266);

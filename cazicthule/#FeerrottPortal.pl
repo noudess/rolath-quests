@@ -7,5 +7,9 @@ sub EVENT_SPAWN
 
 sub EVENT_ENTER
 	{
-	$client->MovePC(47, -90, -1488, 51, 380);
+	$z = $client->GetZ();
+	if ($z > -5)
+		{
+		$client->MovePC(47, -90, -1488, 51, 380);
+		}
 	}

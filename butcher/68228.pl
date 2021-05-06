@@ -69,7 +69,7 @@ sub MOVE_TO_BOAT
 			quest::shout("diff $xdiff $ydiff $zdiff");
 			quest::shout("dest $destx $desty $destz");
 
-			$rider->MovePC($zid,$destx, $desty, $destz, 0);
+			$rider->MovePC($zid,$destx, $desty, $destz, 256);
 			}
 		}
 	}

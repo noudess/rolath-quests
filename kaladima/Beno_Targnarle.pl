@@ -64,7 +64,7 @@ sub EVENT_ITEM
 		my %cash = plugin::RandomCash(25, 35);
 
 		quest::givecash($cash{copper}, $cash{silver}, $cash{gold}, $cash{platinum});
-		quest::summonitem(quest::ChooseRandom(10015, 13036, 1051, 13003, 13002));
+		quest::summonitem(quest::ChooseRandom(13009, 10015, 13036, 1051, 13003, 13002));
 		}
 
 	#:: Match a 13282 - Scrap Metal

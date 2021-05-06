@@ -5,7 +5,7 @@ sub EVENT_SPAWN
 	# If in 313 (a group used all over in BB) and no grid.. add wander
 	# Have to do later as grid wont be assigned yet
 
-	if ($sg == 313 or $sg == 315)
+	if ($sg == 313)
 		{
 		quest::settimer("wander", 10);
 		}

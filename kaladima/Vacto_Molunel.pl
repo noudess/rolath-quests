@@ -12,7 +12,7 @@ sub EVENT_SAY
 		{
 		quest::say("Piqued your interest. did I?  Well. you see. I am one of the few dwarves who possess the knowledge and talent to craft a unique type of armor entirely out of scarab carapaces.  While my specialty is making [scarab helms], I have also been convinced to make [scarab breastplates] and [scarab boots] from time to time.  All of the pieces I craft are to dwarven proportions, but I have had some gnomish and halfling customers as well.  They come from all over for my armor.");
 		}
-	elsif ($text =~ /scarab helms/i)
+	elsif ($text =~ /scarab helm/i)
 		{
 		quest::say("Interested in a scarab helm. are you?  Well, because my talent is so unique and my time is so valuable, I am afraid I could only make you a helm if you were to provide me with the two scarab carapaces necessary to accommodate a head such as yours.  I will also need a payment of 5 gold pieces.  The Butcherblocks are crawling with worker scarabs that have just the right size carapaces for our needs.");
 		}

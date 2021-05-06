@@ -49,7 +49,13 @@ sub EVENT_ENTERZONE
 		}
 	elsif ($zoneid == 36)
 		{
-		$client->PlayMP3("befallen.mp3");
+		my $key = $client->CharacterID() . "-reaper";
+		my $played = quest::get_data($key);
+		if ($played == 0)
+			{
+			$client->PlayMP3("befallen.mp3");
+			quest::set_data($key, 1, 600);
+			}
 		}
 	else	
 		{ 

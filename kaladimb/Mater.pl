@@ -80,7 +80,10 @@ sub EVENT_SPAWN
 sub EVENT_TIMER
     {
     quest::say("Blast all these pesky rats!! Jeet, you need to get one of the new rogues.. I mean miners, to get rid of them!!");
-    quest::signal( 67018, 1 );
+	if (plugin::zoneClientCount() > 0)
+		{
+		quest::signal( 67018, 1 );
+		}
     }
 
 #END of FILE Zone:kaladimb  ID:67019 -- Mater

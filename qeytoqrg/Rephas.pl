@@ -21,46 +21,16 @@ sub EVENT_ITEM
 	{
 	if ($faction < 7)	 # Zam says need apprehensive
 		{
-		if (plugin::check_handin(\%itemcount,13072 => 1)) 
+		if (defined($itemcount{13072}) && $itemcount{13072} >= 1)
 			{
 			quest::say("Ahh yes..  These are a little small, but still some good eating, if you know how to cook 'em of course..   Here ya go, enjoy and may Karana keep your fields lush and green.");
-			# Faction verified on live
-			quest::faction(220,5);  # Arcane Scientists
-			quest::faction(281,1); # Knights of Truth
-			quest::faction(330,-1); # Freeport Militia
-			quest::faction(296,-1); # Opal Dark Briar
-			quest::exp(100);
-			quest::ding();
-			quest::summonitem(13719);    
+			plugin::mass_handin(13072, 1, \&RAT_EARS);	
 			} 
 
-		if (plugin::check_handin(\%itemcount,13719=>1)) 
+		if (defined($itemcount{13719}) && $itemcount{13719} >= 1)
 			{
 			quest::say("Wha?..   Ah, I guess it's a bit of an acquired taste..  Oh well, your loss..  Here, take this..  They ain't no ears, but it's the least I could do..   And if ya find any more rat ears, good ol' Rephas here will be glad to take 'em off your hands for ya!");
-			# Faction verified on live
-			quest::faction(220,5);  # Arcane Scientists
-			quest::faction(281,1); # Knights of Truth
-			quest::faction(330,-1); # Freeport Militia
-			quest::faction(296,-1); # Opal Dark Briar
-			quest::exp(100);
-			quest::ding();
-
-			my $item;
-			my $chance=plugin::RandomRange(1,100);
-			if ($chance < 21)
-				{
-				$item=quest::ChooseRandom(15205,15289,15208,15040,15041);
-				}
-			elsif ($chance > 20 && $chance < 41)
-				{
-				$item=1038;
-				}
-			else 
-				{
-				$item=13076;    
-				}
-
-			quest::summonitem($item);    
+			plugin::mass_handin(13719, 1, \&GRILLED);	
 			} 
 
 		if (plugin::check_handin(\%itemcount,13050=>3)) 
@@ -95,4 +65,44 @@ sub EVENT_ITEM
 			quest::summonitem(27431);    
 			}
 		}
+	}
+
+sub RAT_EARS
+	{
+	# Faction verified on live
+	quest::faction(220,5);  # Arcane Scientists
+	quest::faction(281,1); # Knights of Truth
+	quest::faction(330,-1); # Freeport Militia
+	quest::faction(296,-1); # Opal Dark Briar
+	quest::exp(100);
+	quest::ding();
+	quest::summonitem(13719);    
+	}
+
+sub GRILLED
+	{
+	# Faction verified on live
+	quest::faction(220,5);  # Arcane Scientists
+	quest::faction(281,1); # Knights of Truth
+	quest::faction(330,-1); # Freeport Militia
+	quest::faction(296,-1); # Opal Dark Briar
+	quest::exp(100);
+	quest::ding();
+
+	my $item;
+	my $chance=plugin::RandomRange(1,100);
+	if ($chance < 21)
+		{
+		$item=quest::ChooseRandom(15205,15289,15208,15040,15041);
+		}
+	elsif ($chance > 20 && $chance < 41)
+		{
+		$item=1038;
+		}
+	else 
+		{
+		$item=13076;    
+		}
+
+	quest::summonitem($item);    
 	}

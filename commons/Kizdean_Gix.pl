@@ -15,6 +15,10 @@ sub EVENT_SAY
 		{
 		quest::say("When you learn to serve the Dead, then I will find the time to speak of such things.");
 		}
+	elsif ($text=~/teir`dal/i || $text=~/koada`val/i || $text=~/feir`dal/i)
+		{
+		quest::say("Haven't you been educated?!  Pay attention, the Teir`Dal are the dark elves, the Koada`Dal are the high elves and the Feir`Dal are the wood elves.");
+		}
 	elsif($text =~/Utalk Adarev Otcin/i) 
 		{
 		quest::say("You speak the words of the Dead. You must be the assistance Loveal was to send. You must work quickly! Inside Befallen are the three pieces to the [Thex Mallet] which are to be returned to Loveal. Find Hubard L'rodd. He was my assistant. Give him this note and he should have information.");

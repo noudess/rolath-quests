@@ -8,12 +8,12 @@ sub EVENT_SPAWN
 
 sub EVENT_ENTER
 	{
-	$client->PlayMP3("");
+	plugin::playmp3once("");
 	}
 
 sub EVENT_EXIT
 	{
-	$client->PlayMP3("otr.mp3");
+	plugin::playmp3once("otr.mp3");
 	}
 
 sub EVENT_SAY 

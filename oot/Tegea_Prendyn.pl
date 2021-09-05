@@ -6,16 +6,7 @@ sub EVENT_SPAWN
 
 sub EVENT_ENTER
 	{
-	my $songkey = $client->AccountID();
-	if (quest::get_data($songkey))
-		{
-		# Song already playing
-		}
-	else
-		{
-		$client->PlayMP3("AveMaria.mp3");
-		quest::set_data($songkey, 1, 1200); # Don't replay for 20 minutes.
-		}
+	plugin::playmp3once("AveMaria.mp3");
 	}
 
 sub EVENT_SAY 

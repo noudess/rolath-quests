@@ -5,12 +5,12 @@ sub EVENT_SPAWN
 
 sub EVENT_ENTER
 	{
-	$client->PlayMP3("Brilaret.mp3");
+	plugin::playmp3once("Brilaret.mp3");
 	}
 
 sub EVENT_EXIT
 	{
-	$client->PlayMP3("");
+	plugin::playmp3once("");
 	}
 
 sub EVENT_SAY {

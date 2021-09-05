@@ -35,7 +35,7 @@ sub EVENT_ITEM
 		quest::faction(336,1); #Coalition of Tradefolf Underground
 		quest::faction(329,1); #Carson McCabe
 		#exp verified on live - turn in at level 1 was 14%
-		$client->AddLevelBasedExp(14,3)
+		$client->AddLevelBasedExp(14,3);
 		quest::ding();
 		quest::givecash(3,0,0,0);
 		} 
@@ -49,7 +49,7 @@ sub EVENT_ITEM
 		quest::faction(336,1); #Coalition of Tradefolf Underground
 		quest::faction(329,1); #Carson McCabe
 		#exp verified on live - turn in at level 1 was 14%
-		$client->AddLevelBasedExp(14,3)
+		$client->AddLevelBasedExp(14,3);
 		quest::ding();
 		quest::givecash(5,0,0,0);
 		} 

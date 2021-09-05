@@ -7,12 +7,12 @@ my @eruditelist = (38182,38187,38183,38188,38184,38189,38185,38190,38186,38191);
 
 sub EVENT_ENTER
 	{
-	$client->PlayMP3("war.mp3");
+	plugin::playmp3once("war.mp3");
 	}
 
 sub EVENT_EXIT
 	{
-	$client->PlayMP3("");
+	plugin::playmp3once("");
 	}
 
 sub EVENT_SIGNAL
@@ -36,7 +36,7 @@ sub EVENT_TIMER
 	if ($timer eq "backtonormal")
 		{
 		quest::clear_proximity();
-		$client->PlayMP3("");
+		plugin::playmp3once("");
 		quest::spawn_condition("tox", 3, 1);
 		quest::stoptimer("backtonormal");
 		}

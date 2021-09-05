@@ -39,23 +39,18 @@ sub EVENT_ENTERZONE
 		}
 
 	# Zone music
+
 	if ($zoneid == 3)
 		{
-		$client->PlayMP3("otr.mp3");
+		plugin::playmp3once("otr.mp3");
 		}
 	elsif ($zoneid == 19)
 		{
-		$client->PlayMP3("rivervale.mp3");
+		plugin::playmp3once("rivervale.mp3");
 		}
 	elsif ($zoneid == 36)
 		{
-		my $key = $client->CharacterID() . "-reaper";
-		my $played = quest::get_data($key);
-		if ($played == 0)
-			{
-			$client->PlayMP3("befallen.mp3");
-			quest::set_data($key, 1, 600);
-			}
+		plugin::playmp3once("befallen.mp3");
 		}
 	else	
 		{ 

@@ -15,7 +15,7 @@ sub EVENT_SIGNAL
 sub EVENT_SAY { 
 if($text=~/Hail/i){
 quest::say("Oh, hello, $name.  Don't mind my associate Klieb over there.  He gets quite grumpy when he drinks.  We are relatively new here ourselves but have made some fast friends in Qeynos.  This is a city of opportunity.");
-quest::signal(1071,1);
+quest::signalwith(1071,1);
 }
 if ($text=~/paw of opolla/i) {
   quest::say("Some guy, don't know who he was, was in here claiming he had a lead where to find some information on the Paw of Opolla. I don't know anything about it except it is supposed to be the paw of some old gnoll bitch and have some magic powers. Buy me a Brandy and I might tell you where he was going.");

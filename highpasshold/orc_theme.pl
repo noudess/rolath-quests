@@ -5,10 +5,10 @@ sub EVENT_SPAWN
 
 sub EVENT_ENTER
 	{
-	$client->PlayMP3("HighPassOrcs.mp3");
+	plugin::playmp3once("HighPassOrcs.mp3");
 	}
 
 sub EVENT_EXIT
 	{
-	$client->PlayMP3("");
+	plugin::playmp3once("");
 	}

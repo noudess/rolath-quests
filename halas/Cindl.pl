@@ -31,16 +31,9 @@ sub EVENT_ITEM
 		quest::faction(320, 3); #Wolves of the North
 		quest::faction(327, 3); #Shamen of Justice
 		}
-	elsif (plugin::check_handin(\%itemcount, 12223 => 2)) 
+	elsif($itemcount{12223} > 0)
 		{
-		quest::say("Fine work hunter!  As your reward please accept this item which I have fashioned for you."); 
-		quest::summonitem(quest::ChooseRandom(2034, 2171, 2164)); 
-		quest::exp(150); 
-		quest::ding();
-		#Verified on live
-		quest::faction(328, 10); #Merchants of Halas 
-		quest::faction(320, 7); #Wolves of the North
-		quest::faction(327, 7); #Shamen of Justice
+		plugin::mass_handin(12223, 2, \&WRATH_REWARD);
 		}
 	else 
 		{ 
@@ -48,4 +41,17 @@ sub EVENT_ITEM
 		quest::say("This is not what I asked for!"); # not the right dialogue 
 		} 
 	}
+
+sub WRATH_REWARD
+	{
+	quest::say("Fine work hunter!  As your reward please accept this item which I have fashioned for you."); 
+	quest::summonitem(quest::ChooseRandom(2034, 2171, 2164)); 
+	quest::exp(150); 
+	quest::ding();
+	#Verified on live
+	quest::faction(328, 10); #Merchants of Halas 
+	quest::faction(320, 7); #Wolves of the North
+	quest::faction(327, 7); #Shamen of Justice
+	}
+
 #END of FILE Zone:halas  ID:29052 -- Cindl

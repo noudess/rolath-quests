@@ -50,7 +50,7 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM
 {
-	if (plugin::check_handin(\%itemcount, 12125 => 1)) {#Shark Powder
+	if ($faction < 5 && plugin::check_handin(\%itemcount, 12125 => 1)) {#Shark Powder
 		quest::say("I thank you, my good friend.  Surely the road to Freeport was not easily trod.  Please take this as compensation for your costs and I also grant you the ability to call forth the power of Rodcet Nife to smite the enemy.  Go forth and defend life.");
 		# Faction verified on live.
 		quest::faction(219, 3);#Antonius Bayle

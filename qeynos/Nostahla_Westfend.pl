@@ -77,7 +77,7 @@ sub EVENT_SAY
 
 sub EVENT_TASKACCEPTED
 	{
-	quest::say("Very good $name, thank you for helping.  You will need to collect various components and and then see some experts.  Our own Caleah is an expert alchemist and can help with the rat problem.  Seek out Toxdil who is a poison expert to help with Unsar's slithering issue.  Hmmm the bat problem... ahh yes Blaize the Radient can do wonders with sunlight, I'm sure she will have a solutionfor Unsar's flapping problem!");
+	quest::say("Very good $name, thank you for helping.  You will need to collect various components and and then see some experts.  Our own Caleah is an expert alchemist and can help with the rat problem.  Seek out Toxdil who is a poison expert to help with Unsar's slithering issue.  Hmmm the bat problem... ahh yes Blaize the Radient can do wonders with sunlight, I'm sure she will have a solution for Unsar's flapping problem!");
 	}
 
 #END of FILE Zone:qeynos  ID:1129 -- Nostahla_Westfend

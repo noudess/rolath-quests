@@ -9,15 +9,18 @@ sub EVENT_COMBAT {
 }
 
 sub EVENT_AGGRO {
-	my $random = int(rand(3));
+	my $random = int(rand(4));
 	if($random == 0) {
 		quest::say("it's ${class}s like you that insult all of Norrath!");
 	}
 	if($random == 1) {
-		quest::say("${class}s like you are an affront to my senses!");
+		quest::say("${class}s like you always bring out the worst in me!");
 	}
 	if($random == 2) {
-		quest::say("I really hate ${class}s like you!");
+		quest::say("${class}s like you are an affront to my senses!");
+	}	
+	if($random == 3) {
+		quest::say("${race}s are better left dead than alive!");
 	}	
 }
 

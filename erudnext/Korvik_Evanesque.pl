@@ -7,6 +7,9 @@ sub EVENT_SPAWN
 	my $minutes = substr($now, $hourlen, 2);
 	my $leavetime;
 
+# $wp sticking around somehow?
+	$wp = 0;
+
 # Fix any broken spawn _condition settings from  zone crash or shutdowns.
 	quest::spawn_condition("tox", 3, 0);
 	quest::spawn_condition("paineel", 1, 0);
@@ -14,7 +17,7 @@ sub EVENT_SPAWN
 	quest::spawn_condition("stonebrunt", 7, 0);
 
 #	quest::shout($now);
-#   quest::shout("Hour is $hour, Minutes is $minutes");
+#    quest::shout("Hour is $hour, Minutes is $minutes");
 
 	if ($hour < 9)
 		{
@@ -29,9 +32,9 @@ sub EVENT_SPAWN
 		$leavetime = ((24 - $hour) * 60) - $minutes + (9 * 60);
 		}
 
-	#quest::shout("Leave in $leavetime game minutes");
+#	quest::shout("Leave in $leavetime game minutes");
 	my $realmin = ($leavetime * 0.05);
-	#quest::shout("Leave in $realmin life minutes");
+#	quest::shout("Leave in $realmin life minutes");
 	
 	quest::settimer("route", $realmin * 60);
 	}

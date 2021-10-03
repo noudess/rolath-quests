@@ -103,7 +103,15 @@ sub EVENT_ITEM
 				{
 				quest::say("Excellent!!  You must have taught ol' Nillipuss a great deal!  But he never seems to learn..  Oh well.  The Stormreapers and all of Rivervale owe you a debt of gratitude.  Please accept this token of our appreciation.");
 				quest::givecash(0,4,6,0);
-				quest::summonitem(quest::ChooseRandom(10308,8303,8304,10302,10303,10304,10305,10306,10309,17302,12001,10301,17301,17300,12002));
+
+				my $quantity = 1;
+				my $reward = quest::ChooseRandom(10308,8303,8304,10302,10303,10304,10305,10306,10309,17302,12001,10301,17301,17300,12002);
+				if ($reward == 8303 or $reward == 8304)
+					{
+					$quantity = 20;
+					}
+				quest::summonitem($reward, $quantity);
+
 				quest::exp(27440);
 				quest::ding();
 				# Verified on live

@@ -37,7 +37,7 @@ sub EVENT_ITEM
 	if ($faction < 6)
 		{
 		#boots
-		if(plugin::check_handin(\%itemcount,2318 => 1, 10119 => 1, 10561 =>1)) ]
+		if(plugin::check_handin(\%itemcount,2318 => 1, 10119 => 1, 10561 =>1))
 			{
 			#Faction verified by zam
 			quest::faction(415, 10);

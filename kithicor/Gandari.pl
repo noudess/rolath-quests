@@ -4,7 +4,7 @@
 
 sub EVENT_SAY 
 	{ 
-	if ($faction < 6)
+	if ($faction > 5)
 		{
 		plugin::reject_say();
 		}

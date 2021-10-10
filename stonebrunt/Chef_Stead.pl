@@ -1,11 +1,11 @@
 sub EVENT_SPAWN
 	{
-	quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
+	#quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50);
 	}
 
 sub EVENT_ENTER
 	{
-	$client->Message(15, "Chef Stead looks depressed");
+	#$client->Message(15, "Chef Stead looks depressed");
 	}
 
 sub EVENT_SAY

@@ -48,7 +48,7 @@ sub EVENT_SAY
         #Summon: Crude Bracer Mold
         quest::summonitem(19632);
         }
-    if ( $text =~ /coifs/i )
+    if ( $text =~ /coif/i )
         {
         quest::say("To create your coif material you will need to combine 2 Bricks of Crude Bronze, 1 Skunk Scent Gland, 1 Snake Scale and 1 Mead in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Apprentice Miners Coif.");
 

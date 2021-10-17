@@ -73,6 +73,11 @@ sub EVENT_SAY
 			quest::say("To purchase using your trade-in, trade me your current bridle along with enough platinum to cover the difference for your brand new mount from Nipper's!");
 			}
 		}
+
+	if ($text =~ /purrsonal guarantee/i)
+		{
+		quest::say("Yes, all of Nipper's fine mounts come with my purrsonal guarantee!  If you are a special friend to Kejek, you will receive full credit.  But no worries, everyone will get a fair price for their existing mount, so long as you kept it well taken care of.");
+		}
 	}
 
 sub EVENT_ITEM

@@ -12,11 +12,11 @@ sub EVENT_SAY
 		{
 		quest::say("Don't take this personally, but I can't quite trust you with such matters. Maybe a few less Butcherblock bandits would prove your worth.");
 		}
-	elsif ($text =~ /i am member of miners guild 628/i)
+	elsif ($text =~ /member of miners guild 628/i)
 		{
 		quest::say("Well, then, get off yer rump and give us a hand!  If you don't have a mining pick, then get down there and use your fingernails!!  If you're new and you want to earn a pick, you can [volunteer to exterminate the rats] that have been infesting the mines!!");
 		}
-	elsif (($text =~ /I will volunteer to exterminate the rats/i))
+	elsif (($text =~ /volunteer to exterminate the rats/i))
 		{
 		quest::say("Well, someone has to do the dirty work around here.  Let it be you new miners.  Go patrol the mines and if you see any rats, bash them good!!  Return to me with four rat pelts and I will give you some armor as payment.  If you want a 628 mining cap, yer gonna have to smash that infernal [cleaner]!!");
 		}

@@ -5,6 +5,12 @@
 #Items Involved: 16 = (12 quest turn in items, 4 rewards)
 #################
 sub EVENT_SAY { 
+
+if($faction > 6) {
+	plugin::reject_say();
+	return;
+}
+
 if($text=~/hail/i){
 quest::say("We three are the [Sisters Dark] - [Necromancy] is our Art - Bonded dead, they serve our will - No beat of heart, yet faithful still.");
 }
@@ -74,9 +80,20 @@ quest::say("The answer to that question is held by another - Ask again of my sis
 
 sub EVENT_ITEM 
 	{
+	if($faction > 6)
+		{
+		quest::say("Perhaps I would trust you with the reward if you would but prove yourself further");
+		}
+
+	#Words of Possession
 	#Words of Allure
 	#Requires: 1 Charred Pearl, 1 Ruby, 1 A Wand (Charred Wood Wand?), 1 Bloodstone 
-	if(plugin::check_handin(\%itemcount, 10083 => 1, 10035 => 1, 14160 => 1, 10019 => 1))
+	elsif($faction > 5)
+		{
+		quest::say("Perhaps I would trust you with the reward if you would but prove yourself further");
+		}
+
+	elsif(plugin::check_handin(\%itemcount, 10083 => 1, 10035 => 1, 14160 => 1, 10019 => 1))
 		{
 		quest::say("You have quested well - With spell and sword - Accept our thanks - And this reward.");
 		quest::summonitem(11829);
@@ -144,12 +161,9 @@ sub EVENT_ITEM
 		quest::ding();
 		}
 
-	else
-		{
-		#do all other handins first with plugin
-		plugin::return_items(\%itemcount);
-		quest::say("Thanks, but I do not need this...");
-		}
+	#do all other handins first with plugin
+	plugin::return_items(\%itemcount);
+	quest::say("Thanks, but I do not need this...");
 	}
 
 #END of FILE Zone:neriaka -- X`Ta_Tompi

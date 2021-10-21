@@ -52,7 +52,7 @@ sub EVENT_ITEM
 		quest::faction(244, -3);	# Ebon Mask
 		}
 
-	if ($faction < 5 && plugin::check_handin(\%itemcount, 13218 => 1))
+	if ($faction < 5 && plugin::check_handin(\%itemcount, 13282 => 1))
 		{
 		quest::say("Great work! We need this junk for something and we sure didn't need this rat sucking up any of our gems. Here. This is a Mining Cap 628. It's not much, but it is the mark of our miners and provides light for mining purposes. Hold onto it. You never know when we may call upon you to produce it.");
 		quest::summonitem(12165);

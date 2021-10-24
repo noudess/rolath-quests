@@ -69,10 +69,12 @@ sub REWARD
 	quest::summonitem($piece);
 	quest::ding();
 	quest::say("Well done. May Karana bless your soul.");
+	#Faction verified on Live
 	quest::faction(269,+10); # kithicor residence
 	quest::faction(302,+1); # protectors of the pine
 	quest::faction(272,+1); # jaggedpine treefolk
 	quest::faction(324,-1); # unkempt druids
+	#Exp was more than 7K for level 75 Ranger.
 	quest::exp(10000);
 	}
 

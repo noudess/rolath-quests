@@ -47,9 +47,57 @@ sub EVENT_ITEM
         {
 		quest::stoptimer("poly");
 		quest::settimer("poly", 3600);
-        quest::say("Ahhhh.... Unhhhh... Eeeekkkk what's happening!!  Oh yes this is much better, thank you $name, I thought I'd never stop morphing!  Please take this scroll as a token of my eternal gratitude.");
+        quest::say("Ahhhh.... Unhhhh... Eeeekkkk what's happening!!  Oh yes this is much better, thank you $name, I thought I'd never stop morphing!");
 		$npc->SetRace(1);
-        quest::summonitem(quest::ChooseRandom(0000,0000,0000)); #Add a list of spells to reward.  Can they vary by faction, so a higher faction get a higher or better spell reward?
+		
+		my $reward = 0;
+		
+		if ($class eq "Wizard")
+			{
+			if ($level < 26)
+				{
+				$reward = 7653;
+				}
+			else
+				{
+				$reward = 7655;
+				}
+			}
+		elsif ($class eq "Enchanter")
+			{
+			if ($level < 26)
+				{
+				$reward = 15243;
+				}
+			else
+				{
+				$reward = quest::ChooseRandom(15243, 30474, 7665);
+				}
+			}
+		elsif ($class eq "Magician")
+			{
+			if ($level < 25)
+				{
+				$reward = quest::ChooseRandom(23517, 7632, 23525);
+				}
+			else
+				{
+				$reward = quest::ChooseRandom(23517, 30400, 23525);
+				}
+			}
+		else
+			{
+			# Grant some permanent MR
+			# Maybe cap this as it could be repeated ad naseum
+			# $client->IncrementAA(47);  Not sure we want this - level restrict
+			}
+
+		if ($reward != 0)
+			{
+			quest::say("Take this scroll as a reward for your kindness!");
+			quest::summonitem($reward);
+			}
+
         quest::updatetaskactivity(114,15);
         quest::ding();
         }

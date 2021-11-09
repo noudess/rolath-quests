@@ -27,7 +27,7 @@ sub EVENT_ENTER
 			# get distance from npc
 			my $npc_dist = int($npc->CalculateDistance($mobX, $mobY, $mobZ));
 
-			#Checking if within range of Lieutenant_Arathur to respond.
+			#Checking if within range
 			if ($npc_dist <= 150) 
 				{
 				$scold=1;

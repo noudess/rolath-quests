@@ -10,6 +10,8 @@ my %emitters = (
 	735 => { "m" => "There are several water lines and markings on the walls indicating a great flood within these very halls.  Touching the markings brings to mind two questions:  Did the residents drown... or was there a fouler fate for them?"},
 	531 => { "m" => "The structure before you appears to be a temple of some sort.  You feel like you are being watched by the cold still eyes of the gargoyles perched upon the corner of the walls.  A cold breeze rushes by you and makes you shiver."},
 	-16 => { "m" => "The torches nearby crackle and spark, illuminating the nearby area."},
+	190 => { "m" => "Within these halls you notice several spirits staring out the windows into the rooms below."},
+	197 => { "m" => "A haunting, whistling breeze stirs the air of the city that is in disrepair."},
 	261 => { "m" => "Before you lies a great tower and what lives there is a mystery. The sound of rushing water emanates from the entryway."}
 );
 

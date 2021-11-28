@@ -1,6 +1,6 @@
 sub EVENT_SAY 
 { 
-
+# Doable at dubious - verified.
 if($text=~/Hail/i)
 	{
 	quest::say("Fine day to ye, $name.  Welcome to me shop.  If ye're searchin' fer a [cigar], ye won't be findin' any, more's th' pity.");

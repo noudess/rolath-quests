@@ -1,4 +1,6 @@
 sub EVENT_SAY
 	{
-#	$client->IncrementAA(47);
+#	$client->ResetAA();
+#	$client->GrantAlternateAdvancementAbility(17000, 1);
+#	$client->IncrementAA(50000);
 	}

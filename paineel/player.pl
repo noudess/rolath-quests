@@ -44,6 +44,7 @@ sub EVENT_CLICKDOOR
 					$client->Message(14, "Welcome to Paineel");
 					quest::forcedooropen(246);
 					quest::forcedooropen(25);
+					$client->CheckIncreaseSkill(35);
 					$liftUp=1;
 					quest::settimer("home", 15);
 					}
@@ -57,6 +58,7 @@ sub EVENT_CLICKDOOR
 					quest::forcedooropen(25);
 					quest::settimer("home", 23);
 					$liftUp = 1;
+					$client->CheckIncreaseSkill(35);
 					}
 				else
 					{

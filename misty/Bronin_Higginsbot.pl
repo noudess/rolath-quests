@@ -9,10 +9,10 @@ sub EVENT_SAY {
       if ($faction <= 4) {
          quest::say("I have been tracked here by a bounty hunter named Slaythe. I have heard reports of his presence beyond the Great Wall. Please seek him out and bring me some body part of his as proof of his passing. Do this and the emerald shard is yours.");
          
-         $mob = $entity_list->GetMobByNpcTypeID(415115);
+         $mob = $entity_list->GetMobByNpcTypeID(33146);
          
          if (!$mob) {
-            quest::spawn2(415115, 0, 0, 893.00, 664.00, 26.70, 0); # Spawn Slaythe
+            quest::spawn2(33146, 0, 0, 893.00, 664.00, 26.70, 0); # Spawn Slaythe
          }
       }
       elsif ($faction <= 5) {

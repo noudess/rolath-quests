@@ -87,9 +87,9 @@ sub EVENT_ITEM
 			}
 		else
 			{
-			# Grant some permanent MR
-			# Maybe cap this as it could be repeated ad naseum
-			# $client->IncrementAA(47);  Not sure we want this - level restrict
+			# Grant one time permanent MR
+			quest::say("I hope my fate never befalls another.  Take this blessing with my hopes that it will ward you from a similar fate.");
+			$client->GrantAlternateAdvancementAbility(17000, 1);
 			}
 
 		if ($reward != 0)

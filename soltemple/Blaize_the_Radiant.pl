@@ -12,7 +12,7 @@ sub EVENT_SAY
 		}
 	if ($text =~ /Unsar/i)
 		{
-		quest::say("Yes I have heard of Unsar's dilemna, poor man has been working so hard to perfect his new spell, but it seems to have gotten the best of him.  If you bring me some Sunshard Dust, Sunshard Powder and a Sunshard Pebble, I can combone them with some Liquidised Bat to make a Vial of Bat Light that will drive the bat right out of him!  Never heard of Liquidised Bat, well I'm not surprised, not many people have as it has very limited use.  It is made much the same as any other, combine a bat meat with Mandrake Root and a jar of acid in a mixing bowl.  Any decent baker can manage to make it.");
+		quest::say("Yes I have heard of Unsar's dilemna, poor man has been working so hard to perfect his new spell, but it seems to have gotten the best of him.  If you bring me some Sunshard Dust, Sunshard Powder and a Sunshard Pebble, I can combine them with some Liquidised Bat to make a Vial of Bat Light that will drive the bat right out of him!  Never heard of Liquidised Bat, well I'm not surprised, not many people have as it has very limited use.  It is made much the same as any other, combine a bat meat with Mandrake Root and a jar of acid in a mixing bowl.  Any decent baker can manage to make it.");
 		}
 	if ($text =~ /ingots and icons/i)
 		{

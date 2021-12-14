@@ -35,7 +35,6 @@ sub EVENT_ITEM
 		quest::say("Welcome to the Craft Keepers! You have much to learn, and I'm sure you are anxious to get started. Here's your training robe. Go see Nolusia downstairs, she'll give you your first task.");
 		quest::ding();
 		quest::exp(100);
-quest::ding();
 		quest::summonitem(13549);
 		quest::faction(231,100);   #Craftkeepers
 		quest::faction(266,10);  #High Council of Erudin

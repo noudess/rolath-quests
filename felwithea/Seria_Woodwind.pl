@@ -94,7 +94,6 @@ sub EVENT_ITEM
 		#Factions per ZAM
 		quest::faction(226,  10);    #Clerics of Tunare
 		quest::faction(279,  7);     #King Tearis Thex
-		quest::faction(5001, 7);     #Anti-Mage
 		quest::exp(100);
 		quest::ding();
 		}
@@ -106,7 +105,6 @@ sub EVENT_ITEM
 		#Factions per ZAM
 		quest::faction(226,  5);    #Clerics of Tunare
 		quest::faction(279,  5);     #King Tearis Thex
-		quest::faction(5001, 3);     #Anti-Mage
 		#Give 8% exp up to level 10
 		$client->AddLevelBasedExp(8,10);
 		quest::ding();

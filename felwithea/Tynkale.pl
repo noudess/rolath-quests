@@ -52,7 +52,6 @@ sub EVENT_ITEM
 		quest::summonitem("13591"); Used Gold Tunic
 		quest::faction(226, 100);
 		quest::faction(279, 100);
-		quest::faction(5001, 75);
 		quest::exp(100); 
 		quest::ding();
 		}
@@ -62,9 +61,8 @@ sub EVENT_ITEM
 			{
 			quest::say("So you have proven yourself to be a great slayer of beasts.Now it is time to prove yourself to be an asset to the Crown. You are to meet a man named Tolon Nurbyte.He will be at the local inn. Go to him and repeat the phrase, 'The glory of the Mother shines bright.' I can say no more. Oh.. and here. This may help you on your upcoming adventure.");
 			quest::ding();
-			quest::faction(5001, 10);
-			quest::faction(226, 10);
-			quest::faction(279, 10);
+			quest::faction(226, 20);
+			quest::faction(279, 20);
 			quest::exp(150); 
 			quest::ding();
 			}

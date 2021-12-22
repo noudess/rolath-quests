@@ -1,6 +1,5 @@
 sub EVENT_SAY
 	{
-
 	if ($text =~ /hail/i)
 		{
 		quest::say("Can you -hic- . . . spare some copper or -hic- . . . silver? I just . . . -Hic- . . . need some change to buy something to drin . . Er . . Eat . -Hic-");

@@ -5,3 +5,22 @@ sub EVENT_SAY
 		quest::say("Can't an elven woman get a drink without some adventurer hitting on her? Really!");
 		}
 	}
+
+sub EVENT_COMBAT
+    {
+    if($combat_state == 1)
+        {
+        my $cur_target = $npc->GetHateTop();
+        if($cur_target)
+            {
+            my $target_name = $cur_target->GetCleanName();
+            quest::say("Time to die $target_name!");
+            }
+        }
+    }
+
+sub EVENT_DEATH_COMPLETE
+    {
+    quest::say("My comrades will avenge my death.");
+    }
+

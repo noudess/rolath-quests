@@ -1,8 +1,5 @@
 use POSIX;
 
-my $newpower = 0;
-my $oldpower = 0;
-
 sub EVENT_SCALE_CALC
 	{
 	my $robestatus = "LoamRobe$charid";  
@@ -29,14 +26,15 @@ sub EVENT_SCALE_CALC
 
 	my $disc_perc = $current_scale * 100.0;
 	
-	$newpower = floor($disc_perc);
+	my $oldpower = $client->GetEntityVariable("LoamRobe");
+	my $newpower = floor($disc_perc);
 
 	if ($newpower != $oldpower)
 		{
 		$questitem->ItemSay("Your loam encrusted robe has decayed to $newpower %%.");
 		}
 
-	$oldpower = $newpower;
+	$client->SetEntityVariable("LoamRobe", $newpower);
 
 	# Scale from .5 to 1
 	$questitem->SetScale($current_scale);

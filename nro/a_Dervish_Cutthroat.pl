@@ -30,15 +30,22 @@ sub EVENT_SPAWN
 			{
 			quest::addloot(13421, 1, 1);
 			}
+
+		# Elven Blood
+		$roll = plugin::RandomRange(1,100);
+		if ($roll <= 10)
+			{
+			quest::addloot(22515, 1, 1);
+			}
 		}
 
-	if ($NPCRace == 12)
+	if ($NPCRace == 5)
 		{
-		# Gnome Meat
+		# Elven Blood
 		my $roll = plugin::RandomRange(1,100);
-		if ($roll <= 5)
+		if ($roll <= 10)
 			{
-			quest::addloot(13418, 1, 1);
+			quest::addloot(22515, 1, 1);
 			}
 		}
 
@@ -50,6 +57,23 @@ sub EVENT_SPAWN
 			{
 			quest::addloot(13422, 1, 1);
 			}
+
+		# Elven Blood
+		$roll = plugin::RandomRange(1,100);
+		if ($roll <= 10)
+			{
+			quest::addloot(22515, 1, 1);
+			}
+		}
+
+	if ($NPCRace == 7)
+		{
+		# Elven Blood
+		my $roll = plugin::RandomRange(1,100);
+		if ($roll <= 10)
+			{
+			quest::addloot(22515, 1, 1);
+			}
 		}
 
 	if ($NPCRace == 8)
@@ -59,6 +83,16 @@ sub EVENT_SPAWN
 		if ($roll <= 8)
 			{
 			quest::addloot(22516, 1, 1);
+			}
+		}
+
+	if ($NPCRace == 12)
+		{
+		# Gnome Meat
+		my $roll = plugin::RandomRange(1,100);
+		if ($roll <= 5)
+			{
+			quest::addloot(13418, 1, 1);
 			}
 		}
 	}

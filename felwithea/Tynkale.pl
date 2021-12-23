@@ -49,7 +49,7 @@ sub EVENT_ITEM
 		{
 		quest::say("Greetings. young paladin!  I am Master Tynkale of the Clerics of Tunare.  Here. we shall teach and train you in the skills needed to defeat our evil and diseased enemies.  Take this, our guild tunic - it will help protect you.  Once you are ready to begin your training please make sure that you see Seria Woodwind, she can assist you in experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
 		#Verified on ZAM
-		quest::summonitem("13591"); Used Gold Tunic
+		quest::summonitem("13591"); #Used Gold Tunic
 		quest::faction(226, 100);
 		quest::faction(279, 100);
 		quest::exp(100); 

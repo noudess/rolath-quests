@@ -21,25 +21,25 @@ sub EVENT_SAY
 		}
 	elsif ($text =~ /hail/i)
 		{
-		quest::emote("Hail and well met, $name!  Have you come to study. or can you [perform a task] for me this day?");
+		quest::say("Hail and well met, $name!  Have you come to study. or can you [perform a task] for me this day?");
 		}
 	elsif ($text =~ /trades/i)
 		{
-		quest::emote("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+		quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
 
 		#:: Give item 51121 - Tradeskill Basics : Volume I
 		quest::summonitem(51121);
 		}
 	elsif ($text =~ /second book/i)
 		{
-		quest::emote("Here is the second volume of the book you requested, may it serve you well!");
+		quest::say("Here is the second volume of the book you requested, may it serve you well!");
 
 		#:: Give item 51122 - Tradeskill Basics : Volume II
 		quest::summonitem(51122);
 		}
 	elsif ($text =~ /perform a task/i)
 		{
-		quest::emote("That is the spirit.  There are many black wolves wandering Faydark these days.  One of my brethren needs a black wolf skin as a component for his magic.  Bring me a black wolf skin. and I shall reward you for your efforts.");
+		quest::say("That is the spirit.  There are many black wolves wandering Faydark these days.  One of my brethren needs a black wolf skin as a component for his magic.  Bring me a black wolf skin. and I shall reward you for your efforts.");
 		}
 	}
 
@@ -70,8 +70,8 @@ sub EVENT_ITEM
 	elsif ($faction < 6 && plugin::takeItems(13758 => 1))
 		{
 		quest::say("Ah yes.  This is exactly what I need.  Thank you very much."); 
-		#:: Randomly choose Rusty Dagger, Bandages, Simple Copper Ring, Spell: Numbing Cold, Worn Great Staff
-		quest::summonitem(quest::ChooseRandom(7007, 13009, 58094, 59964, 6012));
+		#:: Randomly choose Rusty Dagger, Bandages, Copper Band, Spell: Numbing Cold, Worn Great Staff
+		quest::summonitem(quest::ChooseRandom(7007, 13009, 10004, 59964, 6012));
 
 		#:: Ding!
 		quest::ding();

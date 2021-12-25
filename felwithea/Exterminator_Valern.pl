@@ -15,6 +15,7 @@ sub EVENT_ITEM
 		quest::faction(325,  1);
 		quest::givecash(1, 1, 1, 0);
 		quest::exp(145);
+		quest::ding();
 		}
 
 	plugin::return_items(\%itemcount);

@@ -70,6 +70,10 @@ sub EVENT_SAY
 		{
 		quest::say("The entrance to the Citadel can be found on the northern edge of the Greater Faydark. Once within the citadel seek out the Orc Thaumaturgist and obtain his book of spells. Once you are in possession of the Orc Thaumaturgists Spell Book return it to me so that the masters of the Keepers of the Art may study its contents.");
 		}
+	elsif ($text =~ /silk thread/i)
+		{
+		quest::say("Silk Thread is sewn by a tailor using a sewing kit or a community loom. Two spiderling silks combined in the sewing kit or loom will create one silk thread.");
+		}
 	}
 
 sub EVENT_ITEM

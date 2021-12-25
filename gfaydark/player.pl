@@ -110,7 +110,6 @@ sub EVENT_CLICKDOOR
 	# Handle The clickers
 	if ($doorid == 73 || $doorid == 74)
 		{
-		quest::say("Clicked $doorid");
 		if ($lift69up)
 			{
 			quest::stoptimer("home69");
@@ -127,7 +126,6 @@ sub EVENT_CLICKDOOR
 
 	if ($doorid == 79 || $doorid == 78)
 		{
-		quest::say("Clicked $doorid");
 		if ($lift77up)
 			{
 			quest::stoptimer("home77");

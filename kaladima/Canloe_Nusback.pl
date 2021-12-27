@@ -37,14 +37,14 @@ sub EVENT_SAY
 sub EVENT_ITEM
 	{
 	#:: Match four 13318 - Crushbone Belt
-	if (itemcount{13318} > 0)
+	if ($itemcount{13318} > 0)
 		{
         plugin::mass_handin(13318, 1, \&BeltReward);
 		quest::say("Good work, warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
 		}
 
 	#:: Match four 13319 - Crushbone Shoulderpads
-	if (itemcount{13319} > 0)
+	if ($itemcount{13319} > 0)
 		{
 		plugin::mass_handin(13319, 2, \&ShoulderReward);
 		quest::say("Aha!! You have downed a Crushbone legionnaire!! You have shown yourself to be a strong warrior. Take this. This is more becoming of a great warrior such as yourself. Let no creature stand in the way of the Stormguard!");

@@ -136,9 +136,6 @@ sub EVENT_ITEM
 				}
 			} 
 		}
-
-	quest::say("I do not need this.");
-	plugin::return_items(\%itemcount);
 	}
 
 sub EVENT_TASKACCEPTED

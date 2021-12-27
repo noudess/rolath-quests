@@ -139,8 +139,6 @@ sub EVENT_ITEM
 				}
 			} 
 		}
-
-	plugin::return_items(\%itemcount);
 	}
 
 sub EVENT_TASKACCEPTED

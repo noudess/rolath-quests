@@ -1,7 +1,3 @@
-my $lift69up = 0;
-my $lift77up = 0;
-my $lift80up = 0;
-
 sub EVENT_ENTERZONE
 	{
 	quest::settimer("spires", 10);
@@ -44,65 +40,6 @@ sub EVENT_TIMER
 			$message_gf = undef;
 			}
 		}
-
-	# The client seems to send the door home (bottom) after 20 seconds...
-	# Emulate it so the door state is maintained.
-	if ($timer eq "home69")
-		{
-		quest::stoptimer("home69");
-		FORCE_CLOSE(73,74,69);
-		$lift69up=0;
-		}
-
-	if ($timer eq "home77")
-		{
-		quest::stoptimer("home77");
-		FORCE_CLOSE(79,78,77);
-		$lift77up=0;
-		}
-
-	if ($timer eq "home80")
-		{
-		quest::stoptimer("home80");
-		FORCE_CLOSE(81,82,80);
-		$lift80up=0;
-		}
-	}
-
-sub FORCE_CLOSE
-	{
-    local($lowbutt, $highbutt, $door);
-    ($lowbutt, $highbutt, $door) = ($_[0], $_[1], $_[2]);
-
-	if (quest::isdooropen($lowbutt))
-		{
-		quest::forcedoorclose($lowbutt);
-		}
-
-	if (quest::isdooropen($highbutt))
-		{
-		quest::forcedoorclose($highbutt);
-		}
-
-	quest::forcedoorclose($door);
-	}
-
-sub FORCE_OPEN
-	{
-    local($lowbutt, $highbutt, $door);
-    ($lowbutt, $highbutt, $door) = ($_[0], $_[1], $_[2]);
-
-	if (!quest::isdooropen($lowbutt))
-		{
-		quest::forcedooropen($lowbutt);
-		}
-
-	if (!quest::isdooropen($highbutt))
-		{
-		quest::forcedooropen($highbutt);
-		}
-
-	quest::forcedooropen($door);
 	}
 
 sub EVENT_CLICKDOOR 
@@ -110,49 +47,16 @@ sub EVENT_CLICKDOOR
 	# Handle The clickers
 	if ($doorid == 73 || $doorid == 74)
 		{
-		if ($lift69up)
-			{
-			quest::stoptimer("home69");
-			FORCE_CLOSE(73, 74, 69);				
-			$lift69up=0;
-			}
-		else
-			{
-			quest::settimer("home69", 20);
-			FORCE_OPEN(73, 74, 69);				
-			$lift69up=1;
-			}
+		quest::signal(54369);
 		}
 
 	if ($doorid == 79 || $doorid == 78)
 		{
-		if ($lift77up)
-			{
-			quest::stoptimer("home77");
-			FORCE_CLOSE(79, 78, 77);				
-			$lift77up=0;
-			}
-		else
-			{
-			quest::settimer("home77", 20);
-			FORCE_OPEN(79, 78, 77);				
-			$lift77up=1;
-			}
+		quest::signal(54377);
 		}
 
 	if ($doorid == 81 || $doorid == 82)
 		{
-		if ($lift80up)
-			{
-			quest::stoptimer("home80");
-			FORCE_CLOSE(81, 82, 80);				
-			$lift80up=0;
-			}
-		else
-			{
-			quest::settimer("home80", 20);
-			FORCE_OPEN(81, 82, 80);				
-			$lift80up=1;
-			}
+		quest::signal(54380);
 		}
 	}

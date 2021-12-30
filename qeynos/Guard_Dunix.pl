@@ -30,14 +30,22 @@ sub EVENT_SAY {
   }
 }
 
-sub EVENT_COMBAT{
-  my $random_result = int(rand(100));
-  if(($combat_state == 1) &&($random_result<=50)){
-    quest::say("Time to die $name.!");
-  }elsif(($combat_state == 1) &&($random_result<50)){
-    quest::say("How I loath to soil my blade with such filth.");
-  }
-}
+sub EVENT_COMBAT
+	{
+	if ($combat_state == 1)
+		{
+		my $cur_target = $npc->GetHateTop();
+		if($cur_target) 
+			{
+			my $target_name = $cur_target->GetCleanName();
+			quest::say("Time to die $target_name!");
+			}
+		}
+	else
+		{
+		quest::say("How I loath to soil my blade with such filth.");
+		}
+	}
 
 sub EVENT_ITEM {
   quest::emote("I have no need for this $name, you can have it back.");

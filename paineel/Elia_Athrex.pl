@@ -1,7 +1,7 @@
 sub EVENT_SPAWN
 	{
 	# Only saw this once, perhaps when I combined the box from Ernax?
-	quest::settimer("souls", 60);
+	quest::settimer("souls", 120);
 	}
 
 sub EVENT_SAY

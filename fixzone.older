@@ -1,0 +1,48 @@
+sub EVENT_SPAWN
+    {
+	quest::set_data($npc->GetSpawnPointID() . "-spawnz", $z, 600);
+	quest::set_data($npc->GetSpawnPointID() . "-transientz", $z, 600);
+	$mname = $npc->GetName();
+	quest::shout("$mname at $x $y $z");
+    quest::write("/tmp/zonelocs", "$mname at $x $y $z");
+	quest::moveto($x, $y+1, $z);
+	quest::settimer("move", 1);
+	}
+
+sub EVENT_TIMER
+	{
+	# Once z settles, update the db
+	if ($z != quest::get_data($npc->GetSpawnPointID() . "-spawnz"))
+		{
+		if (abs($z - quest::get_data($npc->GetSpawnPointID() . "-transientz")) > 0.000001)
+#		if ($z != quest::get_data($npc->GetSpawnPointID() . "-transientz"))
+			{
+			quest::set_data($npc->GetSpawnPointID() . "-transientz", $z, 600);
+			}
+		else
+			{
+			$settledz = $z;
+			quest::stoptimer("move");
+
+			# Update DB with settled Z
+			use DBI;
+			use DBD::mysql;
+			my $dbh = DBI->connect('DBI:mysql:peqdb','eqemu', 'eqemupw') or die "Couldn't connect to database: " . DBI->errstr;
+			$query = 'update spawn2 set z =' . $settledz . ' where zone="tox" and id = ?;';
+			$sth = $dbh->prepare("$query") or die "Couldn't prepare statement: " . $dbh->errstr;
+			my $sp2id = $npc->GetSpawnPointID();
+			$sth->execute("$sp2id");
+			my $row = $sth->fetchrow_array();
+	    	quest::write("/tmp/zonelocs2", "Z changed from $row to $settledz");
+			quest::shout("Z changed from $row to $settledz");
+			$sth->finish();
+			$dbh->disconnect();
+			}
+		}
+	else
+		{
+		quest::shout("Our Z is OK!");
+	    quest::write("/tmp/bb", "MOB Z OK!");
+		quest::stoptimer("move");
+		}
+	}

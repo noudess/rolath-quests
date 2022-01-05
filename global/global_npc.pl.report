@@ -1,0 +1,48 @@
+my $report_running=0;
+my $spawn_count=0;
+my @spawnzs = ();
+
+sub EVENT_SPAWN
+    {
+	push @spawnzs, 
+		{ index => $spawn_count,sp => $npc->GetSpawnPointID(),
+		  x => $x, y => $y, z => $z, newz => 99999 };
+
+	$spawn_count = $spawn_count + 1;
+	quest::settimer("lognewz", 5);
+	quest::shout("Spawned $name");
+	if ($report_running == 0)
+		{
+		quest::settimer("report", 30);
+		$report_running = 1;
+		}
+
+	quest::moveto($x, $y + 1, $z);
+	}
+
+sub EVENT_TIMER
+	{
+	if ($timer eq "lognewz")
+		{
+		quest::stoptimer("lognewz");
+		for (@spawnzs)
+			{
+			if ($_->{'sp'} == $npc->GetSpawnPointID())
+				{
+				$_->{'newz'} = $z;
+				}
+			}
+		}
+
+	if ($timer eq "report")
+		{
+		quest::stoptimer("report");
+		quest::shout("Hello there are $spawn_count mobs");
+		for (@spawnzs)
+			{
+			$zdiff = abs($_->{'z'} - $_->{'newz'});
+			if ($zdiff > 5) { quest::shout("PROBLEM BELOW?"); }
+			quest::shout("$_->{'sp'} OLDZ:$_->{'z'} NEWZ:$_->{'newz'}");
+			}
+		}
+	}

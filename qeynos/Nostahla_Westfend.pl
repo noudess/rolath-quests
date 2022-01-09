@@ -1,3 +1,10 @@
+my $mname;
+my $mobX;
+my $mobY;
+my $mobZ;
+my $classname;
+my $pc_dist;
+
 sub EVENT_SPAWN
 	{
 	quest::settimer("help", 10);
@@ -8,21 +15,28 @@ sub EVENT_TIMER
 	my @moblist = $entity_list->GetClientList();
 	foreach $mobby (@moblist)
 		{
-		my $mname = $mobby->GetName();
-		my $mobX = int($mobby->GetX());
-		my $mobY = int($mobby->GetY());
-		my $mobZ = int($mobby->GetZ());
+		$mname = $mobby->GetName();
+		$mobX = int($mobby->GetX());
+		$mobY = int($mobby->GetY());
+		$mobZ = int($mobby->GetZ());
+		$classname = $mobby->GetClassName();
 		
 		# get distance from pc
-		my $pc_dist = int($npc->CalculateDistance($mobX, $mobY, $mobZ));
+		$pc_dist = int($npc->CalculateDistance($mobX, $mobY, $mobZ));
 
-		#Checking if within range of Lieutenant_Arathur to respond.
+		#Checking if within range of Nostala and doesn't already have task
 		if ($pc_dist <= 50 and !$mobby->CastToClient()->IsTaskActive(114))
 			{
-			quest::say("Hey $mname! Are you super busy?  We're looking for someonme to help with [Unsar]'s [problem]");
-			quest::stoptimer("help");
-			quest::settimer("help", 30);
-			last;
+			# Don't ask if they've completed it and they are a non Qeynos caster
+			if ($client->IsTaskCompleted(114) == 0 or 
+				($classname eq "Wizard" or $classname eq "Enchanter" or 
+				 $classname eq "Magician"))
+				{
+				quest::say("Hey $mname! Are you super busy?  We're looking for someonme to help with [Unsar]'s [problem]");
+				quest::stoptimer("help");
+				quest::settimer("help", 30);
+				last;
+				}
 			}
 		}
 	}

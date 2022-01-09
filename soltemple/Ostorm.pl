@@ -37,6 +37,7 @@ sub EVENT_ITEM
 		# Faction fixed per Zam
 		quest::faction(415,"1");
 		quest::faction(416,"-1");
+		quest::ding();
 		}
 
 	if ($faction < 6)
@@ -66,6 +67,8 @@ sub EVENT_ITEM
 			# Faction per Zam
 			quest::faction(415,"1");
 			quest::faction(416,"-1");
+			quest::exp(1000);
+			quest::ding();
 			}
 
 		#magnetized platinum
@@ -73,6 +76,8 @@ sub EVENT_ITEM
 			{
 			quest::say("I see that Gavel has sent you to me.  Very well, I have magnetized your platinum bar - take it.");
 			quest::summonitem(19049);
+			quest::exp(1000);
+			quest::ding();
 			}
 		}
 	}

@@ -25,8 +25,8 @@ sub EVENT_SAY
 
 	if($text=~/deliver to qeynos/i) 
 		{
-		quest::say("Take this letter to Tralyn Marsinger. You can find him at the bard guild hall. I'm sure she will compensate you for your trouble.");
-		quest::summonitem("18154");
+		quest::say("Take this pouch to Eve Marsinger. You can find her at the bard guild hall. I'm sure she will compensate you for your trouble.");
+		quest::summonitem("18165");
 		}
 	}
 

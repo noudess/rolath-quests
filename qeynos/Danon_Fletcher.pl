@@ -36,7 +36,7 @@ sub EVENT_SAY
 
 	if($text=~/tailor/i)
 		{
-		if($client->GetSkill(61)>100) 
+		if($client->GetSkill(61)>99) 
 			{
 			quest::say("You are a tailor $name? I am seeking a skilled tailor to make a special [quiver] for me.  I have a fine limited edition sewing kit to offer in trade.");
 			}
@@ -48,7 +48,7 @@ sub EVENT_SAY
 
 	if($text=~/quiver/i)
 		{
-		if($client->GetSkill(61)>100) 
+		if($client->GetSkill(61)>99) 
 			{
 			quest::say("I have heard of a magical quiver that is enchanced to speed up an archers ability to fire arrows!  Bring me this quiver and the special sewing kit is yours!");
 			}
@@ -60,7 +60,7 @@ sub EVENT_SAY
 
 	if($text=~/aviak/i)
 		{
-		if($client->GetSkill(61)>100) 
+		if($client->GetSkill(61)>99) 
 			{
 			quest::say("I have heard aviaks roosting in one of the Karanas.  Surely if they roost, they must have nests of eggs!");
 			}
@@ -73,7 +73,7 @@ sub EVENT_SAY
 
 sub EVENT_ITEM
 	{
-    if(plugin::check_handin(\%itemcount, 17327 => 1))
+    if($client->GetSkill(61)>99 && plugin::check_handin(\%itemcount, 17327 => 1))
 		{
 		quest::say("So it is true $name, the magical fleeting quiver does exist, very nice work!  Here is your limited edition deluxe sewing kit, use it well!");
         quest::summonitem(17966);

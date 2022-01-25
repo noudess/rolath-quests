@@ -82,7 +82,7 @@ sub EVENT_ITEM
 		}
 
 	#:: Turn in for 13073 - Bone Chips x4
-	if ($faction < 6 && plugin::takeItems(13073 => 4))
+	elsif ($faction < 6 && plugin::takeItems(13073 => 4))
 		{
 		quest::say("Praise Tunare! I knew you would be victorious. I reward you with this spell, and pray that it will help you in your fight against the unholy forces of Innoruk. When you are ready you will make a fine [Initiate of Tunare].");
 
@@ -102,7 +102,7 @@ sub EVENT_ITEM
 		}
 
 	#:: Turn in for 10199 - Putrescent Heart x4
-	if ($faction < 6 && plugin::takeItems(10199 => 4))
+	elsif ($faction < 6 && plugin::takeItems(10199 => 4))
 		{
 		quest::say("Praise Tunare!! You have done well young Initiate. Here the symbol of your station within our faith. Return to me when you are ready to [slay the necromancer] that has been creating the undead.");
 
@@ -122,7 +122,7 @@ sub EVENT_ITEM
 		}
 
 	#:: Turn in for 1570, 12514, 19065, 12513 -  Initiate Symbol of Tunare, Larik Z`Vole's Head, Teir`Dal Couriers Head, Teir`Dal Crate
-	if ($faction < 6 && plugin::takeItems(1570 => 1, 12514 => 1, 19065 => 1, 12513 => 1))
+	elsif ($faction < 6 && plugin::takeItems(1570 => 1, 12514 => 1, 19065 => 1, 12513 => 1))
 		{
 		quest::say("Praise Tunare! The Mother smiles on you this day Disciple Angelsyn! I present you with the symbol of your new station among the Priests of Tunare. Return to me when you are ready to become a [Warden of Tunare]?");
 
@@ -143,7 +143,7 @@ sub EVENT_ITEM
 		}
 
 	#:: Turn in for 1571, 1599 -  Disciple Symbol of Tunare, Powder of Unanimation
-	if ($faction < 6 && plugin::takeItems(1571 => 1, 1599 => 1))
+	elsif ($faction < 6 && plugin::takeItems(1571 => 1, 1599 => 1))
 		{
 		quest::say("Praise Tunare!! I will have our sorcerers examine this power immediately to see if we can reproduce it in quantities enough to eliminate the undead plague. I award you the rank of Warden of Tunare, the All Mother smiles upon you, $name!");
 
@@ -160,6 +160,10 @@ sub EVENT_ITEM
 		# Verified
 		quest::faction(226,  40);    #:: + Clerics of Tunare
 		quest::faction(279,  40);    #:: + King Tearis Thex
+		}
+	elsif ($faction > 5)
+		{
+		quest::say("Your faith has not grown strong enough to undertake that task young one.");
 		}
 
 	#:: Return unused items

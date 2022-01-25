@@ -51,6 +51,7 @@ sub EVENT_ITEM
 	quest::faction(262,1); #Guards of Qeynos
 	quest::faction(221,-1); #Bloodsabers
 	quest::faction(219,1);   #Antonius Bayle
+	quest::ding();
 	if($ItemCount == 1) 
 		{
 		  quest::say("Ah good, I see you seek healing. But you must offer the remains of one more minion of Bertoxxulous before Rodcet will deem you worthy.");
@@ -58,6 +59,7 @@ sub EVENT_ITEM
 	}
   elsif(plugin::check_handin(\%itemcount, 13073 => 3)) #Bone Chips (3) Faction Verified on Live
 	{
+	quest::ding();
 	if($ItemCount == 1) 
 		{
 		quest::say("Very well, young one. May the light of the Prime Healer wash away your scars.");
@@ -85,6 +87,7 @@ sub EVENT_ITEM
 
   elsif(plugin::check_handin(\%itemcount, 13073 => 2)) #Bone Chips (2) Faction Verified on Live
 	{
+	quest::ding();
 	quest::say("Very well, young one. May the light of the Prime Healer wash away your scars.");
 	$npc->CastSpell(17,$userid); #Light Healing - Verified on Live
 	quest::faction(341,1); #Priests of Life
@@ -99,6 +102,7 @@ sub EVENT_ITEM
 	}
   elsif(plugin::check_handin(\%itemcount, 13073 => 1)) #Bone Chips (1) Verified on Live - NO Faction for 1 Bone Chip and NO Healing unless you have a leftover from a previous turnin
   {
+	quest::ding();
     if($ItemCount == 1) 
 	{
 	quest::say("Very well, young one. May the light of the Prime Healer wash away your scars.");
@@ -118,6 +122,7 @@ sub EVENT_ITEM
   }
   elsif ($gold == 2) #Gold (2) Faction verified on live
   { 
+	quest::ding();
     quest::say("Thank you for the donation to the Temple of Life. May Rodcet Nife cleanse your body of all ills.");
     $npc->CastSpell(213,$userid); #Cure Disease - Verified on Live
     quest::faction(341,1); #Priests of Life

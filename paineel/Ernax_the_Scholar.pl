@@ -30,4 +30,14 @@ sub EVENT_ITEM
 		}
 	}
 
+sub EVENT_AGGRO
+	{
+	quest::say("Dullard.  I may be a scholar but I can still make your soul writhe in pain.");
+	}
+
+sub EVENT_DEATH
+	{
+	quest::say("The cold of souls and stench of death!  Always, here, do I find it...");
+	}
+
 #END of FILE Zone:paineel  ID:75029 -- Ernax_the_Scholar

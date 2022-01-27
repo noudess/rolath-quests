@@ -1,31 +1,33 @@
 sub EVENT_SPAWN
 	{
-	quest::settimer("alive", 60);
+	&TormentedSoulDialogue;
+	}
+
+sub TormentedSoulDialogue
+	{
+	#this npc has a dialogue timer of 37s, 74s, 147s, or 10 minutes
+	#37 most common, 147 uncommon, 74 rare, 10 min rarest
+	my $dialoguetimer = quest::ChooseRandom(37,37,37,37,37,37,37,147,147,147,147,147,74,74,74,600);
+	quest::settimer("dialogue",$dialoguetimer);
 	}
 
 sub EVENT_SAY
 	{
-	if ($text =~ /hail/i)
+	if ($faction == 4)
 		{
-		#:: Match if faction is Amiable or better
-		if ($faction <= 4)
-			{
-			quest::say("Whaaat foool does seek counsel with this spirit?");
-			}
-		else
-			{
-			quest::say("Come back when you have done more to further our campaign."); }
+		quest::say("You need to prove your dedication to our cause before I can discuss such matters with you.");
+		}
+	elsif ($faction > 4)
+		{
+		quest::say("I was... once...");
+		}
+	elsif ($text =~ /hail/i)
+		{
+		quest::say("Whaaat foool does seek counsel with this spirit?");
 		}
 	elsif ($text =~ /counsel/i)
 		{
-		#:: Match if faction is Amiable or better
-		if ($faction <= 4)
-			{
-			quest::say("Yes, counsel. It means to meet and converse, fool. Waste my time with definitions of words any dullard would know and taste my anger.");
-			}
-		else
-			{
-			quest::say("Come back when you have done more to further our campaign."); }
+		quest::say("Yes, counsel. It means to meet and converse, fool. Waste my time with definitions of words any dullard would know and taste my anger.");
 		}
 	}
 
@@ -33,7 +35,9 @@ sub EVENT_TIMER
 	{
 	if (plugin::zoneClientCount() > 0)
 		{
+		quest::stoptimer("dialogue");
 		quest::say("Was oonncee... aliiive...");
+		&TormentedSoulDialogue;
 		}
 	}
 
@@ -70,4 +74,9 @@ sub EVENT_ITEM
 
 	#:: Return unused items
 	plugin::returnUnusedItems();
+	}
+
+sub EVENT_AGGRO
+	{
+	quest::say("I will suck your soul into the endless torture that is my existence!");
 	}

@@ -1,5 +1,5 @@
 sub EVENT_SPAWN {
-	quest::settimer("TerrorShout", 17000);
+	quest::settimer("TerrorShout", 10);
 	quest::settimer("TerrorDepop", 170000);
 }
 
@@ -7,6 +7,7 @@ sub EVENT_TIMER {
 	#:: Match timer TerrorShout
 	if ($timer eq "TerrorShout") {
 		quest::shout("Grrrraaaaarrrrrg! The stench of fear permeates the walls of this city! I will forge one item for the faithful of our Lord Cazic-Thule! Make haste!  My time here is short!");
+		quest::settimer("TerrorShout", 17000);
 	}
 	#:: Match timer TerrorDepop
 	elsif ($timer eq "TerrorDepop") {

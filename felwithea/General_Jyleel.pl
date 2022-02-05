@@ -86,6 +86,9 @@ sub EVENT_ITEM
 		quest::givecash($cash{copper}, $cash{silver}, $cash{gold},
 						$cash{platinum});
 
+		# Iron Rations
+		quest::summonitem(13005, 4);
+
 		#:: Set factions
 		# Verified
 		quest::faction(226,  5);    #:: + Clerics of Tunare

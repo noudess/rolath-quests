@@ -80,6 +80,8 @@ sub EVENT_SAY
 				}
 			elsif ($text =~ /follow/i)
 				{
+				$npc->SetAppearance(0);
+				quest::stoptimer("stay");
 				$engaged=0;
 				COLOR_SAY("follow");
 				quest::settimer("assist", 2);

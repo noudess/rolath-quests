@@ -2,6 +2,10 @@ my $active = 0;
 
 sub EVENT_SAY 
 	{
+	quest::settimer("sit", 10);
+	plugin::SetAnim("stand");
+	$npc->FaceTarget($client);
+
 	if ($text=~/hail/i) 
 		{
 		quest::say("Hi. How are you? The fish are biting pretty good. That is what Skipynn tells me. I sure wish I had a different [job]. If I did, I could fish all day long.");
@@ -50,6 +54,7 @@ sub EVENT_ITEM
 		quest::ding();
 		quest::exp(100);
 		quest::stoptimer("walk");
+		quest::stoptimer("sit");
 		quest::stoptimer("milktimeout");
 		quest::settimer("rest", 6);
 		}
@@ -78,6 +83,10 @@ sub EVENT_TIMER
 		{
 		quest::depop_withtimer();
 		}
+	elsif ($timer eq "sit")
+		{
+		plugin::SetAnim(sit);
+		}
 	}
 
 sub EVENT_WAYPOINT_ARRIVE
@@ -95,7 +104,7 @@ sub EVENT_WAYPOINT_ARRIVE
 sub EVENT_SIGNAL
 	{
 	quest::moveto($npc->GetX(), $npc->GetY(), $npc->GetZ(), $npc->GetHeading(), 1);
-	quest::stop();
+#	quest::stop();
 	quest::say("Oh No!  Duggin has stolen the note!  It won't be in it's hiding place.  He took it,  HE took it.");	
 	quest::settimer("die", 60);
 	}

@@ -30,7 +30,7 @@ sub EVENT_TIMER
 			quest::stoptimer("proximity");
 			quest::signal(21050,1);
 			quest::addloot(18822,1,0);
-			quest::settimer("flee",2);
+			quest::settimer("flee",1);
 			}
 		}
 

@@ -13,4 +13,6 @@ function event_death_complete(e)
 	eq.spawn2(50347,0,0,x,y-7,z,h);
 	eq.spawn2(50073,0,0,x+12,y+12,z,h);
 	eq.spawn2(50073,0,0,x-12,y-12,z,h);
+
+	eq.spawn_condition("rathemtn", 0, 1, 0);
 end

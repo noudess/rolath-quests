@@ -49,7 +49,6 @@ sub EVENT_SPAWN
 sub EVENT_SIGNAL 
 	{
 	# Handle The clickers
-	quest::stoptimer($timer);
 
 	if ($liftup)
 		{

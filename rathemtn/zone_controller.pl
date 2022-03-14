@@ -10,7 +10,6 @@ sub EVENT_DEATH_ZONE
 
 sub YTYRS_TRY
 	{
-	# See if we should spawn a titan
 	my $longshot=plugin::RandomRange(1,225);
 
 	if ($longshot == 1)

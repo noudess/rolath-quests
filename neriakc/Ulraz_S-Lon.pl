@@ -37,7 +37,11 @@ sub EVENT_SAY
 
 sub EVENT_ITEM 
 	{ 
-	if (plugin::check_handin(\%itemcount, 19574 => 1, 16197 => 1, 19554 => 1)) 
+	if ($faction > 6)
+		{
+		quest::say("You are not to be trusted.");
+		}
+	elsif (plugin::check_handin(\%itemcount, 19574 => 1, 16197 => 1, 19554 => 1))
 		{
 		quest::say("Well, you're not completely useless, afterall.");
 		quest::emote("fashions the flesh, humorous, and rib into the likeness of a sword hilt");
@@ -50,8 +54,7 @@ sub EVENT_ITEM
 		quest::faction(245,-2);
 		quest::faction(1522,-30);
 		}
-
-	if (plugin::check_handin(\%itemcount, 19573 => 1)) 
+	elsif (plugin::check_handin(\%itemcount, 19573 => 1)) 
 		{
 		quest::say("I'm surprised, I really am. I didn't think somebody like you could pull it off. Here, take this shard before I change my mind, I am keeping the sword for recruits more in need than yourself.");
 		quest::summonitem(1266); #Rolath shard of Battle
@@ -61,8 +64,7 @@ sub EVENT_ITEM
 		quest::faction(334,1); #Dreadguard Outer
 		quest::ding();
 		}
-
-	if (plugin::check_handin(\%itemcount, 19570 => 4)) 
+	elsif (plugin::check_handin(\%itemcount, 19570 => 4)) 
 		{
 		quest::emote("fashions the petrified femurs into a shield frame. This will be the frame of your new shield. Return now again to the Nektulos Forest, in the gray ashen region of the forest near the Lavastorm mountains the basilisks often come down from the fiery peaks to lay their eggs in the ashen soil. Basilisk hatchlings can be found there as they make their way towards the warmer interior of the mountains. Hunt these basilisk hatchlings and gather two Basilisk Hatchling Skins. Once this is done take the skins and frame to Medron Y'Lask at the Furrier Royale.");
 		quest::summonitem(19571);
@@ -75,8 +77,7 @@ sub EVENT_ITEM
 		quest::faction(245,-2);
 		quest::faction(1522,-30);
 		}
-
-	if ($item1=="18757")
+	elsif (plugin::check_handin(\%itemcount, 18757 => 1)) 
 		{
 		quest::say("Thanks.");
 		quest::summonitem("13586");

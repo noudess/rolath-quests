@@ -86,7 +86,7 @@ sub EVENT_ITEM
 		}
 
 	#:: Turn in for 18902 -  Torn Drawing
-	elsif ($faction < 6 && plugin::takeItems(18902 => 1))
+	elsif (plugin::takeItems(18902 => 1))
 		{
 		quest::say("What? Not as supposed? What can he... Well, that's all well and good. You, I assume, wish a reward for your 'valiant work'? Well, here you go, adventurer.");
 

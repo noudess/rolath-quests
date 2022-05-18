@@ -123,7 +123,7 @@ sub EVENT_ITEM
 		quest::ding();
 
 		#:: Grant a small amount of experience
-		quest::exp(100);
+		quest::exp(25);
 
 		#:: Set faction
 		quest::faction(316, 100);    #:: + Tunare's Scouts

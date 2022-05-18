@@ -46,7 +46,7 @@ sub EVENT_ITEM {
 			quest::faction(246, 1); 		#:: + Faydark Champions
 			quest::faction(239, -1); 		#:: - The Dead
 			#:: Grant a moderate amount of experience
-			quest::exp(1000);
+			$client->AddLevelBasedExp(14,10);
 			#:: Create a hash for storing cash - 700 to 750cp
 			my %cash = plugin::RandomCash(700,750);
 			#:: Grant a random cash reward
@@ -125,7 +125,7 @@ sub EVENT_ITEM {
 			quest::faction(246, 1); 		#:: + Faydark Champions
 			quest::faction(239, -1); 		#:: - The Dead
 			#:: Grant a moderate amount of experience
-			quest::exp(1000);
+			$client->AddLevelBasedExp(14,10);
 			#:: Create a hash for storing cash - 700 to 750cp
 			my %cash = plugin::RandomCash(700,750);
 			#:: Grant a random cash reward
@@ -153,7 +153,7 @@ sub EVENT_ITEM {
 			quest::faction(325, 1); 		#:: + Merchants of Felwithe
 			quest::faction(270, -1); 		#:: - Indigo Brotherhood
 			#:: Grant a moderate amount of experience
-			quest::exp(1000);
+			$client->AddLevelBasedExp(14,10);
 			#:: Create a hash for storing cash - 700 to 750cp
 			my %cash = plugin::RandomCash(700,750);
 			#:: Grant a random cash reward
@@ -181,7 +181,7 @@ sub EVENT_ITEM {
 			quest::faction(325, 1); 		#:: + Merchants of Felwithe
 			quest::faction(270, -1); 		#:: - Indigo Brotherhood
 			#:: Grant a moderate amount of experience
-			quest::exp(1000);
+			$client->AddLevelBasedExp(14,10);
 			#:: Create a hash for storing cash - 700 to 750cp
 			my %cash = plugin::RandomCash(700,750);
 			#:: Grant a random cash reward

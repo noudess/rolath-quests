@@ -34,7 +34,7 @@ sub EVENT_ITEM {
 			quest::faction(274, 2); 		#:: + Kazon Stormhammer
 			quest::faction(293, 1); 		#:: + Miner's Guild 249
 			#:: Grant a moderate amount of experience
-			quest::exp(1000);
+			$client->AddLevelBasedExp(14,10);
 			#:: Create a hash for storing cash - 700 to 750cp
 			my %cash = plugin::RandomCash(700,750);
 			#:: Grant a random cash reward
@@ -80,13 +80,13 @@ sub EVENT_ITEM {
 			#:: Ding!
 			quest::ding();
 			#:: Set factions
+			quest::faction(312, 2); 		#:: + Storm Guard
 			quest::faction(274, 1); 		#:: + Kazon Stormhammer
-			quest::faction(312, 1); 		#:: + Storm Guard
 			quest::faction(293, 1); 		#:: + Miners Guild 249
 			quest::faction(290, 1); 		#:: + Merchants of Kaladim
 			quest::faction(232, -1); 		#:: - Craknek Warriors
 			#:: Grant a moderate amount of experience
-			quest::exp(1000);
+			$client->AddLevelBasedExp(14,10);
 			#:: Create a hash for storing cash - 700 to 750cp
 			my %cash = plugin::RandomCash(700,750);
 			#:: Grant a random cash reward

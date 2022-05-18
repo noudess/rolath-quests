@@ -30,8 +30,9 @@ sub EVENT_ITEM
 		{
 		quest::say("Fine work. We are very grateful. Take this Scout Cape. May you use it to serve Kelethin.");
 		quest::summonitem(2914);
-		quest::faction(316, 10);
-		quest::exp(5000);
+		quest::faction(316, 20);
+		quest::givecash(0,3,1,0);
+		$client->AddLevelBasedExp(14,10);
 		quest::ding();
 		}
 	else

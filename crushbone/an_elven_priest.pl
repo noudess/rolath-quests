@@ -13,7 +13,7 @@ sub EVENT_ITEM {
 		#:: Ding!
 		quest::ding();
 		#:: Grant a moderate amount of experience
-		quest::exp(5000);
+		$client->AddLevelBasedExp(14,10);
 	}
 	#:: Match a 1900 - Prayer Cloth of Tunare, and a 6315 - Dwarven Mace
 	elsif (plugin::takeItems(1900 => 1, 6315 => 1)) {
@@ -23,7 +23,7 @@ sub EVENT_ITEM {
 		#:: Ding!
 		quest::ding();
 		#:: Grant a large amount of experience
-		quest::exp(10000);
+		$client->AddLevelBasedExp(31,10);
 	}
 	#:: Match a 1900 - Prayer Cloth of Tunare
 	elsif (plugin::takeItems(1900 => 1)) {

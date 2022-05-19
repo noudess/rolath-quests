@@ -1,14 +1,17 @@
 sub EVENT_SAY {
-  if($text=~/hail/i) {
-    quest::say("You have no business here. Get lost!"); #Text made up
-  }
+	if ($text=~/hail/i) {
+		quest::say("I have nothing to say to you! Move along!");
+	}
 }
 
 sub EVENT_ITEM {
-  quest::say("I do not want that.");
-  plugin::return_items(\%itemcount);
+	#:: Return unused items
+	plugin::returnUnusedItems();
 }
 
 sub EVENT_SIGNAL {
-  quest::depop();
+	#:: Match a signal '1' from /highkeep/Xentil_Herkanon.pl
+	if ($signal == 1) {
+		quest::depop();
+	}
 }

@@ -30,7 +30,7 @@ sub EVENT_ITEM
 		#:: Grant a small amount of experience
 		quest::exp(100);
 
-		#:: Set factions
+		#:: Set factions - Verified per ZAM
 		quest::faction(276,  5);    #:: + Kelethin Merchants
 		quest::faction(246,  1);    #:: + Faydark's Champions
 		quest::faction(326,  1);    #:: + Emerald Warriors
@@ -51,7 +51,7 @@ sub EVENT_ITEM
 		#:: Grant a small amount of experience
 		quest::exp(100);
 
-		#:: Set factions
+		#:: Set factions - Verified per ZAM
 		quest::faction(276,  5);    #:: + Kelethin Merchants
 		quest::faction(246,  1);    #:: + Faydark's Champions
 		quest::faction(326,  1);    #:: + Emerald Warriors

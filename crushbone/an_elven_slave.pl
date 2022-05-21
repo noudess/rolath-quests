@@ -1,3 +1,46 @@
+my $NPCRace;
+
+sub EVENT_SPAWN
+	{
+	$NPCRace = $npc->GetRace();
+
+	$npc->RandomizeFeatures(1, 1);
+
+	if ($NPCRace == 4)
+		{
+		# Wood Elf Parts
+		my $roll = plugin::RandomRange(1,100);
+		if ($roll <= 17)
+			{
+			quest::addloot(13421, 1, 1);
+			}
+
+		# Elven Blood
+		$roll = plugin::RandomRange(1,100);
+		if ($roll <= 10)
+			{
+			quest::addloot(22515, 1, 1);
+			}
+		}
+
+	if ($NPCRace == 5)
+		{
+		# High Elf Parts
+		my $roll = plugin::RandomRange(1,100);
+		if ($roll <= 6)
+			{
+			quest::addloot(13415, 1, 1);
+			}
+
+		# Elven Blood
+		$roll = plugin::RandomRange(1,100);
+		if ($roll <= 10)
+			{
+			quest::addloot(22515, 1, 1);
+			}
+		}
+	}
+
 sub EVENT_SAY {
 	if ($text=~/hail/i) {
 		quest::say("Slavedrivers are just lackeys for the [taskmaster]. He is the real orc in charge.");

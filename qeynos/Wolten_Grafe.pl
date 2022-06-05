@@ -17,7 +17,7 @@ sub EVENT_SAY
 		quest::say("Hail, noble $name. Remember to spread the words of [Karana] throughout the faraway lands on which you shall tread. We of the Temple of Thunder are looking for new members - good people who [wish to join our cause]. Let the call go out!"); 
 		}
 
-	if($text=~/join the cause/i)
+	if($text=~/join .+ cause/i)
 		{
 		quest::say("That IS good news! If you walk the righteous path of the Rainkeeper, Karana, then you are truly noble. I have need of someone like that. I must find someone to perform a [dangerous mission] or perhaps you would rather [seek out the Rat King] or [crush the undead]");  
 		}

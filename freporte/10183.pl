@@ -24,8 +24,7 @@ sub EVENT_WAYPOINT_ARRIVE
 		}
 	elsif ($wp == 18)
 		{
-		# Move to 10 higher than destination to ensure we don't fall through
-		MOVE_TO_BOAT(69, -10500, -300, -13, 1);
+		MOVE_TO_BOAT(69, -10500, -300, $z, -23, 1);
 		}
 	elsif ($wp == 19)
 		{
@@ -38,8 +37,8 @@ sub EVENT_WAYPOINT_ARRIVE
 
 sub MOVE_TO_BOAT
 	{
-	local($zid, $zx, $zy, $zz, $doit);
-	($zid, $zx, $zy, $zz, $doit) = ($_[0], $_[1], $_[2], $_[3], $_[4]);
+	local($zid, $zx, $zy, $zz, $dboatz, $doit);
+	($zid, $zx, $zy, $zz, $dboatz, $doit) = ($_[0], $_[1], $_[2], $_[3], $_[4], $_[5]);
 
 	# Find all clients in proximity and ship them to destination.
 	my @riders = $entity_list->GetClientList();
@@ -58,11 +57,12 @@ sub MOVE_TO_BOAT
 			{
 			my $xdiff = $mobX - $x;
 			my $ydiff = $mobY - $y;	
-			my $zdiff = $mobZ - $z;	
+
+			my $zdiff = $dboatz - $zz; # Account for diff boat heights
 			
 			my $destx = $zx + $xdiff;
 			my $desty = $zy + $ydiff;
-			my $destz = $zz + $zdiff;
+			my $destz = $mobZ + $zdiff;
 
 #			quest::shout("Boat $x $y $z $h");
 #			quest::shout("Rider $mobX $mobY $mobZ");

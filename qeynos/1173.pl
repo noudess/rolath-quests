@@ -17,15 +17,15 @@ sub EVENT_SPAWN
 
 sub EVENT_WAYPOINT_ARRIVE
 	{
-	if ($wp == 20)
+	if ($wp == 21)
 		{
 	    quest::spawn_condition("erudsxing", $cond, 1);
 		}
-	elsif ($wp == 21)
+	elsif ($wp == 22)
 		{
 		MOVE_TO_BOAT(98, -1940, -465, $z, -22);
 		}
-	elsif ($wp == 22)
+	elsif ($wp == 23)
 		{
 	    quest::spawn_condition("qeynos", $cond, 0);
 		}

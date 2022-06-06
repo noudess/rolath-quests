@@ -37,14 +37,14 @@ sub EVENT_SAY
 sub EVENT_ITEM
 	{
 	#:: Match four 13318 - Crushbone Belt
-	if ($itemcount{13318} > 0)
+	if (defined($itemcount{13318}) && $itemcount{13318} > 0)
 		{
         plugin::mass_handin(13318, 1, \&BeltReward);
 		quest::say("Good work, warrior! Now continue with your training. Only on the battlefield can one become a great warrior.");
 		}
 
 	#:: Match four 13319 - Crushbone Shoulderpads
-	if ($itemcount{13319} > 0)
+	if (defined($itemcount{13319}) && $itemcount{13319} > 0)
 		{
 		plugin::mass_handin(13319, 2, \&ShoulderReward);
 		quest::say("Aha!! You have downed a Crushbone legionnaire!! You have shown yourself to be a strong warrior. Take this. This is more becoming of a great warrior such as yourself. Let no creature stand in the way of the Stormguard!");
@@ -75,7 +75,7 @@ sub BeltReward
 
 sub ShoulderReward
 	{
-	quest::summonitem(10017, 1);
+	quest::summonitem(quest::ChooseRandom(5013, 5014, 5015, 5016, 5019,5020, 5021, 5022, 5023, 5024, 5025, 6011, 6013, 6014, 6015, 6016, 10004, 10005, 10006, 10007, 10009, 10010, 10011, 10015, 10016, 10017, 10018, 10019, 10020, 10021, 10026, 10027, 10038, 10039));
 	quest::ding();
 
 	#:: Verified

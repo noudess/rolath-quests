@@ -95,6 +95,8 @@ sub EVENT_SAY
 
 sub EVENT_ITEM 
 {
+	$sf=$client->GetModCharacterFactionLevel(309);
+
 # White Headband ID-10110 requires four Gnoll Pup Scalp ID-13789 and amiable or better faction
 #factions and exp verified on live 9/19/15
 	if($faction <= 4 && plugin::check_handin(\%itemcount, 13789 => 4)) 

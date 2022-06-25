@@ -11,8 +11,8 @@ sub EVENT_SAY {
 }
 
 sub EVENT_ITEM {
-	#:: Match a 20015 - Shackle Key 15
-	if (plugin::takeItems(20015 => 1)) {
+	#:: Match a 20015 - Shackle Key 15 or master key
+	if (plugin::takeItems(20015 => 1) || plugin::takeItems(27539 =>1)) {
 		quest::say("Good work!! I shall be on my way. Farewell my friend!!");
 		#:: Ding!
 		quest::ding();

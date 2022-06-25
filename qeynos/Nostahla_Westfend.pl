@@ -20,12 +20,13 @@ sub EVENT_TIMER
 		$mobY = int($mobby->GetY());
 		$mobZ = int($mobby->GetZ());
 		$classname = $mobby->GetClassName();
+		$client = $mobby->CastToClient();
 		
 		# get distance from pc
 		$pc_dist = int($npc->CalculateDistance($mobX, $mobY, $mobZ));
 
 		#Checking if within range of Nostala and doesn't already have task
-		if ($pc_dist <= 50 and !$mobby->CastToClient()->IsTaskActive(114))
+		if ($pc_dist <= 50 and !$client->IsTaskActive(114))
 			{
 			# Don't ask if they've completed it and they are a non Qeynos caster
 			if ($client->IsTaskCompleted(114) == 0 or 

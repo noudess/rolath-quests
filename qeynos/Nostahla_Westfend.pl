@@ -33,7 +33,7 @@ sub EVENT_TIMER
 				($classname eq "Wizard" or $classname eq "Enchanter" or 
 				 $classname eq "Magician"))
 				{
-				quest::say("Hey $mname! Are you super busy?  We're looking for someonme to help with [Unsar]'s [problem]");
+				quest::say("Hey $mname! Are you super busy?  We're looking for someone to help with [Unsar]'s [problem]");
 				quest::stoptimer("help");
 				quest::settimer("help", 30);
 				last;
@@ -65,15 +65,15 @@ sub EVENT_SAY
 		{
 		quest::say("Greetings..  I am Nostahla Westfend, understudy of Gahlith, and Second Master Wizard of the Order of Three.  Have you come to help [Unsar] with his, err, [problem]?");
 		}
+	elsif ($text =~ /problem/i)
+		{
+		quest::say("His continual obsession with vermin has left a permanent mark on his appearance.  An odd issue for an enchanter, I might say.  If you are [interested] in helping us look into the matter, we have an idea of how some unique ingredients might help Unsar look more like his old self.  If you stop in to see him, please be kind and don't let him know his new appearance is somewhat off-putting.");
+		}
 	elsif ($text =~ /Unsar/i)
 		{
 		quest::say("Unsar Koldhagon.  He's a man of many talents.  He's spent years of his life researching a new spell that he can 'call' his own. It hasn't really turned out like he had hoped.");
 		quest::emote("chuckles");
 		plugin::DoAnim("laugh");
-		}
-	elsif ($text =~ /problem/i)
-		{
-		quest::say("His continual obsession with vermin has left a permanent mark on his appearance.  An odd issue for an enchanter, I might say.  If you are [interested] in helping us look into the matter, we have an idea of how some unique ingredients might help Unsar look more like his old self.  If you stop in to see him, please be kind and don't let him know his new appearance is somewhat off-putting.");
 		}
 	elsif ($text =~ /interested/i)
 		{

@@ -29,7 +29,7 @@ sub EVENT_SCALE_CALC
 	my $oldpower = $client->GetEntityVariable("RubiciteBP");
 	my $newpower = floor($disc_perc);
 
-	if ($newpower != $oldpower)
+	if (!defined $oldpower || $newpower != $oldpower)
 		{
 		$questitem->ItemSay("Your rubicite breastplate has decayed to $newpower %%. See a rubicite expert to extract the spirit from the armor while you still can!!");
 		}

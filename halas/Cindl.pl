@@ -19,17 +19,9 @@ sub EVENT_SAY {
 
 sub EVENT_ITEM 
 	{
-	if (plugin::check_handin(\%itemcount, 13761 => 1)) 
+	if ($itemcount{13761} > 0) 
 		{
-		quest::say("This is much appreciated.  Please accept this used armor in return and also a gold piece for yer troubles.  You have done well! I may have a [second job] fer ye, if ye like?"); 
-		quest::summonitem(quest::ChooseRandom(2125, 2126, 2127, 2128, 2129, 2130, 2131, 2132, 2133, 2134, 2135, 2136)); 
-		quest::givecash(0,0,1,0); 
-		quest::exp(150); 
-		quest::ding();
-		#Verified on live
-		quest::faction(328, 5); #Merchants of Halas 
-		quest::faction(320, 3); #Wolves of the North
-		quest::faction(327, 3); #Shamen of Justice
+		plugin::mass_handin(13761, 1, \&POLAR_REWARD);
 		}
 	elsif($itemcount{12223} > 0)
 		{
@@ -52,6 +44,19 @@ sub WRATH_REWARD
 	quest::faction(328, 10); #Merchants of Halas 
 	quest::faction(320, 7); #Wolves of the North
 	quest::faction(327, 7); #Shamen of Justice
+	}
+
+sub POLAR_REWARD
+	{
+	quest::say("This is much appreciated.  Please accept this used armor in return and also a gold piece for yer troubles.  You have done well! I may have a [second job] fer ye, if ye like?"); 
+	quest::summonitem(quest::ChooseRandom(2125, 2126, 2127, 2128, 2129, 2130, 2131, 2132, 2133, 2134, 2135, 2136)); 
+	quest::givecash(0,0,1,0); 
+	quest::exp(150); 
+	quest::ding();
+	#Verified on live
+	quest::faction(328, 5); #Merchants of Halas 
+	quest::faction(320, 3); #Wolves of the North
+	quest::faction(327, 3); #Shamen of Justice
 	}
 
 #END of FILE Zone:halas  ID:29052 -- Cindl

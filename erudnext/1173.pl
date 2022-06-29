@@ -70,10 +70,10 @@ sub MOVE_TO_BOAT
 			my $desty = $zy + $ydiff;
 			my $destz = $mobZ + $zdiff;
 
-			quest::shout("Boat $x $y $z $h");
-			quest::shout("Rider $mobX $mobY $mobZ");
-			quest::shout("diff $xdiff $ydiff");
-			quest::shout("dest $destx $desty $destz");
+#			quest::shout("Boat $x $y $z $h");
+#			quest::shout("Rider $mobX $mobY $mobZ");
+#			quest::shout("diff $xdiff $ydiff");
+#			quest::shout("dest $destx $desty $destz");
 
 			$rider->MovePC($zid,$destx, $desty, $destz, 384);
 			}

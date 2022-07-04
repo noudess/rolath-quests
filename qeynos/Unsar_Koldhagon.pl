@@ -54,7 +54,7 @@ sub EVENT_ITEM
 		
 		if ($class eq "Wizard")
 			{
-			if ($level < 26)
+			if ($ulevel < 26)
 				{
 				$reward = 7653;
 				}
@@ -65,7 +65,7 @@ sub EVENT_ITEM
 			}
 		elsif ($class eq "Enchanter")
 			{
-			if ($level < 26)
+			if ($ulevel < 26)
 				{
 				$reward = 15243;
 				}
@@ -76,7 +76,7 @@ sub EVENT_ITEM
 			}
 		elsif ($class eq "Magician")
 			{
-			if ($level < 25)
+			if ($ulevel < 25)
 				{
 				$reward = quest::ChooseRandom(23517, 7632, 23525);
 				}

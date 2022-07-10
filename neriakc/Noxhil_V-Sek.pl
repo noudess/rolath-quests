@@ -88,7 +88,7 @@ sub EVENT_ITEM
 		quest::faction(1522,-40); #Primordial Malice
 		quest::exp(17150);
 		quest::ding();
-		if ($class eq "shadowknight")
+		if ($class eq "Shadowknight")
 			{
 			quest::summonitem(quest::ChooseRandom(59972, 7671));
 			}

@@ -33,4 +33,8 @@ sub EVENT_SAY
 		{
 		quest::say("The Koada'Dal have created an elite band of paladins, greater even than our own Teir'Dal Dragoons. They exist on the edge of righteousness. They will perform despicable acts in the name of their deity, barely skimming the edge of evil.");
 		}
+	elsif($text =~/Thex Mallet/i) 
+		{
+		quest::say("The Thex Mallet is a very special weapon of elven creation. It is as ancient as Norrath itself. Queen Cristanos commands that we find it and return it to Loveal S'nez. That is all you need to know.");
+		}
 	}

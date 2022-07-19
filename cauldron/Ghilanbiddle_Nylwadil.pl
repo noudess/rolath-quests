@@ -44,12 +44,12 @@ sub EVENT_ITEM {
 		quest::summonitem(12277);
 		#:: Ding!
 		quest::ding();
-		#:: Set factions
-		quest::faction(245, 25);		#:: + Eldritch Collective
-		quest::faction(238, -25);		#:: - Dark Reflection
-		quest::faction(239, -25); 		#:: - The Dead
-		quest::faction(255, 25);		#:: + Gem Choppers
-		quest::faction(333, 25); 		#:: + King Ak'Anon
+		#:: Set factions (verified)
+		quest::faction(245, 5);		#:: + Eldritch Collective
+		quest::faction(238, -1);	#:: - Dark Reflection
+		quest::faction(239, -1); 	#:: - The Dead
+		quest::faction(255, 1);		#:: + Gem Choppers
+		quest::faction(333, 1); 	#:: + King Ak'Anon
 		#:: Grant a large amount of experience
 		quest::exp(18000);
 		#:: Spawn Dagnor's Cauldron >> #Captain_Klunga (70072)

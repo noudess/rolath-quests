@@ -19,7 +19,7 @@ sub EVENT_SAY
 	{
 	if ($text =~ /hail/i)
 		{
-		#:: Match if faction is Dubious or better
+		#:: Match if faction is Amiable or better
 		if ($faction <= 4)
 			{
 			quest::say("So, you think you have what it takes to be a Scout of Tunare? Come back with two gold and two rusty daggers and I'll make it worth your while.");

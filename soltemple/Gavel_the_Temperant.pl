@@ -36,37 +36,37 @@ sub EVENT_ITEM {
     quest::faction(415,"15");
     quest::faction(416,"-15");
     quest::exp(1000);
-quest::ding();
+	quest::ding();
   }
 
   # Caduceus of Sacrament
-  if(plugin::check_handin(\%itemcount,16507 => 2, 19016 => 1, 19015 => 1)) {
+  elsif(plugin::check_handin(\%itemcount,16507 => 2, 19016 => 1, 19015 => 1)) {
     quest::say("Well done! You are truly a skilled cleric. I have crafted you a weapon - take it.");
     quest::summonitem(6407);
     quest::faction(415,"15");
     quest::faction(416,"-15");
     quest::exp(1000);
-quest::ding();
+	quest::ding();
   }
 
   #chestplate turn in
-  if(plugin::check_handin(\%itemcount,19047 => 2, 19011 => 1, 19012 => 1)) {
+  elsif(plugin::check_handin(\%itemcount,19047 => 2, 19011 => 1, 19012 => 1)) {
     quest::say("Well done! You are truly a skilled cleric. I have crafted you a chestplate - take it.");
     quest::summonitem(4926);
     quest::faction(415,"15");
     quest::faction(416,"-15");
     quest::exp(1000);
-quest::ding();
+	quest::ding();
   }
 
   #shield turn in
-  if(plugin::check_handin(\%itemcount,19048 => 2, 19013 => 1, 19014 => 1)) {
+  elsif(plugin::check_handin(\%itemcount,19048 => 2, 19013 => 1, 19014 => 1)) {
     quest::say("Well done! You are truly a skilled cleric. I have crafted you a shield - take it.");
     quest::summonitem(9427);
     quest::faction(415,"15");
     quest::faction(416,"-15");
     quest::exp(1000);
-quest::ding();
+	quest::ding();
   }
    else {
     quest::say("I don't need this."); #text made up

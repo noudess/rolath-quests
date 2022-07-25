@@ -48,6 +48,7 @@ sub EVENT_ITEM
 		quest::faction(292, 2);      # Merchants of Rivervale
 		quest::faction(336, -2);     # Coalition of Tradefolk Underground
 		quest::faction(329, -2);     # Carson McCabe
+		quest::ding();
 		quest::say("Where is my trusty bodyguard?!");
 		quest::attack($name);
 		}
@@ -60,6 +61,7 @@ sub EVENT_ITEM
 		quest::faction(336, 1);      # Coalition of Tradefolk Underground
 		quest::faction(329, 1);      # Carson McCabe
 		quest::exp(863);
+		quest::ding();
 		quest::summonitem(12193);    # H.K. 106
 		}
 

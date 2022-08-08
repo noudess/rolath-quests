@@ -46,12 +46,9 @@ sub EVENT_TIMER
 	if ($timer eq "ports1min")
 		{
 		quest::stoptimer("ports1min");
-		quest::setglobal(odus_port, 1, 3, "S60")
-			;    #when the portal is open, global is set true for 1 min.
-		quest::setglobal(faydwer_port, 1, 3, "S60")
-			;    #when the portal is open, global is set true for 1 min.
-		quest::setglobal(antonica_port, 1, 3, "S60")
-			;    #when the portal is open, global is set true for 1 min.
+		quest::setglobal(odus_port, 1, 3, "S60");
+		quest::setglobal(faydwer_port, 1, 3, "S60");
+		quest::setglobal(antonica_port, 1, 3, "S60");
 
 		quest::settimer("nexus5min", 60);
 

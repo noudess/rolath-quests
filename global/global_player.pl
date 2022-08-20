@@ -3,8 +3,21 @@ sub EVENT_POPUPRESPONSE{
     plugin::DiaWind_Process_Response();
 }
 
+sub EVENT_ZONE
+	{
+	$peebucket{$charid} = $charid . "-peepers-pee";
+	quest::stoptimer($peebucket{$charid});
+	}
+
 sub EVENT_ENTERZONE 
 	{
+	$peebucket{$charid} = $charid . "-peepers-pee";
+	if (quest::get_data($peebucket{$charid}))
+		{
+		# This character stinks. Set a timer to emit stink
+		quest::settimer($peebucket{$charid}, 60);
+		}
+
 	if ($name eq "Prexus")
 		{
 		quest::playersize(15);
@@ -131,7 +144,6 @@ sub EVENT_COMBINE_SUCCESS
     }
 }
 
-
 sub EVENT_CAST {
 	if ($spell_id == 25686)
 		{
@@ -140,3 +152,31 @@ sub EVENT_CAST {
 		$knight->ChangeSize(3);
 		}
 }
+
+sub EVENT_TIMER
+	{
+	my @pc_list = $entity_list->GetClientList();
+
+	foreach $pc_ent (@pc_list) 
+		{
+		$checkhim = $pc_ent->GetName();
+		if ($checkhim ne $name && $pc_ent->CalculateDistance($client->GetX(), 
+			$client->GetY(), $client->GetZ()) < 100) 
+			{
+			$random = int(rand(3));
+
+			if ($random == 0)
+				{
+				$pc_ent->Message(0, "$name smells like cat pee.");
+				}
+			elsif ($random == 1)
+				{
+				$pc_ent->Message(0, "Has $name been inside a litter box?");
+				}
+			elsif ($random == 2)
+				{
+				$pc_ent->Message(0, "$name reeks.");
+				}
+			}
+		}
+	}

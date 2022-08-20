@@ -1,4 +1,5 @@
 my $oldh;
+my $key;
 
 sub EVENT_SPAWN
 	{
@@ -54,6 +55,7 @@ sub EVENT_SAY
 				}
 			elsif ($text =~ /protection/i)
 				{
+				$key = $client->CharacterID() . "-peepers-pee";
 				START_SPRAY();
 				}
 			}
@@ -94,6 +96,9 @@ sub START_SPRAY
 	plugin::DoAnim("falling");
 	quest::settimer("again", 1);
 	quest::faction(5007, 500, 1);
+	
+	# The character smells bad for 12 hours.
+    quest::set_data($key, 1, 43200);
 	}
 
 sub EVENT_SIGNAL

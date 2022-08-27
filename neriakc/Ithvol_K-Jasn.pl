@@ -43,7 +43,7 @@ sub EVENT_SAY
 
 sub EVENT_ITEM 
 	{
-	if(plugin::check_handin(\%itemcount, 12497 => 1, 1369 => 1))  #Head of a Halfling Spy, Initiate Symbol of Innoruuk
+	if($faction < 5 && plugin::check_handin(\%itemcount, 12497 => 1, 1369 => 1))  #Head of a Halfling Spy, Initiate Symbol of Innoruuk
 		{
 		quest::emote("You have focused the hate within you and discovered that hate and rage are not the same. Hate can be calculating and deceptive. For your service in defending the Kingdom of King Naythox Thex from the halfling invaders, I award you the disciple symbol of Innoruuk. Wear it with pride, $name.");
 		quest::summonitem(1370); #Disciple Symbol of Innoruuk
@@ -58,7 +58,7 @@ sub EVENT_ITEM
 		quest::faction(1522, -200); #Primordial Malice
 		}
 
-	elsif(plugin::check_handin(\%itemcount, 12499 => 1, 12498 => 1, 19029 => 1, 1370 => 1))  #Voucher of Service to Naythox, Swiftmoon's Head, Receipt for Provisions Crate, Disciple Symbol of Innoruuk
+	elsif($faction < 5 && plugin::check_handin(\%itemcount, 12499 => 1, 12498 => 1, 19029 => 1, 1370 => 1))  #Voucher of Service to Naythox, Swiftmoon's Head, Receipt for Provisions Crate, Disciple Symbol of Innoruuk
 		{
 		quest::say("Your devotion to the ideals of hatred and your service to our King Naythox Thex has proven your usefulness within these spires and within our great city. I award you the Regent Symbol of Innoruuk. Congratulations, Regent $name!");
 		quest::summonitem(1371);#Regent Symbol of Innoruuk
@@ -74,7 +74,6 @@ sub EVENT_ITEM
 		}
 	else 
 		{
-		quest::say("I don't need this."); #text made up
 		plugin::return_items(\%itemcount);
 		}
 	}

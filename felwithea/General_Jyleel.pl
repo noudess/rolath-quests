@@ -64,6 +64,7 @@ sub EVENT_ITEM
 						$cash{platinum});
 
 		#:: Set factions
+		# Verified
 		quest::faction(226,  5);     #:: + Clerics of Tunare
 		quest::faction(279,  5);     #:: + King Tearis Thex
 		}

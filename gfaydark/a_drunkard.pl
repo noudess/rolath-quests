@@ -30,9 +30,9 @@ sub EVENT_ITEM
 		{
 		quest::say("This is a sad day, but it was the just thing to do. The Nybright name will no longer be tarnished. Here you are my friend. This is a bit uncared for, but it is yours. My warrior days are over. Now go. I must be alone.");
 		quest::summonitem(quest::ChooseRandom(2314, 2007, 2005, 23359));
-		quest::faction(5001, 20);
-		quest::faction(226,  20);
-		quest::faction(279,  20);
+		# Zam verified
+		quest::faction(226,  10);
+		quest::faction(279,  10);
 		quest::exp(300);
 		quest::ding();
 		}

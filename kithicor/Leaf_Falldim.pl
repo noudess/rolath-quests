@@ -61,6 +61,7 @@ sub EVENT_ITEM {
 		#:: Ding!
 		quest::ding();
 		#:: Set factions
+		# Verified
 		quest::faction(269, 10); 	#:: + Kithicor Residents
 		quest::faction(302, 1); 	#:: + Protectors of Pine
 		quest::faction(272, 1); 	#:: + Jaggedpine Treefolk

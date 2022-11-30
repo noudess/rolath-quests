@@ -9,7 +9,7 @@ sub EVENT_WAYPOINT_ARRIVE
 	{
 	$wpsave{$mobid} = $wp;
 
-	quest::write("/tmp/madmen", "$mobid : $wp : $wpsave{$mobid} : $prev_wp{$mobid}");
+	quest::write("madmen.log", "$mobid : $wp : $wpsave{$mobid} : $prev_wp{$mobid}");
 
 	my $date2 = localtime;
 

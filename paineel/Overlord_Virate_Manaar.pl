@@ -46,7 +46,7 @@ sub EVENT_TIMER
 	else
 		{
 		quest::emote("peers at you, his anger with the letter quite evident");
-		quest::say("I hope that you do not agree with this hogwash, $messenger.  Is it good that you have opened my eyes to this.");
+		quest::say("I hope that you do not agree with this hogwash, $messenger.  It is good that you have opened my eyes to this.");
 		quest::say("You may go... NOW!");
 		quest::ding();
 		quest::exp(100);

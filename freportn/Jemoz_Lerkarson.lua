@@ -37,6 +37,7 @@ function event_trade(e)
 		e.other:Faction(362,2);
 		e.other:Faction(311,1);
 		e.other:AddEXP(5000);
+		e.self:CastSpell(200,e.other:GetID()); -- minor healing
 	elseif(fac < 6 and item_lib.check_turn_in(e.trade, {item1 = 12142})) then
 		e.self:Say("We heard of your assault. We even attempted to slay Lucan. Alas, we failed. You have done your part and as such have earned our thanks. Beware of the Freeport Militia. They will no doubt be on the lookout for you. May Marr protect you. Perhaps you should speak with Valeron Dushire, paladin of the Knights of Truth. He seeks other to slay the fallen knight.");
 		e.other:SummonItem(eq.ChooseRandom(30445,15560,15230,15219,15229,15222,15012));

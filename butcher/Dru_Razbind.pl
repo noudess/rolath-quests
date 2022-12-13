@@ -16,6 +16,10 @@ sub EVENT_SAY
 		{
 		quest::say("I was ordered by Lord Nightseer to carry the [Chalice of Conquest] to a noble band of paladins in the mountains of Rathe. While there, the entire camp was overtaken by a band of orcs. During the battle there was a [strange occurrence].");
 		}
+	elsif ($text=~/chalice of conquest/i)
+		{
+		quest::say("The Chalice of Conquest is said to have been delivered to the Church of Underfoot by Brell himself. It is said that whoever drinks from the chalice is assured victory in battle. It is also said that only good-natured creatures may safely drink from it and only a comatose state is assured to any evil creature who dares to sip from it.");
+		}
 	elsif ($text =~ /strange occurance/i)
 		{
 		quest::say("A large fray raged. Brave, valiant paladins fought vile, green-skinned orcs and while this happened, I spied the [Chalice of Conquest] being taken away from the camp. I was then distracted by a well placed orcish blade. After I defeated the orcs in my way, I turned to see a blue orc running toward the horizon. I gave chase to no avail. I lost the chalice and all respect. If only a [noble Paladin of Underfoot] would assist me...");

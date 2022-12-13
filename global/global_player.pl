@@ -6,7 +6,7 @@ sub EVENT_POPUPRESPONSE{
 sub EVENT_DISCONNECT
 	{
 	$peebucket{$charid} = $charid . "-peepers-pee";
-	quest::shout("Timer $peebucket{$charid} stopped");
+	#quest::shout("Timer $peebucket{$charid} stopped");
 	quest::stoptimer($peebucket{$charid});
 	}
 

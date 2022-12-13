@@ -75,8 +75,6 @@ sub SPAWN_RARE
     local($thecond);
     ($thecond) = ($_[0]);
 
-	quest::shout("PH death");
-
 	# See if we should spawn a rare
 	my $longshot=plugin::RandomRange(1,325);
 

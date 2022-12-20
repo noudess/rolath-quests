@@ -119,6 +119,7 @@ sub EVENT_ITEM
 		quest::faction(333, 6);     # King Ak'Anon better
 		quest::faction(238, -6);    # Dark Reflection worse
 		quest::faction(1604, -1);    # Clan Grikbar worse
+		quest::exp(29127); # Copied fro Garret's xp reward
 		}
 
 	elsif (plugin::check_handin(\%itemcount, 12378 => 1)) #Box of Undead Brownies

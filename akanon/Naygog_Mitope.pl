@@ -53,7 +53,7 @@ sub EVENT_ITEM
 		{    #Yulcabis's axe
 		quest::say("Well done $name. Take this Dull Dark Reflection Axe and sharpen it in a forge with a sharpening stone. It may take several attempts if you are unfamiliar with the process. Once the axe has been sharpened take it to Clockwork SmithXIII with a Coyote Pelt and he will put the finishing touches on the weapon.");
 		quest::summonitem(10995);    #Dull dark reflection axe
-		quest::exp(100);
+		quest::exp(29127); #Copied Garret's xp
 		quest::ding();
 		# Factions verified per zam
 		quest::faction(238, 10);     #dark reflection

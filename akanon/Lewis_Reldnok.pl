@@ -154,7 +154,7 @@ sub EVENT_ITEM
 		quest::faction(255,3); # Gem Choppers
 		quest::faction(238,-3);# Dark Reflection
 		quest::summonitem(1266);
-		quest::exp(500);
+		quest::exp(29127); # Copied fro Garret's xp reward
 		quest::ding();
 		}
 

@@ -121,7 +121,7 @@ sub EVENT_ITEM
 		quest::faction(239, -1);	#The Dead
 		quest::faction(255, 3);		#Gem Choppers
 		quest::faction(333, 3);		#King Ak'Anon
-		quest::exp(25);
+		quest::exp(29127); # Copied fro Garret's xp reward
 		quest::ding();
 		}
 	}

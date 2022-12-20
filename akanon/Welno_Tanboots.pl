@@ -139,7 +139,13 @@ sub EVENT_ITEM
 
 	if (plugin::check_handin(\%itemcount, 9108 => 2, 9109 => 2))
 		{    #Minotaur Scalp x 2, Mountain Lion Jawbone x 2
+		# Need xp/faction - guessed same as Lewis due to note turnin
 		quest::say("Well done $name!  Here is your Rolath Shard of Battle");
+		quest::faction(240,25);# Deep Muses
+		quest::faction(288,3); # Merchants of AkAnon
+		quest::faction(255,3); # Gem Choppers
+		quest::faction(238,-3);# Dark Reflection
+		quest::exp(500);
 		quest::summonitem(1266);
 		quest::ding();
 		}

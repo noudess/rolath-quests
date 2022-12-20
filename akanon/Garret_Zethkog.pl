@@ -59,6 +59,7 @@ sub EVENT_ITEM
 		quest::faction(245, -1);    # Eldritch Collective
 		quest::faction(255, -1);    # Gem Choppers
 		quest::faction(240, -1);    # Deepmuses
+		quest::exp(29127); #collected at level 22
 		}
 	if  (plugin::check_handin(\%itemcount, 18434 => 1))
 		{

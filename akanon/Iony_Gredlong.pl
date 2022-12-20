@@ -142,9 +142,14 @@ sub EVENT_ITEM
 
 	if (plugin::check_handin(\%itemcount, 9105 => 3, 9106 => 1))
 		{
+		# Need faction/xp - we guessed same as Lewis based on note turnin
 		quest::say("Thank you! I am afraid due to your lateness that I cannot offer you the staff. This shard should serve you well though.");
+		quest::faction(240,25);# Deep Muses
+		quest::faction(288,3); # Merchants of AkAnon
+		quest::faction(255,3); # Gem Choppers
+		quest::faction(238,-3);# Dark Reflection
+		quest::exp(500);
 		quest::summonitem(1264);    #Shard of Sorcery
-		# Need faction/xp
 		}
 
 	if (plugin::check_handin(\%itemcount, 18775 => 1))

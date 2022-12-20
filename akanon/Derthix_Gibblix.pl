@@ -21,7 +21,7 @@ sub EVENT_ITEM
 		{
 		quest::say("Excellent work, $name! You must be prepared to face many such enemies in the days to come. Take this Rough Dark Reflection Mace and refine it in a forge with a sharpening stone. It may take several attempts if you are unfamiliar with the process. Once that is done take the Polished Dark Reflection Mace to Clockwork SmithXIII with a Mountain Lion Pelt and he will put the finishing touches on your new weapon.");
 		quest::summonitem(11080);
-		quest::exp(100);
+		quest::exp(29127); #Matched Garret's xp
 		#factions per ZAM
         quest::faction(238, 10);    # Dark Reflection
         quest::faction(245, -1);    # Eldritch Collective

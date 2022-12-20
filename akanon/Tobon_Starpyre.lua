@@ -7,17 +7,23 @@ end
 
 function event_enter(e)
 	if(e.other:HasItem(18774) == true) then
-		e.other:Message(15,"A wise looking gnome stands before you. 'Welcome to the Library Mechanimagica young apprentice. I am Tobon Starpyre. Read the note in your inventory and give it to me so that we may begin your training'");
+		e.other:Message(14,"A wise looking gnome stands before you. 'Welcome to the Library Mechanimagica young apprentice. I am Tobon Starpyre. Read the note in your inventory and give it to me so that we may begin your training'");
 	end
 end
 
 function event_say(e)
+    local pfaction = e.other:GetFaction(e.self);
+
 	if(e.message:findi("hail")) then
 		e.self:Say("It is good to see the young show an interest in the ways of magic. Its circles can be used in tandem with our unique ways of tinkering. Have you [joined the Eldritch Collective] or are you [merely curious]?");
-	elseif(e.message:findi("joined the Eldritch Collective")) then
-		e.self:Say("Very good. Would you like to [go on a little mission] or are you busy studying?");
 	elseif(e.message:findi("merely curious")) then
 		e.self:Say("Please look around. We have much knowledge within these halls. May you soon find your place among our members. Good day.");
+    elseif (pfaction > 5) then
+		e.self:Say("You dare to speak to a member of the Eldritch Collective! You had best leave before you find your soul displaced from your body.");
+    elseif (pfaction > 4) then
+		e.self:Say("There is much more you must do for the Library of Mechanimagica before such things can be revealed to you.  Perhaps fetching minotaur horns and returning them to Professor Theardor will earn you membership to the Library of Mechanimagica.");
+	elseif(e.message:findi("joined the Eldritch Collective")) then
+		e.self:Say("Very good. Would you like to [go on a little mission] or are you busy studying?");
 	elseif(e.message:findi("go on a little mission")) then
 		e.self:Say("Fabulous! Here is a list of the observers outside of Ak'Anon. Go and ask each for a [spare telescope lens]. Each should give you one. We have need of them. I await your return as does your reward, either Fire Bolt or Fingers of Fire. Meant for a skilled wizard of the eighth trial.");
 		e.other:SummonItem(18868); 	-- Observer List
@@ -35,6 +41,8 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+
+    local pfaction = e.other:GetFaction(e.self);
 	if(item_lib.check_turn_in(e.trade, {item1 = 18774})) then -- Registration Letter
 		e.self:Say("Ah.. Welcome, friend! I am Tobon Starpyre, Master Wizard of Library Mechanimagica. This is our tunic - wear it with pride. Study hard, master your skills, and make us proud. Once you are ready to begin your training please make sure that you see Xalirilan, he can assist you in developing your hunting and gathering skills. Return to me when you have become more experienced in our art, I will be able to further instruct you on how to progress through your early ranks, as well as in some of the various [trades] you will have available to you.");
 		e.other:SummonItem(13523);	-- Soot Stained Gold Robe*
@@ -46,7 +54,7 @@ function event_trade(e)
 		e.other:AddLevelBasedExp(2.5, 1);
 		e.other:Ding();
 		e.other:AddEXP(100);
-	elseif(item_lib.check_turn_in(e.trade, {item1 = 13275, item2 = 13276, item3 = 13277, item4 = 13279})) then
+	elseif(pfaction < 5 and item_lib.check_turn_in(e.trade, {item1 = 13275, item2 = 13276, item3 = 13277, item4 = 13279})) then
 		e.self:Say("Thank you for your work. I heard news of the troubles you encountered. Besides these troubles you still completed your mission. We are grateful. And as I once stated, your reward awaits.");
 		e.other:SummonItem(eq.ChooseRandom(15380,15477,15656)); -- Item(s): Spell: Column of Frost (15380), Spell: Fire Bolt (15477), Spell: Shock of Ice (15656)
 		e.other:Ding();

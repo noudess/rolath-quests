@@ -57,7 +57,7 @@ sub EVENT_ITEM
 		quest::faction(255, -1);    # Gem Choppers
 		quest::faction(240, -1);    # Deep Muses
 
-		quest::exp(100);
+		quest::exp(29127); # Matched Garret's #s
 		quest::ding();
 		}
 	if (plugin::check_handin(\%itemcount, 18705 => 1))

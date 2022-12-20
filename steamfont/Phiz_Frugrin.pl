@@ -1,18 +1,22 @@
-#########################################################
-# Phiz Frugrin (ID:56177)
-# Zone:   Steamfont (steamfont)
-# Quest:  Telescope Lenses
-# Author: a_sewer_rat
-#########################################################
+sub EVENT_SAY
+	{
+	if ($text =~ /Hail/i)
+		{
+		quest::say("Hello my friend. Good to meet you.");
+		}
+	elsif ($faction > 5)
+		{
+		quest::say("You dare to speak to a member of the Eldritch Collective! You had best leave before you find your soul displaced from your body.");
+		}
+	elsif ($faction > 4)
+		{
+		quest::say("I cannot yet fully trust you");
+		}
+	if ($text =~ /lens/i)
+		{
+		quest::say("Oh my. I have bad news. It was stolen by a dark elf rogue. She fled very quickly. My little legs could not keep up. Here, she dropped this. You must find her. Get it back. We have very few Lenses.");
 
-sub EVENT_SAY {
-   if($text=~/Hail/i){
-      quest::say("Hello my friend. Good to meet you.");
-   }
-   if($text=~/lens/i){
-      quest::say("Oh my. I have bad news. It was stolen by a dark elf rogue. She fled very quickly. My little legs could not keep up. Here. She dropped this. You must find her. Get it back. We have very few Lenses.");
-      quest::summonitem(18867); # filthy towel
-   }
-}
-
-#END of FILE Zone:steamfont  ID:56115 -- Phiz_Frugrin 
+		#:: Give a 18867 - Filthy Towel
+		quest::summonitem(18867);
+		}
+	}

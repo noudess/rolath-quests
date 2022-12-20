@@ -1,6 +1,6 @@
 my $taskid=194;
 my $containerid=17124;
-my $robeid=11093;
+my $robeid=11088;
 my $titleid=90;
 my $pre="Plague Walker";
 my $fix="of the Rusty Daggers";
@@ -100,8 +100,6 @@ sub EVENT_ITEM
 			}
 
 		}
-
-	plugin::return_items(\%itemcount);
 	}
 
 sub EVENT_TASKACCEPTED

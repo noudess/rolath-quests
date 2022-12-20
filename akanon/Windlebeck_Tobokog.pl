@@ -1,6 +1,6 @@
 my $taskid=197;
 my $containerid=17124;
-my $robeid=11380;
+my $robeid=11375;
 my $titleid=91;
 my $pre="Warrior";
 my $fix="of the Plagues";
@@ -95,9 +95,6 @@ sub EVENT_ITEM
 				}
 			} 
 		}
-
-	quest::say("I do not want this.");
-	plugin::return_items(\%itemcount);
 	}
 
 sub EVENT_TASKACCEPTED

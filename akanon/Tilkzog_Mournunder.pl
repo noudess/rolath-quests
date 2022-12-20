@@ -119,9 +119,6 @@ sub EVENT_ITEM
 		quest::exp(100);
 		quest::ding();
 		}
-
-	quest::say("I do not want this.");
-	plugin::return_items(\%itemcount);
 	}
 
 sub EVENT_TASKACCEPTED

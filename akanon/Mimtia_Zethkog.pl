@@ -1,6 +1,6 @@
 my $taskid=195;
 my $containerid=17124;
-my $robeid=11373;
+my $robeid=11368;
 my $titleid=96;
 my $pre="Plague Knight";
 my $fix="";
@@ -91,9 +91,6 @@ sub EVENT_ITEM
 			quest::say("You are already blessed.");
 			}
 		}
-
-	quest::say("I do not need this.");
-	plugin::return_items(\%itemcount);
 	}
 
 sub EVENT_TASKACCEPTED

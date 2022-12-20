@@ -124,11 +124,6 @@ sub EVENT_ITEM
 		quest::exp(25);
 		quest::ding();
 		}
-	else
-		{
-		quest::say("I do not need this.");
-		plugin::return_items(\%itemcount);
-		}
 	}
 
 sub EVENT_TASKACCEPTED

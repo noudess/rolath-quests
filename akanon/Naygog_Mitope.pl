@@ -1,8 +1,36 @@
+sub EVENT_SPAWN
+	{
+	quest::set_proximity($x-50,$x+50,$y-50,$y+50);
+	}
+
+sub EVENT_ENTER
+	{
+	#:: Match a 18759 - Stained Parchment
+	if (plugin::check_hasitem($client, 18759))
+		{
+		$client->Message(15, "A diminutive, but powerful looking gnome stands before you.  'I am Naygog Mitope.  The Dark Reflection has called you.  Read the note in your inventory and hand it to me to begin your training.  Your destiny awaits!'");
+		}
+	}
+
 sub EVENT_SAY
 	{
 	if ($text =~ /hail/i)
 		{
 		quest::say("Hail $name. I train those young gnomes who wish to [serve as a warrior] in the service of the Dark Reflection and our patron. Bertoxxulous the Plaguelord. Decay and destruction are powerful forces that influence Norrath. It is the duty of the Warriors of the Dark Reflection to bring destruction to the weak and injury to the strong so that our fellow gnomes may be reminded of their own mortality and new strong individuals may rise to power before Bertoxxulous decides it is their time to decay and be replaced like countless before them.");
+		}
+	if ($text =~ /trades/i)
+		{
+		quest::say("I thought you might be one who was interested in the various different trades, but which one would suit you? Ahh, alas, it would be better to let you decide for yourself, perhaps you would even like to master them all! That would be quite a feat. Well, lets not get ahead of ourselves, here, take this book. When you have finished reading it, ask me for the [second book], and I shall give it to you. Inside them you will find the most basic recipes for each trade. These recipes are typically used as a base for more advanced crafting, for instance, if you wished to be a smith, one would need to find some ore and smelt it into something usable. Good luck!");
+
+		#:: GIve a 51121 - Tradeskill Basics : Volume I
+		quest::summonitem(51121);
+		}
+	if ($text =~ /second book/i)
+		{
+		quest::say("Here is the second volume of the book you requested, may it serve you well!");
+
+		#:: GIve a 51122 - Tradeskill Basics : Volume I
+		quest::summonitem(51122);
 		}
 	if ($text =~ /serve as a warrior/i)
 		{
@@ -33,12 +61,21 @@ sub EVENT_ITEM
 		quest::faction(255, -1);     #gem choppers
 		quest::faction(240, -1);     #Deep Muses
 		}
-	else
-		{
-		#do all other handins first with plugin, then let it do disciplines
-		plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
-		plugin::return_items(\%itemcount);
-		}
+	if (plugin::check_handin(\%itemcount, 18775 => 1))
+        {
+        quest::say("This is fabulous news!! You have done well, young one. When you have become more experienced in our art, I will be able to further train you, both in our art as well as in some of the various [trades] you will have available to you.");
+        quest::summonitem(13518);    #Tin Patched Tunic
+        #Factions verified on live
+        quest::faction(238, 100);   #Dark Reflection
+        quest::faction(245, -10);   #Eldritch Collective
+        quest::faction(255, -10);   #Gem Choppers
+        quest::faction(240, -10);   #Deepmuses
+        $client->AddLevelBasedExp(2.5, 1);
+        quest::ding();
+        }
+
+	plugin::try_tome_handins(\%itemcount, $class, 'Warrior');
+	plugin::return_items(\%itemcount);
 	}
 
 #END of FILE Zone:akanon  ID:55157 -- Naygog_Mitope

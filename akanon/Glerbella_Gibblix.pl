@@ -1,6 +1,6 @@
 my $taskid=189;
 my $containerid=51380;
-my $robeid=11387;
+my $robeid=11382;
 my $titleid=89;
 my $pre="Raiser";
 my $fix="of the Plague";
@@ -92,9 +92,6 @@ sub EVENT_ITEM
 			quest::say("You are already blessed.");
 			}
 		}
-
-	quest::say("I do not need this.");
-	plugin::return_items(\%itemcount);
 	}
 
 sub EVENT_TASKACCEPTED

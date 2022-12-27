@@ -1,7 +1,7 @@
 sub EVENT_SPAWN
 	{
 	# Turn off Salani/Kindl cycle
-	quest::spawn_condition("gfaydark", 1, 0);
+	quest::spawn_condition("gfaydark", 2, 0);
 	}
 
 sub EVENT_ITEM

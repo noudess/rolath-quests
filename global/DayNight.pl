@@ -15,7 +15,7 @@ sub EVENT_TIMER
 
 sub EVENT_CYCLE
 {
-	if($zonesn eq 'lakerathe' || $zonesn eq 'freportn' || $zonesn eq 'oot')
+	if($zonesn eq 'lakerathe' || $zonesn eq 'freportn' || $zonesn eq 'oot' || $zonesn eq 'gfaydark')
 	{
 		if ($zonetime < 600 || $zonetime > 1999) 
 		{

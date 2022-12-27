@@ -17,7 +17,7 @@ sub EVENT_ITEM
 	{
 	if (plugin::check_handin(\%itemcount, 18161 => 1))
 		{
-		quest::say("Incoming mail - very good!  Please take this gold for your troubles.");
+		quest::say("More mail - you have done us a noteworthy service! Please take this gold for your troubles. If you are interested in more work, just ask Idia.");
 		quest::givecash(0, 0, quest::ChooseRandom(3, 4, 5, 6), 0);
 		quest::exp(50);
 		quest::ding();

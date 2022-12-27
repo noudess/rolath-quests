@@ -12,14 +12,14 @@ sub EVENT_SAY
 		{
 		quest::say("I cannot yet fully trust you");
 		}
-	if ($text =~ /Larkon sent me/i)
+	elsif ($text =~ /Larkon sent me/i)
 		{
 		quest::say("There is much more you must do for the Library of Mechanimagica before such things can be revealed to you. Perhaps fetching minotaur horns and returning them to Professor Theardor will earn you membership to the Library of Mechanimagica. But I suppose if Larkon sent you that you truly wish to prove yourself, eh? You'll have to get your hands a bit dirty, though. Take this box and fill it with livers from those infected rats. We need them for research. Well go on. You can take a bath when you're done.");
 
 		#:: Give a 17923 - Air Tight Box
 		quest::summonitem(17923);
 		}
-	if ($text =~ /lens/i)
+	elsif ($text =~ /lens/i)
 		{
 		quest::say("Spare Telescopic Lens?? I am sorry but I don't have any spares right now.. Oh wait!! I do. Here you are my friend. Careful with that. They are very rare.");
 

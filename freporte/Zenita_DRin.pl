@@ -29,10 +29,7 @@ sub EVENT_ITEM
 	if (plugin::check_handin(\%itemcount, 13121 => 1))  #Innoruuk's Kiss of Death
 		{
 		quest::say("Why, thank you!  Here is your card.  I hope it is the king.");
-		quest::summonitem(
-						  quest::ChooseRandom(
-								 22293, 22294, 22295, 22296, 22297, 22298, 22299
-							  ));
+		quest::summonitem(quest::ChooseRandom(22293, 22294, 22295, 22296, 22297, 22298, 22299));
 		}
 
 	elsif (plugin::check_handin(\%itemcount, 22298 >= 1)) #King Card

@@ -12,7 +12,7 @@ sub EVENT_SAY
 		{
 		quest::say("I cannot yet fully trust you");
 		}
-	if ($text =~ /lens/i)
+	elsif ($text =~ /lens/i)
 		{
 		quest::say("Oh my. I have bad news. It was stolen by a dark elf rogue. She fled very quickly. My little legs could not keep up. Here, she dropped this. You must find her. Get it back. We have very few Lenses.");
 

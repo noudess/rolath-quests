@@ -12,7 +12,7 @@ sub EVENT_SAY
 		{
 		quest::say("I cannot yet fully trust you");
 		}
-	if ($text =~ /lens/i)
+	elsif ($text =~ /lens/i)
 		{
 		quest::say("Oh my!! I forgot I had that. Here you are. You better take it back.  I need to go elsewhere, bye now.");
 

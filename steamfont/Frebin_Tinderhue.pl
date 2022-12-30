@@ -9,10 +9,8 @@ sub EVENT_SIGNAL
 		#:: Match if the ClientList is not empty
 		if (scalar @ClientList > 0)
 			{
-			quest::say("What a glorious machine the cargo clockwork is!!");
+			quest::say("Hmm. Sounds like the weekly shipment has arrived. I'd better go grab it.");
 
-			#:: Send a signal '1' to Steamfont Mountains >> Cargo_Clockwork (56105) with no delay
-			quest::signalwith(56105, 1, 0);
 			}
 		}
 	}

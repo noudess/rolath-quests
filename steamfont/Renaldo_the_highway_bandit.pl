@@ -1,4 +1,6 @@
-sub EVENT_SIGNAL {
-  quest::say("Your servos belong to me!");
-  quest::depop();
-}
+sub EVENT_SIGNAL
+	{
+	#:: Signal from steamfont/Cargo_Clockwork.pl
+	quest::say("Your servos belong to me!");
+	quest::depop();
+	}

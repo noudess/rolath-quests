@@ -31,6 +31,8 @@ sub EVENT_ITEM
 	elsif ($faction < 7 && plugin::check_handin(\%itemcount, 18838 => 1))
 		{
 		quest::say("Oh my! It seems two of the obsolete duster models were not fully shut down. You must find them. They could be anywhere in Ak'Anon! After you destroy them, take their scraps to Sanfyrd Montop. He is the operator of the scrapyard");
+		#:: Spawn Ak'Anon >> Duster_X (55334)
+		quest::spawn2(55334,0,0,-192.15,1488.87,-107.59,252.4);
 		#Factions per ZAM
 		quest::faction(255,  5);	#Gem Choppers
 		quest::faction(288,  1);	#Merchants of Ak'Anon

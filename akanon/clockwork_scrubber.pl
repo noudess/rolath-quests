@@ -9,6 +9,8 @@ sub EVENT_SPAWN
 		{
 		$miner628 = "true";
 		}
+
+	quest::settimer("vaccum", 1);
 	}
 
 sub EVENT_SAY
@@ -41,4 +43,34 @@ sub EVENT_ITEM
 
 	#:: Return unused items
 	plugin::returnUnusedItems();
+	}
+
+sub EVENT_TIMER
+	{
+	if (plugin::zoneClientCount() > 0)
+		{
+		# Find all objects
+		my @objects = $entity_list->GetObjectList();
+
+		foreach $thing (@objects)
+			{
+			my $item = $thing->GetItemID();
+			my $ground = $thing->IsGroundSpawn();
+			if ($item != 0 && $ground == 0)
+				{
+				my $mobX = $thing->GetX();	
+				my $mobY = $thing->GetY();	
+				my $mobZ = $thing->GetZ();	
+			
+				my $cdist = $npc->CalculateDistance($mobX, $mobY, $mobZ);
+			
+				if ($cdist <= 20)
+					{
+					quest::emote("Clockwork Scrubber clicks as a plate slides to the side revealing a hose that extends and sucks up an item off the ground.");
+					$thing->Depop();
+					$npc->AddItem($item);
+					}
+				}
+			}
+		}
 	}

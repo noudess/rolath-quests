@@ -4,7 +4,7 @@ sub EVENT_SAY
 	{
 	if ($text =~ /hail/i)
 		{
-		quest::say("Hello. I am the guild master.");
+		quest::say("Why hello there, what are you looking for in this dark place? All that's down here is us assassins.");
 		}
 	if ($text =~ /dark assassin/i)
 		{

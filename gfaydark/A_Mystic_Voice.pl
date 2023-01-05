@@ -40,11 +40,11 @@ sub EVENT_TIMER
 		quest::say("The portal to Luclin is about to become active. Please stand inside the circle of Spires and have a shard upon your person.");
 		quest::setglobal(nexus_gf, 1, 3, "S60");
 	    #when the portal is open, global is set true for 1 min.
-		quest::settimer("gfay5min", 300);
+		quest::settimer("gfay5min", 900);
 
 		if (plugin::zoneClientCount() > 0)
 			{
-			quest::signalwith(13022,101,0); #triggers the flavor
+			quest::signalwith(54053,101,0); #triggers the flavor
 			}
 		}
 	}

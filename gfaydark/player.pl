@@ -1,43 +1,26 @@
 sub EVENT_ENTERZONE
 	{
 	quest::settimer("spires", 10);
-	$nexus_gf   = undef;
-	$spire_gf   = undef;
-	$message_gf = undef;
 	}
 
 sub EVENT_TIMER
 	{
-	if ($timer eq "spires")
+	quest::shout("Checking");
+	my $gfay = $client->GetGlobal(spire_gf);
+	if (defined $qglobals{nexus_gf} && defined $gfay && $client->GetGlobal(spire_gf) == 1)
 		{
-		if (defined $qglobals{nexus_gf} && defined $qglobals{spire_gf}
-			&& $qglobals{spire_gf} == 1 && plugin::check_hasitem($client, 19720))
+		if (plugin::check_hasitem($client, 19720)) 
 			{
-			quest::selfcast(2433);    #self only to avoid AE
-			quest::setglobal("spire_gf", 0, 1, "F");
+			quest::selfcast(2433); #self only to avoid AE
+			$client->SetGlobal("spire_gf",0,1,"F");
 			quest::delglobal("message_gf");
-			$client->NukeItem(19720);    #removes stone from inventory.
-			$nexus_gf   = undef;
-			$spire_gf   = undef;
-			$message_gf = undef;
+			$client->NukeItem(19720); #removes stone from inventory.
 			}
-		elsif (defined $qglobals{nexus_gf} && defined $qglobals{spire_gf}
-			   && $qglobals{spire_gf} == 1 && !defined $qglobals{message_gf}
-			   && !plugin::check_hasitem($client, 19720))
+		elsif (!defined $qglobals{message_gf} && !plugin::check_hasitem($client, 19720)) 
 			{
-			$client->Message(15, "You don't have the correct component to travel to Luclin.");
-			quest::setglobal("message_gf", 1, 1, "M20") ;
-			$nexus_gf   = undef;
-			$spire_gf   = undef;
-			$message_gf = undef;
-			}
-		elsif (defined $qglobals{nexus_gf} && defined $qglobals{spire_gf}
-			   && $qglobals{spire_gf} == 1 && defined $qglobals{message_gf}
-			   && !plugin::check_hasitem($client, 19720))
-			{
-			$nexus_gf   = undef;
-			$spire_gf   = undef;
-			$message_gf = undef;
+			$client->Message(15,"You don't have the correct component to travel to Luclin.");
+			#prevent component message from being spammed.
+			$client->SetGlobal("message_gf",1,1,"M20");
 			}
 		}
 	}

@@ -22,6 +22,6 @@ sub EVENT_SIGNAL
 	{
 	if ($signal == 101)
 		{
-		$npc->CastSpell(54053, 2935);    #flavor
+		$npc->CastSpell(2935, 54053);    #flavor
 		}
 	}

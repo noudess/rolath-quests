@@ -5,7 +5,6 @@ sub EVENT_ENTERZONE
 
 sub EVENT_TIMER
 	{
-	quest::shout("Checking");
 	my $gfay = $client->GetGlobal(spire_gf);
 	if (defined $qglobals{nexus_gf} && defined $gfay && $client->GetGlobal(spire_gf) == 1)
 		{

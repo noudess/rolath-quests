@@ -169,4 +169,7 @@ sub EVENT_DEATH_COMPLETE
 	quest::signal($bandit1id, 0);
 	quest::signal($bandit2id, 0);
 	quest::signal($bandit3id, 0);
+
+	# Spawn Driver Bryggin
+	quest::spawn2(56147, 0, 0, $x, $y, $z, $h);
 	}

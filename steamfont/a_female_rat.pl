@@ -1,17 +1,26 @@
-#Bertoxxulous Initiate quest npc
+sub EVENT_ITEM
+	{
+	#:: Match a 10262 - Vial of Infectious Disease
+	if (plugin::takeItems(10262 => 1))
+		{
+		quest::emote("ingests the virulent substance and becomes ill.");
 
-sub EVENT_ITEM {
-  if(plugin::check_handin(\%itemcount, 10262 => 1)) {
-    quest::emote("sniffs the vial of liquid, then licks up the contents.");
-    quest::summonitem(10263); #Empty infectious vial
-    quest::exp(100);
-quest::ding();
-    my $x = $npc->GetX();
-    my $y = $npc->GetY();
-    my $z = $npc->GetZ();
-    my $h = $npc->GetHeading();
-    quest::spawn2(56148,0,0,$x,$y,$z,$h);
-    $npc->Depop(1);
-  }
-  plugin::return_items(\%itemcount);
-}
+		#:: Give a 10263 - Empty Infectious Vial
+		quest::summonitem(10263);
+
+		#:: Ding!
+		quest::ding();
+
+		#:: Grant a small amount of experience
+		quest::exp(100);
+
+		#:: Spawn a Steamfont Mountains >> diseased_female_rat (56148) at the current location
+		quest::spawn2(56148, 0, 0, $x, $y, $z, $h);
+
+		#:: Depop with spawn timer active
+		quest::depop_withtimer();
+		}
+
+	#:: Return unused items
+	plugin::returnUnusedItems();
+	}

@@ -40,8 +40,6 @@ sub EVENT_ITEM {
 	#:: Match 18946 - Bloodstained Note, 12280 - Klunga's Bracelet, and 100 gold
 	if (plugin::takeItemsCoin(0, 0, 100, 0, 12280 => 1, 18946 => 1)) {
 		quest::say("Biggily boo, biggily borc.. Raise that stinky orc!! Bamm!! Okay!! It's done. Now all you have to do is find him in the spot where his soul left him and give him an orc shovel. Oh!! I didn't mention that? Oh, well. I'm sure you can find one.. somewhere. Now, get lost before I turn you into a toad!");
-		#:: Give a 12277 - Candle of Bravery
-		quest::summonitem(12277);
 		#:: Ding!
 		quest::ding();
 		#:: Set factions (verified)

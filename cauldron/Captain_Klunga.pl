@@ -1,13 +1,18 @@
 sub EVENT_SPAWN {
-	#:: Appearance 1 - Sit
-	$npc->SetAppearance(1);
+	quest::settimer("sit", 10);
 }
+
+sub EVENT_TIMER
+	{
+	quest::stoptimer("sit");
+	plugin::SetAnim(sit);
+	}
 
 sub EVENT_ITEM {
 	#:: Match a 12278 - Abandoned Orc Shovel
 	if (plugin::takeItems(12278 => 1)) {
 		#:: Appearance 0 - Stand
-		$npc->SetAppearance(0);
+		plugin::SetAnim("stand");
 		#:: Move to the specified location and guard 
 		quest::moveto(-395.87, 807.04, 71.78, 0, 1);
 	}

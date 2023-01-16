@@ -6,14 +6,14 @@ sub EVENT_POPUPRESPONSE{
 sub EVENT_DISCONNECT
 	{
 	$peebucket{$charid} = $charid . "-peepers-pee";
-	#quest::shout("Timer $peebucket{$charid} stopped");
+	quest::debug("Timer $peebucket{$charid} stopped");
 	quest::stoptimer($peebucket{$charid});
 	}
 
 sub EVENT_ZONE
 	{
 	$peebucket{$charid} = $charid . "-peepers-pee";
-	#quest::shout("Timer $peebucket{$charid} stopped");
+	quest::debug("Timer $peebucket{$charid} stopped");
 	quest::stoptimer($peebucket{$charid});
 	}
 
@@ -24,7 +24,7 @@ sub EVENT_ENTERZONE
 		{
 		# This character stinks. Set a timer to emit stink
 		quest::settimer($peebucket{$charid}, 60);
-		quest::shout("Timer $peebucket{$charid} started");
+		quest::debug("Timer $peebucket{$charid} started");
 		}
 
 	if ($name eq "Prexus")
@@ -166,14 +166,9 @@ sub EVENT_TIMER
 	{
 	my $mytimer = $charid . "-peepers-pee";
 
-	if ($mytimer ne $timer)
+	if ($mytimer eq $timer)
 		{
-		#quest::shout("Timer $timer stopped");
-		quest::stoptimer($timer);
-		}
-	else
-		{
-		#quest::shout("Timer $timer executing");
+		#quest::debug("Timer $timer executing");
 
 		my @pc_list = $entity_list->GetClientList();
 

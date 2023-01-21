@@ -1,3 +1,82 @@
+sub EVENT_SAY
+	{
+	my $c;
+
+	if ($text =~ /boatstatus/i)
+		{
+		# Check on Golden Maiden
+		$c = quest::get_spawn_condition("qeynos", 0, 4);
+		if ($c > 0)
+			{
+			quest::shout("Golden Maiden is in qeynos.");
+			}
+		$c = quest::get_spawn_condition("erudnext", 0, 6);
+		if ($c > 0)
+			{
+			quest::shout("Golden Maiden is in Erudin.");
+			}
+		$c = quest::get_spawn_condition("erudsxing", 0, 4);
+		$c = $c + quest::get_spawn_condition("erudsxing", 0, 6);
+		if ($c > 0)
+			{
+			quest::shout("Golden Maiden is in Eruds Crossing.");
+			}
+
+		# Check on Sea King
+		$c = quest::get_spawn_condition("qeynos", 0, 5);
+		if ($c > 0)
+			{
+			quest::shout("Sea King is in qeynos.");
+			}
+		$c = quest::get_spawn_condition("erudnext", 0, 7);
+		if ($c > 0)
+			{
+			quest::shout("Sea King is in Erudin.");
+			}
+		$c = quest::get_spawn_condition("erudsxing", 0, 5);
+		$c = $c + quest::get_spawn_condition("erudsxing", 0, 7);
+		if ($c > 0)
+			{
+			quest::shout("Sea King is in Eruds Crossing.");
+			}
+		# Check on Siren's Bane
+		$c = quest::get_spawn_condition("butcher", 0, 4);
+		if ($c > 0)
+			{
+			quest::shout("Siren's Bane is in butcherblock.");
+			}
+		$c = quest::get_spawn_condition("freporte", 0, 6);
+		if ($c > 0)
+			{
+			quest::shout("Siren's Bane is in Freeport.");
+			}
+		$c = quest::get_spawn_condition("oot", 0, 4);
+		$c = $c + quest::get_spawn_condition("oot", 0, 6);
+		if ($c > 0)
+			{
+			quest::shout("Siren's Bane is in the Ocean of Tears.");
+			}
+
+		# Check on StormBreaker
+		$c = quest::get_spawn_condition("butcher", 0, 5);
+		if ($c > 0)
+			{
+			quest::shout("StormBreaker is in Butcherblock.");
+			}
+		$c = quest::get_spawn_condition("freporte", 0, 3);
+		if ($c > 0)
+			{
+			quest::shout("StormBreaker is in Freport.");
+			}
+		$c = quest::get_spawn_condition("oot", 0, 5);
+		$c = $c + quest::get_spawn_condition("oot", 0, 3);
+		if ($c > 0)
+			{
+			quest::shout("StormBreaker is in the Ocean of Tears.");
+			}
+		}
+	}
+
 sub EVENT_POPUPRESPONSE{
     #::: plugin::DiaWind response subroutine
     plugin::DiaWind_Process_Response();

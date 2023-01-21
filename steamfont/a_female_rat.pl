@@ -24,3 +24,13 @@ sub EVENT_ITEM
 	#:: Return unused items
 	plugin::returnUnusedItems();
 	}
+
+sub EVENT_DEATH_COMPLETE
+	{
+	my $spawn = int(rand(5));
+	if ($spawn == 0)
+		{
+		#:: Spawn a Steamfont Mountains >> diseased_female_rat (56148) at the current location
+		quest::spawn2(56148, 0, 0, $x, $y, $z, $h);
+		}
+	}

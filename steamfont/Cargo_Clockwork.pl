@@ -173,3 +173,39 @@ sub EVENT_DEATH_COMPLETE
 	# Spawn Driver Bryggin
 	quest::spawn2(56147, 0, 0, $x, $y, $z, $h);
 	}
+
+sub EVENT_COMBAT 
+	{
+	if($combat_state == 1)
+		{
+		quest::setnexthpevent(30);
+		}
+	}
+
+sub EVENT_HP
+	{
+	quest::emote("looks concerned.");
+	my @hatelist = $npc->GetHateList();
+	@hatelist = sort {$b->GetHate() <=> $a->GetHate()} @hatelist;
+	my $isclient;
+	foreach $ent (@hatelist)
+		{
+		if($ent)
+			{
+			my $h_ent = $ent->GetEnt();
+			my $ent_name = $h_ent->GetCleanName();
+			if($h_ent)
+				{
+				$isclient = $h_ent->IsClient();
+				if ($isclient > 0)
+					{
+					quest::emote("activates his homing gadget.");
+					$npc->WipeHateList();
+					$npc->GMMove($npc->GetSpawnPointX(), $npc->GetSpawnPointY(),
+				 		$npc->GetSpawnPointZ(), $npc->GetSpawnPointH());
+					last;
+					}
+				}
+			}
+		}
+	}

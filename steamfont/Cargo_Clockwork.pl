@@ -1,17 +1,20 @@
 #:: Create a scalar variable to track whether or not the delivery was successful
 my $delivery = 0;
+my $days=0;
 
 #:: Create scalar variables for the bandits to export NPC_Type_ID
 my $bandit1id = 56178;    #:: Hector_the_highway_bandit
 my $bandit2id = 56179;    #:: Renaldo_the_highway_bandit
 my $bandit3id = 56180;    #:: Jerald_the_highway_bandit
 
+my $hatecharid;	#Save id of attacker to request help after escape
+
 
 sub EVENT_SPAWN
 	{
 	if (!defined($qglobals{"CargoDays"}))
 		{
-		quest::setglobal("CargoDays", 0);
+		quest::setglobal("CargoDays", 0, 0, "F");
 		}
 	else
 		{
@@ -37,8 +40,7 @@ sub EVENT_SIGNAL
 
 sub EVENT_TIMER
 	{
-	my $days=0;
-
+	quest::debug("$timer fired");
 	if ($timer eq "DayTimer")
 		{
 		if ($qglobals{"CargoDays"} < 4)
@@ -155,6 +157,13 @@ sub EVENT_TIMER
 			$npc->WipeHateList();
 			}
 		}
+	elsif ($timer eq "helpme")
+		{
+		quest::debug("inside helpme");
+		quest::say("Click.. Click... Attacked on route, engaging regeneration device.  Requesting help from all nearby units!");
+		quest::signalwith(56106, $hatecharid);
+		quest::stoptimer("helpme");
+		}
 	}
 
 sub EVENT_DEATH_COMPLETE
@@ -200,6 +209,8 @@ sub EVENT_HP
 				if ($isclient > 0)
 					{
 					quest::emote("activates his homing gadget.");
+					quest::settimer("helpme",2);
+					$hatecharid = $h_ent->CastToClient()->CharacterID();
 					$npc->WipeHateList();
 					$npc->GMMove($npc->GetSpawnPointX(), $npc->GetSpawnPointY(),
 				 		$npc->GetSpawnPointZ(), $npc->GetSpawnPointH());

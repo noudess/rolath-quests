@@ -2,7 +2,8 @@ sub EVENT_SAY
 	{
 	if ($text =~ /hail/i)
 		{
-		quest::say("Hail $name. Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?"; }
+		quest::say("Hail $name. Are you [interested] in helping the League of Antonican Bards by delivering some [mail]?"); 
+		}
 	if ($text =~ /mail/i)
 		{
 		quest::say("The League of Antonican Bards has a courier system made up of travelers and adventurers. We pay good gold to anyone who will take messages from bards such as myself to one of our more central offices. Are you [interested]?");

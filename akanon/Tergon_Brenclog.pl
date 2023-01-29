@@ -72,7 +72,7 @@ sub EVENT_ITEM
 	#:: Match a 13387 - Tergon's Spellbook
 	elsif ($faction < 5 && plugin::takeItems(13387 => 1))
 		{
-		quest::say("You have done well. I did not expect you for weeks. It is good to have my spellbook returned. It was a simple task. Now I have news of a larger matter. It has to do with a [defector].")
+		quest::say("You have done well. I did not expect you for weeks. It is good to have my spellbook returned. It was a simple task. Now I have news of a larger matter. It has to do with a [defector].");
 		 #:: Give a random reward: 15400 - Spell: Elementaling: Air, 15397 - Spell: Elementaling: Earth, 15399 - Spell: Elementaling: Fire, 15398 - Spell: Elementaling: Water, 15317 - Spell: Elementalkin: Air, 15058 - Spell: Elementalkin: Earth
 		quest::summonitem(quest::ChooseRandom(15400, 15397, 15399, 15398, 15317, 15058));
 		quest::ding();

@@ -21,7 +21,7 @@ sub EVENT_SPAWN
 		# If we've seen 7am four times, start the timer to watch for 7am
 		if ($qglobals{"CargoDays"} == 4)
 			{
-			quest::settimer("CargoTimer", 5);
+			quest::setglobal("CargoDays", 5, 0, "F");
 			}
 		}
 
@@ -52,7 +52,7 @@ sub EVENT_TIMER
 			quest::settimer("CargoTimer", 5);
 			$days = 0;
 			}
-		quest::setglobal("CargoDays", $days);
+		quest::setglobal("CargoDays", $days, 0, "F");
 		}
 	elsif ($timer eq "CargoTimer")
 		{

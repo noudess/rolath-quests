@@ -38,11 +38,11 @@ sub EVENT_SAY
 		{
 		quest::say("Don't take this personally,  but I can't quite trust you with such matters.  Maybe a few less Butcherblock bandits would prove your worth.");
 		}
-	elsif ($text ~= /earn a parrying pick/i)
+	elsif ($text =~ /earn a parrying pick/i)
 		{
 		quest::say("So you want to earn a parrying pick? Consider it an honor that I am even speaking of this with you. The guild had these picks made just for us. It is a magic item used to fend off attacks. Before you can have one, you will have to do me a [great favor]");
 		}
-	elsif ($text ~= /great favor/i)
+	elsif ($text =~ /great favor/i)
 		{
 		quest::say("Mater has asked me to exterminate the dwarven family of Dunfire. They were once members of our guild. They left and now use their talents to aid the Butcherblock bandits. We will not allow them to speak of the skills we taught them. Go and rip out their tongues. Return the tongues of Crytil, Rondo, Keldyn and Barma Dunfire and the parrying pick is yours");
 		}

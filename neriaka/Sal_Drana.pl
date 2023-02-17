@@ -2,7 +2,7 @@ sub EVENT_SAY
 	{ 
 	if($text=~/Hail/i)
 		{
-		quest::say("Greetings to you. It seems we have a bit of a food shortage. I'm afraid I may be out of certain supplies. However, King Thex in his benevolent wisdom has authorized us merchants to look to the Teir`Dal and those friendly to our causes for assistance with this matter. Would you be [willing to assist] us?"); }
+		quest::say("Greetings to you. It seems we have a bit of a food shortage. I'm afraid I may be out of certain supplies. However, King Thex in his benevolent wisdom has authorized us merchants to look to the Teir`Dal and those friendly to our causes for assistance with this matter. Would you be [willing to assist] us?");
 		}
 	if($text=~/assist/i)
 		{
@@ -47,7 +47,3 @@ sub EVENT_ITEM
 		quest::faction(370,1); #Dreadguard Inner
 		}
 	}
-
-#END of FILE Zone:feerrott  ID:47144 -- Innkeep_Gub 
-
- 

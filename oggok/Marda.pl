@@ -43,7 +43,7 @@ sub EVENT_ITEM
 		}
 	elsif ($faction > 5)
 		{
-		quest::("There is much you must do to prove your loyalty to the cause of the Greenbloods.");
+		quest::say("There is much you must do to prove your loyalty to the cause of the Greenbloods.");
 		}
 	elsif (plugin::check_handin(\%itemcount, 18884 => 1)) 
 		{

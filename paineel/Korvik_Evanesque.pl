@@ -19,6 +19,7 @@ sub EVENT_WAYPOINT_ARRIVE
 		{
 		quest::spawn_condition("paineel", 1, 0);
 		quest::spawn_condition("warrens", 1, 1);
+		quest::stoptimer("selos");
 		}
 	}
 

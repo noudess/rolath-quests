@@ -1,3 +1,5 @@
+my $gfay;
+
 sub EVENT_ENTERZONE
 	{
 	quest::settimer("gspires", 10);
@@ -7,7 +9,7 @@ sub EVENT_TIMER
 	{
 	if ($timer eq "gspires")
 		{
-		my $gfay = $client->GetGlobal(spire_gf);
+		$gfay = $client->GetGlobal(spire_gf);
 		if (defined $qglobals{nexus_gf} && defined $gfay && $client->GetGlobal(spire_gf) == 1)
 			{
 			if (plugin::check_hasitem($client, 19720)) 

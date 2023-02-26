@@ -69,6 +69,7 @@ sub EVENT_TIMER
 				quest::set_data($key, 1, 7200);
 
 				#:: Start path grid 177 - path to the windmills
+				quest::processmobswhilezoneempty(1);
 				quest::start(177);
 				}
 			}
@@ -84,6 +85,7 @@ sub EVENT_TIMER
 		if ($x == 700 && $y == -1783 && $delivery == 1)
 			{
 			#:: Stop pathing on path grid 177
+			quest::processmobswhilezoneempty(0);
 			quest::stop();
 
 			#:: Reset the delivery state
@@ -181,6 +183,7 @@ sub EVENT_DEATH_COMPLETE
 
 	# Spawn Driver Bryggin
 	quest::spawn2(56147, 0, 0, $x, $y, $z, $h);
+	quest::processmobswhilezoneempty(0);
 	}
 
 sub EVENT_COMBAT 

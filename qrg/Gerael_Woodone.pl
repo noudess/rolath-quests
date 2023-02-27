@@ -55,7 +55,7 @@ sub EVENT_ITEM {
 	  quest::exp(2000);
       quest::summonitem(18912);
    }
-   elsif (plugin::check_handin(\%itemcount,18864=>1)) {
+   elsif ($faction < 5 && plugin::check_handin(\%itemcount,18864=>1)) {
       quest::say("So the Unkempt Druids are alive and well.  We shall keep a watchful eye out as should you.  Take this for your bravery and defense of the Jaggedpine.");
 	  # Factions verified on ZAM
       quest::faction(272,15);
@@ -68,7 +68,7 @@ sub EVENT_ITEM {
 	  quest::exp(2000);
       quest::summonitem(9006);
 	  }
-   elsif (plugin::check_handin(\%itemcount,12141=>1)) {
+   elsif ($faction < 5 && plugin::check_handin(\%itemcount,12141=>1)) {
       quest::say("So the Unkempt Druids are alive and well.  We shall keep a watchful eye out as should you.  Take this for your bravery and defense of the Jaggedpine.");
 	  # Factions verified on ZAM
       quest::faction(272,20);

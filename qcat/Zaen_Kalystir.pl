@@ -7,7 +7,7 @@ sub EVENT_SAY
 
 	if($text=~/do his bidding/i) 
 		{
-		quest::say("That is good.  We need you to go and speak with [Commander Kane Bayle] of the Qeynos Militia.  You will find him at the gatehouse.  Tell hi that the disease is spreading.  Now go.");
+		quest::say("That is good.  We need you to go and speak with [Commander Kane Bayle] of the Qeynos Militia.  You will find him at the gatehouse.  Tell him that the disease is spreading.  Now go.");
 		}
 
 	if($text=~/too busy/i) 

@@ -17,6 +17,19 @@ sub EVENT_SAY
 		{
 		quest::say("'Happy love bracers! Dem ugly tings! Me gave dem to old flame in Neriak. Him old news now. Me let him keep dem ugly green tings.");
 		}
+	if($text=~/broken skull/i)
+		{
+		quest::say("We Broken Skull be da only survivin founding clan of trolls.  All hail da legendary hero [Nalikor] who crossed da teeth of Trakanon and spoke to da mighty dragon god!");
+		}
+	if($text=~/nalikor/i)
+		{
+		quest::say("Nalikor be chosen by da dragon Trakanon to weild da Flaming Sword and leads da troll peoples from da dead lands of Kunark.  In a mighty fleet of trol bone ships, he leds da peoples here, mad good war wid ogres and won da respect of ogre king Gharn who agree to truce.  King Gharn helped da great Nalikor tablish new kingdom and trades her and da legendary hero Nalikor promish military aids in return.  Long has the treat of the [Burning Blade] stood!");
+		}
+	if($text=~/burning blade/i)
+		{
+		quest::say("Nalikor gave da Burning Blade dat Trakanon give him to seal da treaty wid da ogres.  It be cased in magik crystal in secret place, deep in temple dat lizards tookis.  Someday we destroy all da lizards and find secret place. Den I red da sacred words etched in magik... 'Here the great alliance was formed between king Gharn the slayer and Trakanon's chosen. May death come to those who seek to disrupt it.'");
+		quest::emote("closes her eyes and burps in blissful contemplation.");
+		}
 	}
 
 sub EVENT_ITEM 

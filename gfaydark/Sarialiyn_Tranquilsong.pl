@@ -64,7 +64,7 @@ sub EVENT_SAY
 		quest::say("To create your gauntlet material you will need to combine 3 Bricks of Crude Bronze. 1 Spider Legs. 1 Orc Sternum. 1 Orc Head and 1 Orc Humerus in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Gauntlets of the Tranquilsong.");
 		quest::summonitem("22615");
 		}
-	if ($text =~ /breastplates/i)
+	if ($text =~ /tunic/i)
 		{
 		quest::say("To create your breastplate material you will need to combine 5 Bricks of Crude Bronze. 1 Orc Fibula. 1 Pristine Forest Drakeling Scale. 1 Golden Bandit Tooth. 1 Orc Eye and 1 Orc Ribcage in your assembly kit. Once you have created the proper material take it to a forge along with this mold to fashion your very own Breastplate of the Tranquilsong. Once you have completed your armor set please return to me for I have one final exercise for you to complete.");
 		quest::summonitem("22616");

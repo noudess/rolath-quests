@@ -1,3 +1,5 @@
+my $mytimer = "";
+
 sub EVENT_SAY
 	{
 	my $c;
@@ -82,22 +84,9 @@ sub EVENT_POPUPRESPONSE{
     plugin::DiaWind_Process_Response();
 }
 
-sub EVENT_DISCONNECT
-	{
-	$peebucket{$charid} = $charid . "-peepers-pee";
-	quest::debug("Timer $peebucket{$charid} stopped");
-	quest::stoptimer($peebucket{$charid});
-	}
-
-sub EVENT_ZONE
-	{
-	$peebucket{$charid} = $charid . "-peepers-pee";
-	quest::debug("Timer $peebucket{$charid} stopped");
-	quest::stoptimer($peebucket{$charid});
-	}
-
 sub EVENT_ENTERZONE 
 	{
+	quest::debug("$name entered zone");
 	$peebucket{$charid} = $charid . "-peepers-pee";
 	if (quest::get_data($peebucket{$charid}))
 		{
@@ -161,11 +150,12 @@ sub EVENT_ENTERZONE
 	my $deity = $client->GetDeity();
 	my $gm="Cazic Thule";
 
+	quest::debug("$class is $name class");
 	if ($class eq "Cleric")
 		{
 		$gm="Miadera";
 		}
-	elsif ($class eq "Shadow Knight")
+	elsif ($class eq "Shadowknight")
 		{
 		$gm="Shevra";
 		}
@@ -178,6 +168,7 @@ sub EVENT_ENTERZONE
 		{
 		$client->Message(13, "$name! It is unfathomable that you have allowed what has transpired.  I can only guess that you actually desire death by dismemberment.  Our new guard dogs have been slain, and I hear nothing from your lips.  Come, see me, and we shall discuss your punishment for your [betrayal] - $gm.");
 		}
+	quest::debug("$name zone in complete");
 	}
 
 sub CheckSkills {
@@ -243,8 +234,9 @@ sub EVENT_CAST {
 
 sub EVENT_TIMER
 	{
-	my $mytimer = $charid . "-peepers-pee";
+	$mytimer = $charid . "-peepers-pee";
 
+	quest::debug("Global timer $timer running");
 	if ($mytimer eq $timer)
 		{
 		#quest::debug("Timer $timer executing");

@@ -30,7 +30,7 @@ sub EVENT_ITEM
 		quest::faction(291,1);	#Merchants of Qeynos
         quest::givecash(0,7,0,0);
 		$client->AddLevelBasedExp(4, 14);
-		quest::MerchantSetItem(10043, 13014, 20);
+		quest::MerchantSetItem(8086, 13014, 20);
         quest::ding();
         }
     if (plugin::check_handin(\%itemcount, 1838 => 1))

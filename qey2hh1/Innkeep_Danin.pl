@@ -23,14 +23,15 @@ sub EVENT_ITEM
     {
     if (plugin::check_handin(\%itemcount, 1839 => 1))
         {
-        quest::say("These are quality muffins! You are obviously quite a skilled baker. Here is your payment as promised. Now I can get back to business again.");
-		quest::faction(229,2);	#Coalition of Tradefolk
-		quest::faction(336,2);	#Coalition of Tradefolk Underground
-		quest::faction(281,1);	#Knights of Truth
-		quest::faction(291,1);	#Merchants of Qeynos
-        quest::givecash(0,7,0,0);
+        quest::say("Ah, praise Karana! These muffins look good enough to eat, har har har! Here is your payment and you have my deepest gratitude. We have to stick together in these times of turmoil you know.");
+		quest::faction(291,2);	#Merchants of Qeynos
+		quest::faction(262,1);	#Guards of Qeynos
+		quest::faction(219,1);	#Antonius Bayle
+		quest::faction(229,1);	#Coalition of Tradefolk
+		quest::faction(223,-1);	#Circle of Unseen Hands
+        quest::givecash(0,4,2,0);
 		$client->AddLevelBasedExp(4, 14);
-		quest::MerchantSetItem(10043, 13014, 20);
+		quest::MerchantSetItem(12102, 13014, 20);
         quest::ding();
         }
     if (plugin::check_handin(\%itemcount, 1838 => 1))
@@ -38,10 +39,11 @@ sub EVENT_ITEM
         quest::say("Ahhh, fresh baked bread! Thank you for making the trip, it's not far, but I can never seem to find the time. Here is a little coin for your travel expenses. You have my thanks.");
         quest::emote("whistles as he quickly restocks his shelves.");
         quest::givecash(0,0,7,1);
-		quest::faction(229,4);	#Coalition of Tradefolk
-		quest::faction(336,4);	#Coalition of Tradefolk Underground
-		quest::faction(281,1);	#Knights of Truth
-		quest::faction(291,1);	#Merchants of Qeynos
+		quest::faction(291,4);	#Merchants of Qeynos
+		quest::faction(262,1);	#Guards of Qeynos
+		quest::faction(219,1);	#Antonius Bayle
+		quest::faction(229,1);	#Coalition of Tradefolk
+		quest::faction(223,-1);	#Circle of Unseen Hands
 		$client->AddLevelBasedExp(4, 14);
         quest::ding();
         }

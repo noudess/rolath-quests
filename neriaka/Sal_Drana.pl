@@ -32,8 +32,8 @@ sub EVENT_ITEM
 		$client->AddLevelBasedExp(4, 14);
 		quest::ding();
 		quest::MerchantSetItem(47144, 13014, 20);
-		quest::faction(236,1); #Dark Bargainers
-		quest::faction(334,2); #Dreadguard Outer
+		quest::faction(236,2); #Dark Bargainers
+		quest::faction(334,1); #Dreadguard Outer
 		quest::faction(370,1); #Dreadguard Inner
 		}
 	if (plugin::check_handin(\%itemcount, 1838 => 1))
@@ -42,8 +42,8 @@ sub EVENT_ITEM
 		quest::givecash(0,0,3,1);
 		$client->AddLevelBasedExp(4, 14);
 		quest::ding();
-		quest::faction(236,1); #Dark Bargainers
-		quest::faction(334,2); #Dreadguard Outer
+		quest::faction(236,4); #Dark Bargainers
+		quest::faction(334,1); #Dreadguard Outer
 		quest::faction(370,1); #Dreadguard Inner
 		}
 	}

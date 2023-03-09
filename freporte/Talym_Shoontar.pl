@@ -1,202 +1,40 @@
-############################################
-# ZONE: East Freeport (freporte)
-# DATABASE: PEQ-Velious
-# LAST EDIT DATE: July 29,2005
-# VERSION: 1.0
-# BASE QUEST BY: MWMDRAGON
-# DEVELOPER: MWMDRAGON
-#
-# *** NPC INFORMATION ***
-#
-# NAME: Talym_Shoontar
-# ID: 10182
-# TYPE: Warrior
-# RACE: Barbarian
-# LEVEL: 15
-#
-# *** ITEMS GIVEN OR TAKEN ***
-#
-# itemname ID- itemid
-#
-# *** QUESTS INVOLVED IN ***
-#
-#1 - Talym's Head
-#2 - questname
-#3 - questname
-#
-# *** QUESTS AVAILABLE TO ***
-#
-#1 - Paladin, Cleric
-#2 - classes_that_can_do_the_quest
-#3 - classes_that_can_do_the_quest
-#
-# *** NPC NOTES ***
-#
-# Must drop (Barbarian Head ID-13913) for a quest
-#
-############################################
-
-######## EVENT_SAY AREA ####################
-### Called when the NPC is spoken to by a PC
-
-sub EVENT_SAY
-{
-   if($text=~/Hail/i)
-   {
-   quest::say("Hello $name, I hope your hunt is going well.");
-   }
+sub EVENT_SAY {
+	if ($text=~/hail/i) {
+		quest::say("How are you, friend? It is a good day to be alive in Antonica! If you should happen to visit Surefall Glade, say hello to [Hager Sureshot] for me.");
+	}
+	elsif ($text=~/hager sureshot/i) {
+		quest::say("Hager Sureshot is that know-nothing ranger in charge of the Protectors of the Pine. He thinks he can protect all of Surefall Glade. He is wrong.");
+	}
 }
 
-######## EVENT_ITEM AREA ###################
-### Called when the NPC is handed items
-
-sub EVENT_ITEM
-{
-
-   # itemname ID- itemid
-   if($itemcount{0000} == 1)
-   {
-   quest::ding();
-   quest::say("Thanks");
-   quest::exp("0");
-quest::ding();
-   quest::givecash("0","0","0","0");
-
-   ### Random Item choosing if needed
-   # $random=int(rand itemid+itemid+itemid);
-   # quest::summonitem($randon);
-
-   # itemname ID- itemid
-   quest::summonitem("0000");
-
-   }
+sub EVENT_SIGNAL {
+	#:: Mising signal for this dialogue
+	if ($signal == 1) {
+		quest::say("What kind of girly song was tha? It stank as bas as a troll's breath.");
+	}
+	#:: Match signal '2' from /freporte/Palana_Willin.pl
+	elsif ($signal == 2) {
+		quest::say("Get off the stage, lass! Can't ye see he left because ye can't carry a tune?!");
+	}
+	#:: Match signal '3' from /freporte/Trolon_Lightleer.pl
+	elsif ($signal == 3) {
+		quest::say("Yeah!! Sir Lucan is nothing more than a glory monger.");
+	}
+	#:: Match a signal '4' from /freporte/Tlin_Bowfright.pl
+	elsif ($signal == 4) {
+		quest::say("Antonius Bayle is a blithering fool.");
+		#:: Send a signal '2' to East Freeport >> Tlin_Bowfright (10186) with no delay
+		quest::signalwith(10186, 2, 0);
+	}
+	#:: Match a signal '5' from /freporte/Tlin_Bowfright.pl
+	elsif ($signal == 5) {
+		quest::say("All right, Tlin! I am going to smash your face in!");
+		#:: Attack East Freeport >> Tlin_Bowfright (10186)
+		quest::attacknpctype(10186);
+	}
 }
 
-######## EVENT_AGGRO AREA ##################
-### Called when the NPC is aggroed
-
-sub EVENT_AGGRO
-{
-
-
-
+sub EVENT_ITEM {
+	#:: Return unused items
+	plugin::returnUnusedItems();
 }
-
-######## EVENT_ATTACK AREA #################
-### Called when the NPC is Attacked
-
-sub EVENT_ATTACK
-{
-
-
-
-}
-
-######## EVENT_DEATH AREA ##################
-### Called when the NPC is killed
-
-sub EVENT_DEATH
-{
-
-
-
-}
-
-######## EVENT_ENTER AREA ##################
-### Called when a PC enters the NPCs Proximity
-
-sub EVENT_ENTER
-{
-
-
-
-}
-
-######## EVENT_EXIT AREA ###################
-### Called when a PC exits the NPCs Proximity
-
-sub EVENT_EXIT
-{
-
-
-
-}
-
-######## EVENT_HP AREA #####################
-### Called when the HP of the NPC drop below a set level
-
-sub EVENT_HP
-{
-
-
-
-}
-
-######## EVENT_SIGNAL AREA #################
-### Called when a signal is sent to the NPC
-
-sub EVENT_SIGNAL
-{
-
-# Sent from Tlin Bowfright ID-10186
-if ($signal == 1)
-   {
-    quest::say("Antonius Bayle is a blithering fool.");
-   
-   # Tlin Bowfright ID-10186
-   quest::signal(10186,1);
-   } 
-
-# Sent from Tlin Bowfright ID-10186
-if ($signal == 2)
-   {
-    quest::say("All right, Tlin! I am going to smash your face in!");
-   } 
-
-}
-
-######## EVENT_SLAY AREA ###################
-### Called when the NPC kills someone
-
-sub EVENT_SLAY
-{
-
-
-
-}
-
-######## EVENT_SPAWN AREA ##################
-### Called when the NPC spawns
-
-sub EVENT_SPAWN
-{
-
-
-}
-
-######## EVENT_TIMER AREA ##################
-### Called when a timer has completed its cycle
-
-sub EVENT_TIMER
-{
-
-
-
-}
-
-######## EVENT_WAYPOINT_DEPART AREA ###############
-### Called when the NPC reaches a waypoint
-
-sub EVENT_WAYPOINT_DEPART
-{
-
-
-
-}
-
-### EQEmu Quest Template By: MWMDRAGON
-### The End of this script must contain 2 empty lines for the EQ Quest System
-#END of FILE Zone:freporte  ID:10182 -- Talym_Shoontar
-
-
-

@@ -17,7 +17,7 @@ sub EVENT_SAY
 	{
 	if ($faction > 5)
 		{
-		quest::reject_say();
+		plugin::reject_say();
 		}
 	elsif ($text =~ /hail/i)
 		{

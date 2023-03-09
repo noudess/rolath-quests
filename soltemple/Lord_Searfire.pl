@@ -4,6 +4,10 @@ sub EVENT_SAY
 		{
 		quest::say("Greetings!  May the glory of Solusek Ro burn in your veins.  I am the forge master of this temple.  Called to service by the Burning Prince.  Should you ever need my service and find me gone. have no fear. I shall return.  I must occasionally venture to other realms in service of the temple.  I shall always return. this is my eternal home."); 
 		}
+	if($text=~/solusek ro/)
+		{
+		quest::say("Solusek Ro is the Master of Fire and the Keeper of Power.");
+		}
 	if($text=~/ronium/) 
 		{
 		quest::say("You seek ronium.  It is a fine blend of metals.  I alone hold the secret of its formula.  I, and I alone, can offer it to those who serve this temple.  Do you wish a [bar of the alloy]?");

@@ -14,7 +14,7 @@ sub EVENT_SAY
 		}
 	elsif($text=~/interested in the circlet/i) 
 		{
-		quest::say("I will be needing the proper components to craft the circlet of mist. I will be needing a Globe of Mist which can be found on festering hags, a Water Ring from a Tidal Lord in Dagnor's Cauldron, a Ring of Evoluoy from an alligator in Feerrott, and a Sapphire, I will craft it for you.");
+		quest::say("I will be needing the proper components to craft the circlet of mist. I will be needing a Globe of Mist which can be found on festering hags, a Water Ring from a Tidal Lord in Dagnor's Cauldron, and a Sapphire, I will craft it for you.");
 		}
 	elsif($text=~/clay bracelet/i) 
 		{
@@ -47,9 +47,9 @@ sub EVENT_ITEM
 	if ($faction < 6)
 		{
 		#circlet
-		if($itemcount{10545} && $itemcount{10547} && $itemcount{10034} && $itemcount{10546} == 1) 
+		if($itemcount{10545} && $itemcount{10034} && $itemcount{10546} == 1) 
 			{
-			quest::say("You have done well. You are truly a powerful magician. Here is yourCirclet of Mist.");
+			quest::say("Astounding! You found all three components that I need to make the Circlet of Mist. Wasn't that ring annoying ? I always find goblins hard to deal with. Well done! Take this circlet with my complements.");
 			quest::summonitem(2358);
 			quest::faction(415,"5");
 			quest::faction(416,"-1");

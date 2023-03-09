@@ -61,11 +61,11 @@ sub EVENT_ITEM
 		#:: Ding!
 		quest::ding();
 		#:: Set factions
-		quest::faction(265,400);	# + Heretics
-		quest::faction(254,-400);	# - Gate Callers
-		quest::faction(242,-400);	# - Deepwater Knights
-		quest::faction(231,-400);	# - Craftkeepers
-		quest::faction(233,-400);	# - Crimson Hands
+		quest::faction(265,200);	# + Heretics
+		quest::faction(254,-200);	# - Gate Callers
+		quest::faction(242,-200);	# - Deepwater Knights
+		quest::faction(231,-200);	# - Craftkeepers
+		quest::faction(233,-200);	# - Crimson Hands
 		#:: Grant a moderate amount of experience
 		quest::exp(1000);
 		#:: Create a hash for storing cash - 1111 to 9999cp

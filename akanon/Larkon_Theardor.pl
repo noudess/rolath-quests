@@ -49,7 +49,7 @@ sub EVENT_SAY
 sub EVENT_ITEM
 	{
 	#:: Match two 13077 -  Minotaur Horn
-	if ($faction < 5 && plugin::takeItems(13077 => 2))
+	if (plugin::takeItems(13077 => 2))
 		{
 		quest::say("Fine work. You have earned the respect of the Library. Here is a small token of our appreciation. We shall have this ground down as soon as we find someone to go to [Kaladim].");
 		quest::ding();

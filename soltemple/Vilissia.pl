@@ -51,7 +51,8 @@ sub EVENT_ITEM
 			{
 			quest::say("You impress me, adventurer! I had not expected you to return with all of the runes. Very well, I shall keep my half of the bargain. Here is your runescale cloak.");
 			quest::summonitem(2364);
-			quest::faction(415,"1");
+			#Faction verified per live turnin.
+			quest::faction(415,"10");
 			quest::faction(416,"-1");
 			quest::exp(1000);
 			quest::ding();

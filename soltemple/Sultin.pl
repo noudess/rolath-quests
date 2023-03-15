@@ -79,6 +79,7 @@ sub EVENT_ITEM
 			{
 			quest::say("'Fortune favors you .. as will this mask.");
 			quest::summonitem(2350);
+			# Factions per ZAM
 			quest::faction(415,"5");
 			quest::faction(416,"-1");
 			quest::exp(1000);

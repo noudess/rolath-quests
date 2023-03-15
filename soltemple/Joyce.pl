@@ -51,6 +51,7 @@ sub EVENT_ITEM
 			{
 			quest::say("Astounding! You found all three components that I need to make the Circlet of Mist. Wasn't that ring annoying ? I always find goblins hard to deal with. Well done! Take this circlet with my complements.");
 			quest::summonitem(2358);
+			# verified on ZAM
 			quest::faction(415,"5");
 			quest::faction(416,"-1");
 			}
@@ -59,6 +60,7 @@ sub EVENT_ITEM
 			{
 			quest::say("One, two, three.. all four runes of clay! I knew you looked competent. I am very impressed! Please take the Clay Bracelet that you have earned.");
 			quest::summonitem(2359);
+			# verified on ZAM
 			quest::faction(415,"5");
 			quest::faction(416,"-1");
 			}

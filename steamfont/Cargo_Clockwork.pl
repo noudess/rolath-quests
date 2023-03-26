@@ -1,5 +1,7 @@
 #:: Create a scalar variable to track whether or not the delivery was successful
 my $delivery = 0;
+my $windmill = 0;
+my $grep = 0;
 my $days=0;
 
 #:: Create scalar variables for the bandits to export NPC_Type_ID
@@ -12,20 +14,23 @@ my $hatecharid;	#Save id of attacker to request help after escape
 
 sub EVENT_SPAWN
 	{
+	# If this quest has never run, start at day = 0
 	if (!defined($qglobals{"CargoDays"}))
 		{
 		quest::setglobal("CargoDays", 0, 0, "F");
 		}
 	else
 		{
-		# If we've seen 7am four times, start the timer to watch for 7am
+		# If we've seen 7am four times, move to day 5 immediately
 		if ($qglobals{"CargoDays"} == 4)
 			{
 			quest::setglobal("CargoDays", 5, 0, "F");
 			}
 		}
 
-	quest::settimer("DayTimer", 86400);
+	# One EQ day is 72 minutes. Timers dont process with an empty zone, so
+	# this really isnt 5 EQ days, its 5 EQ days + dead zone days
+	quest::settimer("DayTimer", 4320);
 	}
 
 sub EVENT_SIGNAL
@@ -40,7 +45,7 @@ sub EVENT_SIGNAL
 
 sub EVENT_TIMER
 	{
-	quest::debug("$timer fired");
+	#quest::debug("$timer fired");
 	if ($timer eq "DayTimer")
 		{
 		if ($qglobals{"CargoDays"} < 4)
@@ -69,14 +74,16 @@ sub EVENT_TIMER
 				quest::set_data($key, 1, 7200);
 
 				#:: Start path grid 177 - path to the windmills
+				quest::say("This unit requires oiling.");
 				quest::processmobswhilezoneempty(1);
 				quest::start(177);
 				}
 			}
 
 		# Arrived at Frebin (windmills)
-		if ($x == -400 && $y == -150)
+		if ($x == -400 && $y == -150 && $windmill == 0)
 			{
+			$windmill = 1;
 			quest::emote("Chuga.. Chug..Chug..");
 			quest::say("This unit requires maintenance.");
 			}
@@ -90,13 +97,16 @@ sub EVENT_TIMER
 
 			#:: Reset the delivery state
 			$delivery = 0;
+			$grep = 0;
+			$windmill = 0;
 
 			#:: Reset the data bucket
 			quest::delete_data($key);
+			quest::stoptimer("CargoTimer");
 			}
 
 		#:: Match if at the crossroads with Watchman Grep (WP 7)
-		if ($x == 550 && $y == -830)
+		if ($x == 550 && $y == -830 && $grep == 0)
 			{
 			#:: Pull a list of clients from the entity list
 			my @ClientList = $entity_list->GetClientList();
@@ -105,6 +115,7 @@ sub EVENT_TIMER
 			if (scalar @ClientList > 0)
 				{
 				quest::say("kachunk .. kachunk..");
+				$grep = 1;
 
 				#:: Send a signal '1' to Watchman Grep with no delay
 				quest::signalwith(56066, 1, 0);
@@ -161,7 +172,7 @@ sub EVENT_TIMER
 		}
 	elsif ($timer eq "helpme")
 		{
-		quest::debug("inside helpme");
+		#quest::debug("inside helpme");
 		quest::say("Click.. Click... Attacked on route, engaging regeneration device.  Requesting help from all nearby units!");
 		quest::signalwith(56106, $hatecharid);
 		quest::stoptimer("helpme");
@@ -175,6 +186,8 @@ sub EVENT_DEATH_COMPLETE
 
 	#:: Reset delivery status to 0
 	$delivery = 0;
+	$grep = 0;
+	$windmill = 0;
 
 	#:: Send a signal to each bandit so they can gloat
 	quest::signal($bandit1id, 0);

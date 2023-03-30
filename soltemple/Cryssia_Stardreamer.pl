@@ -8,31 +8,31 @@ sub EVENT_SAY
 		}
 	elsif($text=~/hail/i) 
 		{
-		quest::say("Well met $name. I am Cryssia Stardreamer of the Temple of Solusek Ro, protector of a powerful armor that will aid any bard in their journey across Norrath.  Are you a bard that desires this armor?");
+		quest::say("Hail and good day to you $name. I am Cryssia Stardreamer of the League of Antonican Bards. My colleague Walthin and I are here while we deal in [lambent stones] with the followers of Solusek Ro. If you are interested, my partner and I also deal in [lambent armor]... the perfect armor for a bard of note.");
 		}
-	elsif($text=~/no/i) 
+	elsif($text=~/stones/i) 
 		{
-		quest::say("Very well then.");
+		quest::say("Lambent stones are gemstones of great power. They are midnight blue in color - if you want more information on them you should ask Genni.");
 		}
-	elsif($text=~/yes/i) 
+	elsif($text=~/armor/i) 
 		{
-		quest::say("Very well. I can craft a special type of bardic armor called lambent.  I can craft for you a set of [bracers], a [breastplate], a [helm], and [vambraces]. I require a special kind of lambent stone for each of my armor pieces.  Find my friends Orstorm, Genni, Gardern, and Vilissia within the temple and they will help you create them.");
+		quest::say("'Lambent armor is custom crafted armor, made especially for bards. It is forged by the MeadowGreen brothers and then enchanted by the followers of Solusek Ro. If you are interested, I can tell you about the [lambent helm], the [lambent breastplate], [lambent vambraces] or [lambent bracers]. My colleague Walthin can tell you about other lambent armor pieces.");
 		}
 	elsif($text=~/bracers/i) 
 		{
-		quest::say("Alright, I will be needing some items. Return to me with them and I will craft your bracers. I will be needing a Dark Boned Bracelet, a Griffenne Charm, and a Lambent Fire Opal.");
+		quest::say("Lambent bracers are nice armor, and do not have the same level of complexity that other lambent armor pieces possess. If you can fetch for me a dark boned bracelet from a greater dark boned skeleton, a griffenne charm and a lambent fire opal, I will give you a lambent bracer.");
 		}
 	elsif($text=~/breastplate/i) 
 		{
-		quest::say("This is the most difficult piece to make. In order for me to craft it I will be needing a Basalt Carapace, a Gypsy Lute, and a Lambent Ruby. Return to me with these and I will craft your breastplate.");
+		quest::say("Lambent breastplates are not cheap, but I can get you one if you bring me a few items I need for later trades with the followers of Solusek Ro. Bring me a basalt carapace from the caverns of Guk and a gypsy lute from the Castle of Mistmoore. You will also need to see Genni about getting me a lambent ruby. Collect these items for me, and I will give you a lambent breastplate.");
 		}
 	elsif($text=~/helm/i) 
 		{
-		quest::say("In order to craft the helm, I will be needing a Mudwater Rune, an Opoline Helm, and a Lambent Star Ruby. Give these items to me and I will craft your helm");
+		quest::say("I can give you a lambent helm, but you will need to fetch me a few items I need for later trades with the followers of Solusek Ro. I require an opoline helm from a Deepwater goblin and a mudwater rune from Cazic-Thule. Finally, you will also need to see Genni about getting me a lambent star ruby. Bring me these items, and I will give you a lambent helm.");
 		}
 	elsif($text=~/vambraces/i) 
 		{
-		quest::say("Very good, get me some Fiery Vambraces, the top portion of the Rune of the One Eye, and a Lambent Sapphire.");
+		quest::say("I will give you lambent vambraces if you can acquire the following items for me - fiery vambraces from a Solusek champion and the top portion of the Rune of the One Eye from Choon. You will also need to see Genni about getting me a lambent sapphire. Acquire these items for me and I will give you lambent vambraces.");
 		}
 	}
 

@@ -48,7 +48,7 @@ sub EVENT_ITEM
 			quest::summonitem(18944); # A note
 			}
 
-		if($itemcount{10538} == 1 && $itemcount{10031} == 1 && $itemcount{7331} == 1 && $itemcount{5103} == 1) 
+		if($itemcount{10538} == 1 && $itemcount{10031} == 1 && $itemcount{7331} == 1 && $itemcount{18944} == 1) 
 			{ # A Fungus Eye, Fire Opal, Shadowed Knife, Note
 			quest::summonitem("5316"); # Harvester
 			quest::ding();

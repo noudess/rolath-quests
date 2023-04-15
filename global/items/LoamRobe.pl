@@ -17,12 +17,12 @@ sub EVENT_SCALE_CALC
 		$degraded_seconds = $epoc - $qglobals{$robestatus}
 		}
 	
-	# Worst we can get is 50% value for now
+	# Worst we can get is 30% value for now
 	# We rot at a rate of 2.77% per month over 18 months;
 
 	my $seconds_to_worst = 18.0 * 30.0 * 24.0 * 60.0 * 60.0;
 	my $rotted_perc = $degraded_seconds / $seconds_to_worst / 2.0;
-	my $current_scale = .5 + (.5 - $rotted_perc);
+	my $current_scale = .3 + (.5 - $rotted_perc);
 
 	my $disc_perc = $current_scale * 100.0;
 	

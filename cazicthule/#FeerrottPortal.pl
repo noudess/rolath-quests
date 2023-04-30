@@ -10,6 +10,6 @@ sub EVENT_ENTER
 	$z = $client->GetZ();
 	if ($z > -5)
 		{
-		$client->MovePC(47, -90, -1488, 51, 380);
+		$client->MovePC(47, -111, -1447, 51, 125);
 		}
 	}

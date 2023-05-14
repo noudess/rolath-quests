@@ -20,6 +20,7 @@ sub EVENT_ITEM
 		{
 		quest::say("You serve the Burning Prince as I do. The Redeemed has instructed me to give you this reward upon completion of your test. Practice your arts and prepare yourself. Evil approaches our realm. Long live Ro!!");
 		quest::ding();
+		quest::exp(1000);
 		quest::summonitem(7041);	#Burning Rapier
 		# Factions verified on live
 		quest::faction(415,25);		#faction better: 'Temple Of Sol Ro'

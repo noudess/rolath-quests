@@ -26,7 +26,7 @@ sub EVENT_SAY
 		quest::say("The deadly liquid I offer to rogues is called spider venom. I will be glad to make it for you, but first you must supply me with two snake venom sacs and my fee of 20 gold pieces. You may find the sacs upon the giant snakes of the Commonlands.");
 		}
 
-	if ($text=~/gems/i && $class eq "Rogue") 
+	if ($text=~/seek the gem/i && $class eq "Rogue") 
 		{
 		quest::say("I have made an acquaintance with a certain gem and a [gem case]. I belive I still have one of the keys needed to open the case.");
 		}

@@ -18,8 +18,8 @@ sub EVENT_SAY
 		}
     if ($text =~ /soil of underfoot/i)
         {
-		# Need somewhere above 100..
-        if ($couf < 125)
+		# Need somewhere between 403 and 453
+        if ($couf < 425)
             {
             quest::say("The Clerics of Underfoot have yet to see your faith directed towards our wills.  Perhaps you should assist Master Gunlok Jure in the crusade against the undead.");
             }

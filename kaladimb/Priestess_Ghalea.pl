@@ -49,6 +49,8 @@ sub EVENT_ITEM
         quest::say("May the mighty power of Brell saturate this soil with his divinity.  Here you are, my noble friend.  You may have a pouch of the soil of Underfoot.");
         quest::summonitem(12282);    # Soil of Underfoot
 		# Factions verified on zam.
+		quest::exp(165000);
+		quest::ding();
         quest::faction( 227, 5 );    # Clerics of Underfoot
         quest::faction( 274, 5 );    #Kazon Stormhammer
         quest::faction( 293, 3 );    #Miner's guild 249

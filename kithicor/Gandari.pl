@@ -74,8 +74,8 @@ sub REWARD
 	quest::faction(302,+1); # protectors of the pine
 	quest::faction(272,+1); # jaggedpine treefolk
 	quest::faction(324,-1); # unkempt druids
-	#Exp was more than 7K for level 75 Ranger.
-	quest::exp(10000);
+	#Exp was .045% for level 75 Ranger.
+	quest::exp(413550);
 	}
 
 # END of FILE Zone:kithicor  ID:20095 -- Gandari

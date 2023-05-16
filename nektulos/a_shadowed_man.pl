@@ -2,7 +2,7 @@ sub EVENT_SPAWN
 	{
 	# Roll for unique vials of shadow
 	my $roll = plugin::RandomRange(1,1000);
-	if ($roll <= 15)
+	if ($roll <= 21)
 		{
 		if ($zoneid == 25) # Nektulos
 			{

@@ -56,7 +56,7 @@ sub EVENT_ITEM
 		{
 		# Add dialogue, faction and xp
 		#:: Give a 32038 - Rod
-		quest::exp(300000);
+		quest::exp(30000);
 		quest::summonitem(32038);
 		}
 

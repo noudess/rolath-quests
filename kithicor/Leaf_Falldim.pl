@@ -36,7 +36,7 @@ sub EVENT_ITEM {
 		quest::faction(272, 1); 	#:: + Jaggedpine Treefolk
 		quest::faction(324, -1); 	#:: - Unkempt Druids
 		#:: Grant a large amount of experience
-		quest::exp(10000);		
+		quest::exp(233507);		
 	}
    	#:: Match a 12305 - Bar of Ronium, a 12306 - Mistmoore Granite, and 2000 gold pieces
 	elsif (plugin::takeItemsCoin(0,0,2000,0, 12305 => 1, 12306 => 1)) {
@@ -51,7 +51,7 @@ sub EVENT_ITEM {
 		quest::faction(272, 1); 	#:: + Jaggedpine Treefolk
 		quest::faction(324, -1); 	#:: - Unkempt Druids
 		#:: Grant a large amount of experience
-		quest::exp(10000);		
+		quest::exp(233507);		
 	}
 	#:: Match a 10059 - Star of Odus and a 12328 - Quiver of Kithicor - full
 	elsif (plugin::takeItems(10059 => 1, 12328 => 1)) {
@@ -67,7 +67,7 @@ sub EVENT_ITEM {
 		quest::faction(272, 1); 	#:: + Jaggedpine Treefolk
 		quest::faction(324, -1); 	#:: - Unkempt Druids
 		#:: Grant a large amount of experience
-		quest::exp(10000);		
+		quest::exp(233507);		
 	}
 	#:: Return unused items
 	plugin::returnUnusedItems();

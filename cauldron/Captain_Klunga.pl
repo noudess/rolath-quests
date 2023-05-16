@@ -5,7 +5,7 @@ sub EVENT_SPAWN {
 sub EVENT_TIMER
 	{
 	quest::stoptimer("sit");
-	plugin::SetAnim(sit);
+	plugin::SetAnim("sit");
 	}
 
 sub EVENT_ITEM {

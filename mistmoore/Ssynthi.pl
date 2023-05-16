@@ -52,10 +52,11 @@ sub EVENT_ITEM
 									#:: Grant a moderate amount of experience
 		quest::exp(1000);
 		}
-	elsif ($faction < 6 && plugin::takeItems(00000 => 1))
+	elsif ($faction < 6 && plugin::takeItems(32030 => 1))
 		{
 		# Add dialogue, faction and xp
 		#:: Give a 32038 - Rod
+		quest::exp(300000);
 		quest::summonitem(32038);
 		}
 

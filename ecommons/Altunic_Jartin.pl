@@ -41,12 +41,13 @@ sub EVENT_ITEM
 
 		quest::givecash("7","0","0","0");
 
-		# Freeport Militia Faction
+		# Not sure it faction given or not.
+		quest::faction(281,5); 
+		quest::faction(271, -1);
 		quest::faction(330, -1);
-		# Steel Warriors Factions
+		quest::faction(362,1);
 		quest::faction(311,1);
-		# Knights of Truth Faction
-		quest::faction(281,1);
+		quest::ding();
 	}
 
 	elsif(plugin::check_handin(\%itemcount, 1004 => 1))
@@ -56,12 +57,13 @@ sub EVENT_ITEM
 		# Give player the "Token of Generosity".
 		quest::summonitem("13865");
 
-		# Freeport Militia Faction
+		# Factions from ZAM
+		quest::faction(281,5); 
+		quest::faction(271, -1);
 		quest::faction(330, -1);
-		# Steel Warriors Factions
+		quest::faction(362,1);
 		quest::faction(311,1);
-		# Knights of Truth Faction
-		quest::faction(281,1); 
+		quest::ding();
 	}
 }
 

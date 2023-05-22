@@ -8,7 +8,7 @@ sub EVENT_SAY
 		{
 		quest::say("I do not distribute the blessed oil of life. Please speak with Nomsoe Jusagta. Tell Nomsoe that Brother Estle needs the blessed oil.");
 		}
-	if($text=~/hayle mool/i)
+	if($text=~/brother hayle/i)
 		{
 		quest::say("Brother Hayle Mool is one of our finest clerics. He could convert anyone to the ways of Rodcet Nife. Recently, he has been out in the Plains of Karana trying to befriend the [Splitpaw clan]. I pray he has not become their prisoner or even worse, their dinner.");
 		}

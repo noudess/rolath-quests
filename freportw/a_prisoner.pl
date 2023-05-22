@@ -1,42 +1,64 @@
-sub EVENT_SPAWN {
-	quest::settimer("goog",150);
-}
+sub EVENT_SPAWN
+	{
+	#:: Set a timer "goog" to loop every 180 seconds (3 min)
+	quest::settimer("goog", 180);
+	}
 
-sub EVENT_TIMER {
-	quest::say(quest::ChooseRandom("unngh!!.. Biggle and boo.. Goggle froo..","ahhhh!!.. Tiggle bumble coo.. Bog n' Goo.."));
-}
+sub EVENT_TIMER
+	{
+	#:: Match the timer "goog"
+	if ($timer eq "goog")
+		{
+		#:: Create a scalar for storing a random number
+		my $RandomResponse = quest::ChooseRandom(1, 2, 3);
 
-sub EVENT_SAY {
-  if($text=~/Hail/i)
-  {
-    quest::say("Aaaarghhh!!.. Buggl n gump.. Figgle and fump..");
-  }
-  if($text=~/Are you Ariska Zimel/i)
-  {
-    quest::emote("stares deeply into your eyes.. Very eerie!!");
-  }
-}
+		if ($RandomResponse == 1)
+			{
+			quest::say("unngh!!.. Biggle and boo.. Goggle froo..");
+			}
+		elsif ($RandomResponse == 2)
+			{
+			quest::say("ahhhh!!.. Tiggle bumble coo.. Bog n' Goo..");
+			}
+		else
+			{
+			quest::say("Bog n Goo.. Blanket too!!");
+			}
+		}
+	}
+
+sub EVENT_SAY
+	{
+	if ($text =~ /hail/i)
+		{
+		quest::say("Aaaarghhh!!.. Buggl n gump.. Figgle and fump..");
+		}
+	elsif ($text =~ /ariska zimel/i)
+		{
+		quest::emote("stares deeply into your eyes.. Very eerie!!");
+		}
+	}
 
 sub EVENT_ITEM
-{
-  #Check for:
-  #Bunker Cell 1 ID:12196
-  #Bog Juice ID: 16581
-  #Edible Goo ID: 13498
-  if(plugin::check_handin(\%itemcount, 12196 => 1, 16581 => 1, 13498 => 1))
-  {
-    quest::say("Bog n Goo.. Blanket too!!");
-    quest::say("Bog n Goo.. Blanket too!!");
-    quest::say("Hide, hide, safe, cee.. lerk has the clue.. Must travel.. Travel.. Travel.. Tunaria's corridor..");
+	{
+	#:: Match a 12196 - Bunker Cell #1, a 16581 - Bog Juice, and a 13498 - Edible Goo
+	if (plugin::takeItems(12196 => 1, 16581 => 1, 13498 => 1))
+		{
+		quest::say("Bog n Goo.. Blanket too!!");
+		quest::say("Hide, hide, safe, cee.. lerk has the clue.. Must travel.. Travel.. Travel.. Tunaria's corridor.");
+		#:: Give a 12143 - H.K. 102
+		quest::summonitem(12143);
 
-	# Verified
-	quest::faction(229,1);
-	quest::faction(281,1);
-	quest::faction(291,1);
-	quest::faction(336,1);
-    # Summon H. K. 102 ID: 12143
-    quest::summonitem(12143);
-  }
-}
+		#:: Ding!
+		quest::ding();
 
-#END of FILE Zone:freportw ID:9035 -- a_prisoner
+		#:: Set factions (Verified ZAM)
+		quest::faction(229, 1);    #:: + Coalition of Tradefolk
+		quest::faction(281, 1);    #:: + Knights of Truth
+		quest::faction(291, 1);    #:: + Merchants of Qeynos
+		quest::faction(336, 1);    #:: + Coalition of Tradefolk Underground
+		}
+
+	#:: Return unused items
+	plugin::returnUnusedItems();
+	}

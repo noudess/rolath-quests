@@ -4,7 +4,6 @@ sub EVENT_SAY
 		{
 		quest::say("Hail!  Welcome to the Hall of Truth.  We. the Knights of Truth. are all the hope this city has of loosening the grip of Lucan D'lere and his militia.  I seek a young knight to [serve the will of the Truthbringer].");
 		}
-
 	if ($faction > 5)
 		{
 		quest::say("Leave my presence at once. Your ways of life are not acceptable to one who follows the Truthbringer.");

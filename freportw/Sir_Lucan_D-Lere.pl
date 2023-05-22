@@ -12,7 +12,7 @@ sub EVENT_SAY
 	}
 
 
-sub EVENT_DEATH  
+sub EVENT_DEATH_COMPLETE
 	{
 	quest::spawn(9147, 0, 0, $npc->GetX(), $npc->GetY(), $npc->GetZ());
 	}

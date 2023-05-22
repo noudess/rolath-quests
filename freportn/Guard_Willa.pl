@@ -66,8 +66,8 @@ sub EVENT_TIMER
 		#:: Start running
 		quest::SetRunning(1);
 
-		#:: Start pathing grid 14
-		quest::start(14);
+		#:: Start pathing grid 15
+		quest::start(15);
 		}
 	}
 

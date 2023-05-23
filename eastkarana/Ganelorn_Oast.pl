@@ -1,10 +1,14 @@
 sub EVENT_SAY
 	{
-	if ($text =~ /hail/i)
+	if ($faction > 8)
+		{
+		plugin::reject_say();
+		}
+	elsif ($text =~ /hail/i)
 		{
 		quest::say("Please be very quiet. I am tracking a notorious poacher.");
 		}
-	if ($text =~ /call of flames/i)
+	elsif ($text =~ /call of flames/i)
 		{
 		quest::say("I suppose you would like to call the flame? I must know you are a dedicated forester before I would even consider teaching such a thing.");
 		}
@@ -22,6 +26,7 @@ sub EVENT_ITEM
 		quest::faction(310, 1);     #Soldiers of Tunare
 		quest::faction(234, -1);    #Crushbone Orcs
 		quest::summonitem(20877);
+		quest::ding();
 		}
 	if (plugin::check_handin(\%itemcount, 20878 => 1))
 		{
@@ -32,20 +37,24 @@ sub EVENT_ITEM
 		{
 		quest::say("You have done well. I sense the one I have been hunting in the distance. As your final test, you must track him down and destroy him.");
 		quest::spawn2(15183, 0, 0, -800, -2712, 15.6, 276);
-		quest::faction(246, 50);
-		quest::faction(279, 50);
-		quest::faction(226, 50);
-		quest::faction(310, 50);
-		quest::faction(234, -50);
+		quest::faction(246, 100);
+		quest::faction(279, 25);
+		quest::faction(226, 25);
+		quest::faction(310, 25);
+		quest::faction(234, -25);
+		quest::exp(1204093);
+		quest::ding();
 		}
 	if (plugin::check_handin(\%itemcount, 20882 => 1))
 		{
 		quest::say("You, $name, are a worthy forester. It brings me great pride to present you this scroll that I have only passed to the finest in all of Norrath. Now you, too, may call the flames.");
+		quest::faction(246, 100);
+		quest::faction(279, 25);
+		quest::faction(226, 25);
+		quest::faction(310, 25);
+		quest::faction(234, -25);
 		quest::summonitem(15691);
-		quest::faction(246, 50);
-		quest::faction(279, 50);
-		quest::faction(226, 50);
-		quest::faction(310, 50);
-		quest::faction(234, -50);
+		quest::exp(1204093);
+		quest::ding();
 		}
 	}

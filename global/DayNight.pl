@@ -28,7 +28,7 @@ sub EVENT_CYCLE
 	}
 
 
-	if($zonesn eq 'commons' || $zonesn eq 'everfrost' || $zonesn eq 'kithicor' || $zonesn eq 'lfaydark' || $zonesn eq 'northkarana' || $zonesn eq 'qey2hh1' || $zonesn eq 'rathemtn' || $zonesn eq 'riwwi' || $zonesn eq 'southkarana' || $zonesn eq 'eastwastes' || $zonesn eq 'sro' || $zonesn eq 'freportw' || $zonesn eq 'freporte' || $zonesn eq 'kaladima')
+	if($zonesn eq 'commons' || $zonesn eq 'everfrost' || $zonesn eq 'kithicor' || $zonesn eq 'lfaydark' || $zonesn eq 'northkarana' || $zonesn eq 'qey2hh1' || $zonesn eq 'rathemtn' || $zonesn eq 'riwwi' || $zonesn eq 'southkarana' || $zonesn eq 'eastwastes' || $zonesn eq 'sro' || $zonesn eq 'freportw' || $zonesn eq 'freporte' || $zonesn eq 'kaladima' || $zonesn eq 'mistmoore')
 	{
 		if ($zonetime < 600 || $zonetime > 1999) 
 		{

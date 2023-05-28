@@ -25,6 +25,7 @@ sub EVENT_ITEM {
 		quest::ding();
 		#:: Grant a moderate amount of experience
 		quest::exp(5000);
+		quest::depop();
 	}
 	#:: Return unused items
 	plugin::returnUnusedItems();

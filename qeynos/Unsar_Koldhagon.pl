@@ -1,5 +1,4 @@
 # Unsar's Glory
-
 sub EVENT_SPAWN
 	{
 	quest::settimer("poly", 10);
@@ -98,7 +97,20 @@ sub EVENT_ITEM
 			quest::summonitem($reward);
 			}
 
+		# Get XP before task handler
+        my $current_exp = $client->GetEXP();
+
         quest::updatetaskactivity(114,15);
+
+		# If task couldn't give xp because maxxed out..  this will give alt XP
+		my $after_exp = $client->GetEXP();
+		if ($current_exp == $after_exp)
+			{
+			$exp_needed_for_current_level = $client->GetEXPForLevel($level);
+			my $xpgrant = $exp_needed_for_current_level/5;
+			quest::exp($xpgrant);
+			}
+
         quest::ding();
         }
 	}

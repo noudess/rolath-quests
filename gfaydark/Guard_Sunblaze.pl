@@ -68,7 +68,7 @@ sub EVENT_TIMER
 		quest::stoptimer($timer);
 		$npc->GMMove(285, 136, 79, 128);
 		#quest::SetRunning(1);
-		quest::start(205);
+		quest::start(249);
 		$curgrid=249;
 		}
 	}

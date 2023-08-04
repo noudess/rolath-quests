@@ -25,7 +25,7 @@ sub EVENT_SAY {
 		quest::say("Your mere presence disgusts me.  Please remove yourself from my sight.  Until you change yourself and your ways, you are unwelcome in the temple of life.");
 		}
 	}
-  if($text=~/Brother Trintle attacked Brother Estle/i){
+  if($text=~/Brother Trintle has attacked Brother Estle/i){
     quest::say("Impossible!! What madness do you speak of!!? If he did he must have had a reason. Maybe Trintle had been tainted by the words of Bertoxxulous..?");
   }
 }

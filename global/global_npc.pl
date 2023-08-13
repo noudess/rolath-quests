@@ -34,6 +34,7 @@ sub EVENT_COMBAT
 			}
 		elsif ($combat_state == 1)
 			{
+			quest::stoptimer("globalgargsit");
 			plugin::SetAnim("stand");
 			}
 		}

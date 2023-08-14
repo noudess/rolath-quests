@@ -12,6 +12,7 @@ sub YTYRS_TRY
 	{
 	my $longshot=plugin::RandomRange(1,225);
 
+	quest::debug("Undead down $longshot");
 	if ($longshot == 1)
 		{
 		quest::spawn_condition("rathemtn", 1, 1);

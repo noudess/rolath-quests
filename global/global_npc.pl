@@ -23,7 +23,6 @@ sub EVENT_TIMER
 
 sub EVENT_COMBAT
 	{
-	quest::debug("combat_state $combat_state");
 	$mrace = $npc->GetRace();
 	if ($mrace == 29)
 		{

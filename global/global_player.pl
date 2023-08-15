@@ -92,6 +92,10 @@ sub EVENT_ENTERZONE
 		{
 		# This character stinks. Set a timer to emit stink
 		quest::settimer($peebucket{$charid}, 60);
+		if ($zoneid == 100)
+			{
+			quest::faction(5007, 500, 1);
+			}
 		quest::debug("Timer $peebucket{$charid} started");
 		}
 

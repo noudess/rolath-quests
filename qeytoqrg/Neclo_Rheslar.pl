@@ -1,28 +1,44 @@
-#BeginFile: Neclo_Rheslar.pl
-#Quest for Qeynos Hills - Neclo Rheslar: Note to Neclo
+sub EVENT_SAY
+	{
+	if ($text =~ /hail/i)
+		{
+		quest::say("Ah.. Hello citizen.. Watch your step, there have been many vicious beasts about today.");
+		}
+	}
 
-sub EVENT_SAY {
-  #Nothing identified to say!
-}
+sub EVENT_ITEM
+	{
+	#:: Match a 18823 - Note to Neclo
+	if (plugin::takeItems(18823 => 1))
+		{
+		#:: Match if faction is Indifferent or better
+		if ($faction <= 5)
+			{
+			quest::say("Ah.. Hello friend.. So, I see Daenor sent you.. Uh huh, ok.. Here's something that will be very useful for you. Practice this well, friend.. It will help protect you in this harsh world.");
 
-sub EVENT_ITEM {
-  if(plugin::check_handin(\%itemcount, 18823=>1)) { #Note to Neclo
-    quest::say("Ah.. Hello friend.. So, I see Daenor sent you.. Uh huh, ok.. Here's something that will be very useful for you. Practice this well, friend.. It will help protect you in this harsh world.");
-	# This is verified
-    quest::faction(342,5);  #Order of Three
-    quest::faction(221,-1);  #Bloodsabers
-    quest::faction(262,1);  #Guards of Qeynos
-    quest::faction(296,-1); #Opal Dark Briar
-    quest::exp(1000);
-	quest::ding();
-    quest::summonitem(15288); #Spell: Minor Shielding
-  }
-  else {
-    quest::say("I have no need of this, $name.");
-    plugin::return_items(\%itemcount);
-  }
-}
+			#:: Give a 15109 - Spell: Elemental Armor
+			quest::summonitem(15109);
 
+			#:: Ding!
+			quest::ding();
 
-#END of FILE Zone:qeytoqrg  ID:4106 -- Neclo_Rheslar 
+			#:: Set factions
+			quest::faction(342, 5);    #:: + Order of Three
+			quest::faction(221, -1);   #:: - Bloodsabers
+			quest::faction(262, 1);    #:: + Guards of Qeynos
+			quest::faction(296, -1);   #:: - Opal Dark Briar
+									   #:: Grant a moderate amount of experience
+			quest::exp(1000);
+			}
+		else
+			{
+			quest::say("The Order of Three has been monitoring your recent activities, and we are appalled by you and your actions! Now, begone!");
 
+			#:: Return a a 18823 - Note to Neclo
+			quest::summonitem(18823);
+			}
+		}
+
+	#:: Return unused items
+	plugin::returnUnusedItems();
+	}

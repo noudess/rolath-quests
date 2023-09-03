@@ -2,7 +2,14 @@ sub EVENT_SAY
 	{
 	if ($text =~ /hail/i)
 		{
-		quest::say("Ah.. Hello citizen.. Watch your step, there have been many vicious beasts about today.");
+		if ($faction <= 5)
+			{
+			quest::say("Ah.. Hello citizen.. Watch your step, there have been many vicious beasts about today.");
+			}
+		else
+			{
+			plugin::reject_say();
+			}
 		}
 	}
 

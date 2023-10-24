@@ -39,7 +39,7 @@ sub EVENT_ITEM
 				);
 
 			#:: Give a 18401 - Scroll of Flayed Goblin Skin
-			quest::creategroundobject(18401, $x, $y, $z, 0, 7200);
+			quest::creategroundobject(18401, $x, $y, $z, 0, 72000);
 
 			#:: Ding!
 			quest::ding();

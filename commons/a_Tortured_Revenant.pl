@@ -1,9 +1,9 @@
-# misc. quest dialogue for spell: divine might
-#
-
-sub EVENT_DEATH {
-  quest::signalwith(21011,66,0);
+sub EVENT_ITEM {
+	#:: Return unused items
+	plugin::returnUnusedItems();
 }
 
-# EOF zone: commons ID: 21031 NPC: a_Tortured_Revenant
-
+sub EVENT_DEATH_COMPLETE {
+	quest::say("At last I can rest..");
+	quest::signalwith(21011, 1, 0);
+}

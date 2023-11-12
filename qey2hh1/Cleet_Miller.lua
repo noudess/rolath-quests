@@ -54,7 +54,7 @@ function event_waypoint_arrive(e)
 	elseif(e.wp == 4 or e.wp == 5) then
 		if (eq.ChooseRandom(0,1) == 1) then
 				e.self:Emote("gathers up a bale of straw");
-			eq.create_ground_object(13990,	e.self:GetX(),e.self:GetY(),e.self:GetZ(),0,300000);
+				eq.create_ground_object(13990,	e.self:GetX(),e.self:GetY(),e.self:GetZ(),0,300000);
 				e.self:SetRunning(true);
 		end
 	end

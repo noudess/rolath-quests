@@ -134,7 +134,7 @@ sub EVENT_ITEM
 
 	if($itemcount{13911} == 1)
 		{
-		quest::say("Oh my word!! This is terrible news. This belongs to [Hayle Mool]. He has been captured by the Splitpaw Clan while in Karana. You must go to his aid. We cannot do so at this time. Here. Be sure to hand him this summons. I will need to speak with him.");
+		quest::say("Oh my word!! This is terrible news. This belongs to [brother hayle]. He has been captured by the Splitpaw Clan while in Karana. You must go to his aid. We cannot do so at this time. Here. Be sure to hand him this summons. I will need to speak with him.");
 		quest::summonitem(18927);
 		}
 

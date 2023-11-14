@@ -1,7 +1,8 @@
 my $jjcount=0;
 
 sub EVENT_WAYPOINT_ARRIVE {
-  if(($wp == 12) || ($wp == 33) ||  ($wp == 51) || ($wp == 73) || ($wp == 96) || ($wp == 120)) {
+  if(   ($wp == 12) || ($wp == 33) ||  ($wp == 51) || ($wp == 73) || 
+		($wp == 96) || ($wp == 120)) {
     quest::emote("whistles a happy hafling tune.");
   }
 }
@@ -10,19 +11,26 @@ sub EVENT_SAY
 	{
 	if($text=~/hail/i) 
 		{
-		quest::say("Greetings and salutations, $name! My name is Reebo Leafsway, loyal Druid of [Karana]. I am in charge of helping young druids who wish to get started down the [trail to Karana's wisdom]. I also do my share of tending the [crops].");
+		if (plugin::check_hasitem($client, 52355)) 
+			{
+			quest::say("You took care of our problem, $name, and for that you have my eternal thanks. With the new head you supplied, we should be able to squeeze a few more years out of Shakey. Not sure what you'd want to do with the old one. That dilapidated pumpkin is worthless. Moldy, dried out . . . doesnt hold a light. He shrugs empahtically. Go ahead and hold onto the thing if that tickles your fancy, though. May Karana watch over you in your travels!");
+			}
+		else
+			{
+			quest::say("Greetings and salutations, $name! My name is Reebo Leafsway, loyal Druid of [Karana]. I am in charge of helping young druids who wish to get started down the [trail to Karana's wisdom]. I also do my share of tending the [crops].");
+			}
 		}
 	if($text=~/shakey/i) 
 		{
 		quest::say("Shakey is our protector and friend. He is just getting old. Losing his [stuffing]. His [head] is getting very cracked and dry as well.");
 		}
-	if($text=~/stuffing/i) 
-		{
-		quest::say("The hay he requires is difficult to obtain. It must have been harvested from the Plains of Karana, then cursed by a high priest of the Faceless, [Cazic-Thule]. Finally, you must cast the hay and a flask of blessed Oil of Life into an armorer's forge. Only then will the hay be ready. We Stormreapers will reward you greatly if you could accomplish this task. Remember, you must give the scarecrow stuffing to Shakey only after it has been properly prepared.");
-		}
 	if($text=~/karana/i)
 		{
 		quest::say("Karana is known as the Rainkeeper. It is through His will that our [crops] and our children grow big and healthy. He watches over us and protects us. calling down the fury of a tempest on those who wish harm upon His followers.");
+		}
+	if ($text=~/feerrott/i) 
+		{
+		quest::say("The Feerrott is a vast rain forest in southwestern Antonica. It is home to many lizardman tribes.");
 		}
 	if($text=~/crops/i) 
 		{
@@ -36,41 +44,35 @@ sub EVENT_SAY
 		{
 		quest::say("We have heard of a great forbidden tome penned by an evil necromancer that holds the secrets of instilling life into scarecrows. We have recovered pages from that book. That is how we know about Shakey's hay. But the pages detailing the creation of a scarecrow's head are missing. We believe that the Erudites possess at least some of the pages and might know where the rest of them may be found. Start your search in their city of Erudin.");
 		}
-	if($text=~/nillipuss/i) 
-		{
-		if ($faction <= 5) 
-			{ # Verified on live
-			quest::say("Nillipuss is a brownie that lives in the area who often steals and destroys our JumJum Stalk. Will you teach him a [lesson]?");
-			}
-		else 
-			{
-			plugin::reject_say();
-			}
-		}
-	if($faction <= 5 && $text=~/lesson/i)
-		{
-		quest::say("Good. Bring me back some of the JumJum he has stolen and I will reward you for your trouble.");
-		}
 	if ($text=~/acknowledgment/i) 
 		{
 		quest::emote("Reebo Leafsway shakes his head sadly");
 		quest::say("Poor old [Shakey] just isn't what he used to be.");
 		}
-	if($text=~/trail to Karana's wisdom/i) 
+	if ($faction > 5)
 		{
-		if ($faction <= 5)
-			{
-			quest::say("Good. First you should learn that Karana's work is just that.. work. Karana provides us with the tools but it is by the sweat of our brows that we prosper. Common sense and hard work are two things that are highly prized by our people. Time for you to sweat, young one. Take this crate of carrots over to Blinza Toepopal in the Fool's Gold. They need our finest carrots for Mayor Gubbin's stew. When you return I will teach you a lesson of the Rainkeeper.");
-			quest::summonitem(13971); 
-			}
-		else
-			{
-			plugin::reject_say();
-			}
+		plugin::reject_say();
 		}
-	if (($text=~/hail/i) && (plugin::check_hasitem($client, 52355))) 
+	elsif($text=~/stuffing/i) 
 		{
-		quest::say("You took care of our problem, $name, and for that you have my eternal thanks. With the new head you supplied, we should be able to squeeze a few more years out of Shakey. Not sure what you'd want to do with the old one. That dilapidated pumpkin is worthless. Moldy, dried out . . . doesnt hold a light. He shrugs empahtically. Go ahead and hold onto the thing if that tickles your fancy, though. May Karana watch over you in your travels!");
+		quest::say("The hay he requires is difficult to obtain. It must have been harvested from the Plains of Karana, then cursed by a high priest of the Faceless, [Cazic Thule]. Finally, you must cast the hay and a flask of blessed Oil of Life into an armorer's forge. Only then will the hay be ready. We Stormreapers will reward you greatly if you could accomplish this task. Remember, you must give the scarecrow stuffing to Shakey only after it has been properly prepared.");
+		}
+	elsif ($text=~/cazic thule/i) 
+		{
+		quest::say("Cazic Thule is the dark deity of fear. He is worshiped by many evil beings. There is believed to be a ruined temple dedicated to him deep in the [Feerrott]. That would be a good place to look for one of his high priests.");
+		}
+	elsif($text=~/trail to Karana's wisdom/i) 
+		{
+		quest::say("Good. First you should learn that Karana's work is just that.. work. Karana provides us with the tools but it is by the sweat of our brows that we prosper. Common sense and hard work are two things that are highly prized by our people. Time for you to sweat, young one. Take this crate of carrots over to Blinza Toepopal in the Fool's Gold. They need our finest carrots for Mayor Gubbin's stew. When you return I will teach you a lesson of the Rainkeeper.");
+		quest::summonitem(13971); 
+		}
+	elsif($text=~/lesson/i)
+		{
+		quest::say("Good. Bring me back some of the JumJum he has stolen and I will reward you for your trouble.");
+		}
+	elsif($text=~/nillipuss/i) 
+		{
+		quest::say("Nillipuss is a brownie that lives in the area who often steals and destroys our JumJum Stalk. Will you teach him a [lesson]?");
 		}
 	}
 
@@ -131,9 +133,10 @@ sub EVENT_ITEM
 		}
 	}
 
-sub EVENT_SIGNAL {
- if($signal == 0) {
-  quest::say("Old [Shakey] hasn't been feeling like himself lately, I'm afraid.");
- }
-}
-#END of FILE Zone:rivervale  ID:19056 -- Reebo_Leafsway
+sub EVENT_SIGNAL 
+	{
+	if($signal == 0) 
+		{
+		quest::say("Old [Shakey] hasn't been feeling like himself lately, I'm afraid.");
+		}
+	}

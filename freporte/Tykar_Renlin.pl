@@ -138,7 +138,4 @@ sub EVENT_ITEM
 			$ItemCount = 0;
 			}
 		}
-
-	#:: Return unused items
-	plugin::returnUnusedItems();
 	}

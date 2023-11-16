@@ -13,8 +13,6 @@ sub EVENT_TIMER {
 	#:: Match timer 'ready'
 	if ($timer eq "ready") {
 		quest::say("What a cheerful crowd.");
-		#:: Stop the timer
-		quest::stoptimer("ready");
 	}
 }
 

@@ -5,7 +5,7 @@ sub EVENT_SPAWN {
 
 sub EVENT_TIMER {
 	#:: Match timer 'sing'
-	if ($timer eq "sing") {
+	if (plugin::zoneClientCount() > 0 && $timer eq "sing") {
 		#:: Create a scalar to store a random
 		my $singit = quest::ChooseRandom(1,2,3,4,5,6);
 		#:: Match singit = 1

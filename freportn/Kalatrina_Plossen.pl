@@ -28,9 +28,10 @@ sub EVENT_SAY
 sub EVENT_ITEM 
 	{
 	# Check for A Tattered Flier ID: 18818
-	if($itemcount{18818} == 1)
+	if(plugin::takeItems(18818 => 1 ))
 		{
 		quest::say("Zimel's Blades?! Hmmmmm. It doesn't ring a bell and the remainder of the writing is too hard to make out. It kind of looks like a list of prices. You know, down at the Office of the People they might be able to tell us if this place exists. Go speak with Rashinda. She knows all about Freeport. If [Zimel's Blades] existed, you must report back to me what happened to it.");
+		quest::ding();
 		#Factions verified on Live
 		# Freeport Militia Faction
 		quest::faction(330, -1);
@@ -42,6 +43,7 @@ sub EVENT_ITEM
 		quest::faction(281,1);
 		# Preists of Marr
 		quest::faction(362,1);
+		quest::summonitem(18818);
 		}
 	else
 		{

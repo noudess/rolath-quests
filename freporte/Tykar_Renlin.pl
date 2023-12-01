@@ -1,6 +1,19 @@
 #:: Create a scalar variable to store an item count
 my $ItemCount;
 
+sub EVENT_SPAWN 
+	{
+	quest::set_proximity($x-75,$x+75,$y-75,$y+75);
+	}
+
+sub EVENT_PROIXIMITY_SAY
+	{
+	if ($text =~ /Zimel/i)
+		{
+		quest::say("What?! You know my friend Zimel?! I would like to speak of him, but my mouth is so parched. Maybe a fine grog would loosen my lips. I am uncertain which flavor shall do the trick.");
+		}
+	}
+
 sub EVENT_COMBAT
 	{
 	#:: Match combat state 1 - entered combat

@@ -13,10 +13,13 @@ sub EVENT_SPAWN
 
 sub EVENT_TIMER
 	{
-	quest::stoptimer("wander");
-	my $grid = $npc->GetGrid();
-	if ($grid == 0)
+	if ($timer eq "wander")
 		{
-  		$npc->AI_SetRoambox(400, $npc->GetX() + 200, $npc->GetX() - 200, $npc->GetY()+200, $npc->GetY()-200);
+		quest::stoptimer("wander");
+		my $grid = $npc->GetGrid();
+		if ($grid == 0)
+			{
+			$npc->AI_SetRoambox(400, $npc->GetX() + 200, $npc->GetX() - 200, $npc->GetY()+200, $npc->GetY()-200);
+			}
 		}
 	}

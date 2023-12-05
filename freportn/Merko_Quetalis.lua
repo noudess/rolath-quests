@@ -25,8 +25,11 @@ end
 
 function event_trade(e)
 	local item_lib = require("items");
+	local fac = e.other:GetFaction(e.self);
 
-	if(item_lib.check_turn_in(e.trade, {item1 = 14018})) then -- A spider venom sac
+	if (fac > 4) then
+		e.self:Say("Work on the ways of valor before we discuss such things. You are on the righteous path of the Truthbringer, but there is more work to do.");
+	elseif(item_lib.check_turn_in(e.trade, {item1 = 14018})) then -- A spider venom sac
 		e.self:Say("You have earned the token of bravery. Now you must ask yourself if you are ready to face true fear. You will have but one chance. If you feel you are powerful enough to easily slay that desert tarantula, then hand me both tokens earned and you shall face the Test of Truth.");
 		e.other:SummonItem(12144); -- Token of Bravery
 		e.other:Ding();

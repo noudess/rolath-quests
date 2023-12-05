@@ -35,7 +35,7 @@ sub EVENT_TIMER
 			$bitch = int(rand(10));
 			if ($bitch == 0)
 				{
-				quest::say("Damn it, spilled my beer again");
+				quest::say("Damn it, spilled my beer again!");
 				}
 			}
 		quest::doanim(5);	

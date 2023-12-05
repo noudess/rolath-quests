@@ -8,6 +8,13 @@ sub EVENT_SPAWN
 		quest::debug("starting timer globalgargsit");
 		quest::settimer("globalgargsit", 60);
 		}
+	
+	# Make fishermen fish
+	my $weapon_one = $npc->GetEquipmentMaterial(7);
+	if ($weapon_one == 38)
+		{
+		quest::settimer("fishing", 12);	
+		}
 	}
 
 sub EVENT_TIMER
@@ -18,6 +25,10 @@ sub EVENT_TIMER
 		plugin::SetAnim("sit");
 		quest::debug("stopping timer $timer");
 		quest::stoptimer($timer);
+		}
+	elsif ($timer eq "fishing")
+		{
+		quest::doanim(5);	
 		}
 	}
 

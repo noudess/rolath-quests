@@ -1,3 +1,5 @@
+my $quest_started = 0;
+
 sub EVENT_WAYPOINT_ARRIVE{
 	if($wp==2){
 		quest::SetRunning(1);
@@ -14,11 +16,12 @@ sub EVENT_SAY
 		quest::say("Greetings, traveler! Have you need of provisions or perhaps other wares? I sell what I find upon the battlegrounds of the Commonlands.");
 		}
 
-	if($text=~/Where is your house/i)
+	if($quest_started = 1 && $text=~/Where is your house/i)
 		{
 		quest::say("Follow me.");
 		quest::moveto(4791.06,-83.55,-51.47);
 		quest::spawn(22196, 0, 0, 4707.63, -105.49, -51.47);
+		$quest_started = 0;
 		}
 	}
 
@@ -33,6 +36,7 @@ sub EVENT_ITEM
 	elsif(plugin::check_handin(\%itemcount, 18896 => 1))
 	{
 		quest::say("You are the one they have sent? A squire?!! I hope you can help me. I gather items strewn upon the grounds of the Commonlands. I sell them at good prices. Lately, I have been terrorized by a human rogue named Narl. He will no doubt appear at my [house] soon. Bring his head to me.");
+		$quest_started = 1;
 	}
 
 	elsif(plugin::check_handin(\%itemcount, 13867 => 1))

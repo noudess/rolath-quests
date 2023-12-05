@@ -1,4 +1,6 @@
 my $mrace;
+my $been_fishing = 0;
+my $bitch;
 
 sub EVENT_SPAWN
 	{
@@ -28,7 +30,16 @@ sub EVENT_TIMER
 		}
 	elsif ($timer eq "fishing")
 		{
+		if ($been_fishing)
+			{
+			$bitch = int(rand(10));
+			if ($bitch == 0)
+				{
+				quest::say("Damn it, spilled my beer again");
+				}
+			}
 		quest::doanim(5);	
+		$been_fishing = 1;
 		}
 	}
 

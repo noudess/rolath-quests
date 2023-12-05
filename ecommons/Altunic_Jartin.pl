@@ -1,13 +1,21 @@
 my $quest_started = 0;
 
-sub EVENT_WAYPOINT_ARRIVE{
-	if($wp==2){
+sub EVENT_SPAWN
+	{
+	$quest_started = 0;
+	}
+
+sub EVENT_WAYPOINT_ARRIVE
+	{
+	if($wp==2)
+		{
 		quest::SetRunning(1);
-	}
-	if($wp==3){
+		}
+	if($wp==3)
+		{
 		quest::SetRunning(0);
+		}
 	}
-}
 
 sub EVENT_SAY
 	{
@@ -16,7 +24,7 @@ sub EVENT_SAY
 		quest::say("Greetings, traveler! Have you need of provisions or perhaps other wares? I sell what I find upon the battlegrounds of the Commonlands.");
 		}
 
-	if($quest_started = 1 && $text=~/Where is your house/i)
+	if($quest_started == 1 && $text=~/Where is your house/i)
 		{
 		quest::say("Follow me.");
 		quest::moveto(4791.06,-83.55,-51.47);

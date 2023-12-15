@@ -30,6 +30,5 @@ sub EVENT_TIMER
 sub EVENT_SPAWN
 	{
 	my $freq = int(rand(30))+10;
-	quest::say("I live");
 	quest::settimer("eat", $freq);
 	}

@@ -7,7 +7,6 @@ sub EVENT_SPAWN
 	$mrace = $npc->GetRace();
 	if ($mrace == 29)
 		{
-		quest::debug("starting timer globalgargsit");
 		quest::settimer("globalgargsit", 60);
 		}
 	
@@ -51,7 +50,6 @@ sub EVENT_COMBAT
 		if ($combat_state == 0)
 			{
 			quest::settimer("globalgargsit", 300);
-			quest::debug("combat starting timer globalgargsit");
 			}
 		elsif ($combat_state == 1)
 			{

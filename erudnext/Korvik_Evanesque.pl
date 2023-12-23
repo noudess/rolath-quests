@@ -45,6 +45,7 @@ sub EVENT_SAY
 		{
 		if (quest::istaskcompleted(66))
 			{
+			quest::summonitem(1391);
 			quest::say("Hello $name.  How do I look in the uniform you brought me?");
 			quest::signalwith(24097, 1);
 			}

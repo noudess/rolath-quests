@@ -32,6 +32,64 @@ sub EVENT_SAY
 		{
 		quest::say("Enchanted platinum bars can be galvanized by Genni, vulcanized by Vilissia, and magnetized by Ostorm. Just give them the enchanted platinum bar and they will do the rest.");
 		}
+	elsif ($text =~ /underfoot/i)
+		{
+		quest::say("What do you know of Underfoot?  I have not been to Kaladim in years.  I can't even say those I know there still live.  I once had the glory of owning quite a weapon which was under their blessing.  A mighty [polearm] of magnificent craftsmanship.");
+		}
+	elsif ($text =~ /polearm/i)
+		{
+		quest::say("Called the Holy Partisan it was.  It was my most treasured belonging.  Very few were said to ever have been forged.  I myself spent years polishing and honing the blade's edges, and I perfected a way to increase the weapon's power two-fold by using the metal from another [mighty blade] to strengthen it.");
+		}
+	elsif ($text =~ /mighty blade/i)
+		{
+		quest::say("Yes, a blade from the depths of runnyeye.  A two handed weapon.  If I had one of each, I could perform the merge again.  I would enjoy the short view into the past such an activity would provide me.  Alas, the Partisan is no longer in my possession, destroyed in a battle years ago. So I will never get such an opportunity again.");
+		}
+	elsif ($text =~ /recharge/i)
+		{
+		my $item_id = 232631;
+		my $item_link = quest::varlink($item_id);
+		my $recharge_link = quest::saylink("recharge", 1);
+		my $slot_id = $client->GetInventory()->HasItem($item_id);
+
+		if ($slot_id == -1) 
+			{
+			quest::whisper("You do not have the $item_link.");
+			}
+		else
+			{
+			my $item = $client->GetItemAt($slot_id);
+			my $charges = $item->GetCharges();
+			my $max_charges = quest::getitemstat($item_id, "maxcharges");
+			if ($charges == $max_charges) 
+				{
+				quest::whisper("Your $item_link is already fully charged.");
+				}
+			else
+				{
+				my $is_attuned = $item->IsAttuned() ? 1 : 0;
+
+				my @augment_item_ids = $client->GetAugmentIDsBySlotID($slot_id);
+				my %item_data = (
+				"item_id"       => $item_id,
+				"charges"       => $max_charges,
+				"augment_one"   => $augment_item_ids[0],
+				"augment_two"   => $augment_item_ids[1],
+				"augment_three" => $augment_item_ids[2],
+				"augment_four"  => $augment_item_ids[3],
+				"augment_five"  => $augment_item_ids[4],
+				"augment_six"   => $augment_item_ids[5],
+				"attuned"       => $is_attuned,
+				"slot_id"       => $slot_id
+				);
+
+				$client->DeleteItemInInventory($slot_id);
+
+				$client->AddItem(\%item_data);
+
+				quest::whisper("Your $item_link is now recharged.");
+				}
+			}
+		}
 	}
 
 sub EVENT_ITEM
@@ -72,6 +130,20 @@ sub EVENT_ITEM
 
 		#:: Give a 9427 - Shield of the Devout
 		quest::summonitem(9427);
+		quest::ding();
+		}
+
+	#:: Match a partisan of the underfoot and a blacked alloy bastard sword
+	elsif (plugin::takeItems(5376 => 1, 3616 => 1))
+		{
+		quest::say("The holy partisan!!!!  I cannot believe you found one!  And you brought the blade from the goblin lair...");
+		quest::emote("stands quietly in shock and wonder");
+		quest::say("Yes.  I can recall the process.  I will merge these two and create for you a weapon noone but myself has ever wielded.");
+
+		quest::summonitem(232631);
+
+		quest::say("Take this before I decide to keep it.  If you ever require it to be recharged, return it to me with an acceptable form of payment and I will return it to it's full strength.");
+
 		quest::ding();
 		}
 

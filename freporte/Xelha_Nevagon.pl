@@ -4,17 +4,14 @@ sub EVENT_SAY
 		{
 		quest::say("A new recruit to our cause.  Just what I have been waiting for!  How would you like to serve the great Xelha Nevagon?  I need an apprentice necromancer to [assist the great Xelha].");
 		}
-
 	if ($faction > 5)
 		{
 		plugin::reject_say();
 		}
-	if($faction < 6 && $text=~/assist the great xelha/i) 
+	elsif($faction < 6 && $text=~/assist the great xelha/i) 
 		{
 		quest::say("Fantastic.  Stick with me and you shall ascend in our ranks quickly.  I am in need of some components for new spells.  Will you collect them for me?  I shall need four each of the following - fire beetle eyes. bone chips and spiderling silk.  Fetch these items for me at once. Well..? Did not you hear the great Xelha? Begone!");
-
 		}
-
 	}
 
 sub EVENT_ITEM 
@@ -40,24 +37,16 @@ sub EVENT_ITEM
 			}
 		}
 
-	if($itemcount{13927} == 1) 
-		{ # Cyclops Eye
-
+	if ($itemcount{13927} > 0) 
+		{
 		if ($faction > 3)
 			{
 			quest::say("I cannot reward you for this until you have proven your loyalty further.");
-			quest::summonitem(13927);
+			quest::summonitem(13927, $itemcount{13927});
 			}
 		else
 			{
-			quest::say("A cyclops eye!! You are stronger than I believed. You will rise in the ranks of the Dismal Rage quickly with acts such as this!! I am most appreciative! Here, take this. It was lying around my shelves, just gettingg all dusty. I hope you can use it. And watch yourself in your journeys, the aura of your faith in Innoruuk surrounds you like a shroud. Our enemies will surely see you for what you are.");
-			quest::ding();
-			quest::exp("1000");
-			quest::summonitem(quest::ChooseRandom(15331,15036,15491,7643));
-			# Faction Verified
-			quest::faction(271,25); # Dismal Rage
-			quest::faction(296,5); # Opal Dark Briar
-			quest::faction(281,-3); # Knights of Truth
+			plugin::mass_handin(13927, 1, \&EYE_REWARD);
 			}
 		}
 
@@ -95,6 +84,17 @@ sub EVENT_ITEM
 		}
 	}
 
+sub EYE_REWARD
+	{
+	quest::say("A cyclops eye!! You are stronger than I believed. You will rise in the ranks of the Dismal Rage quickly with acts such as this!! I am most appreciative! Here, take this. It was lying around my shelves, just gettingg all dusty. I hope you can use it. And watch yourself in your journeys, the aura of your faith in Innoruuk surrounds you like a shroud. Our enemies will surely see you for what you are.");
+	quest::ding();
+	quest::exp("1000");
+	quest::summonitem(quest::ChooseRandom(15331,15036,15491,7643));
+	# Faction Verified
+	quest::faction(271,25); # Dismal Rage
+	quest::faction(296,5); # Opal Dark Briar
+	quest::faction(281,-3); # Knights of Truth
+	}
 
 #END of FILE Zone:freporte  ID:10093 -- Xelha_Nevagon.pl
 

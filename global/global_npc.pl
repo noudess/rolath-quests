@@ -20,11 +20,9 @@ sub EVENT_SPAWN
 
 sub EVENT_TIMER
 	{
-	quest::debug("timer $timer fired");
 	if ($timer eq "globalgargsit")
 		{
 		plugin::SetAnim("sit");
-		quest::debug("stopping timer $timer");
 		quest::stoptimer($timer);
 		}
 	elsif ($timer eq "fishing")

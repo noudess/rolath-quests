@@ -1,8 +1,26 @@
+my $fac;
+
 sub EVENT_SAY 
 	{
 	if ($text=~/Hail/i)
 		{
 		quest::say("The Temple of Marr welcomes you. I am Gygus Remnara. High Sentinel for the Sentries of Passion. We are the order of paladins within the Priests of Marr and whose charge it is to protect the holy Temple of Marr.");
+		}
+	elsif ($text=~/honored member/i)
+		{
+		$fac = $client->GetModCharacterFactionLevel(362);
+		if ($fac > 24)
+			{
+			quest::say("Yes. The light of righteousness shines from within you.");
+			}
+		elsif ($faction < 6)
+			{
+			quest::say("The path you walk is correct, but you have further to travel before you need worry about this.");
+			}
+		else
+			{
+			quest::say("The passion of the Queen of Love does not favor you. Begone from my sight!");
+			}
 		}
 	}
 

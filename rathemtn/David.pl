@@ -32,5 +32,5 @@ sub EVENT_ITEM
 		quest::ding();
 		} 
 
-	quest::return_items(\%itemcount);
+	plugin::return_items(\%itemcount);
 	}

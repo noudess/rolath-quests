@@ -122,16 +122,6 @@ sub EVENT_ENTERZONE
         }
     }	
 
-	# Note about postal gear for sale
-	if (quest::istaskactive(66))
-		{
-		if (!plugin::check_hasitem($client, 1394))
-			{
-			$client->Message(2, "Before you get your bearings, a stranger pushes a note into your hand and then disappears.");
-			quest::summonitem(1394);
-			}
-		}
-
 	# Zone music
 
 	if ($zoneid == 3)

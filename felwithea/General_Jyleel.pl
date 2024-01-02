@@ -24,7 +24,7 @@ sub EVENT_SAY
 		{
 		quest::say("Seek out the Crushbone orcs of the Faydarks.  We must have their oracle scrolls.  They are illegible to you, but we will study them here in Felwithe.  Only the orc oracles will carry them, so be very careful.  There is also the problem with the [Crushbone runners].");
 		}
-	elsif ($text =~ /what crushbone runners/i)
+	elsif ($text =~ /crushbone runners/i)
 		{
 		quest::say("The Crushbone orcs are sending messages across the Ocean of Tears to Antonica.  Why. we do not know.  The runner is usually spotted on the open pathways of Butcherblock. running toward the docks.  Find him. kill him. and return his note pouch.");
 		}

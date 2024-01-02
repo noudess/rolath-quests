@@ -72,69 +72,6 @@ sub EVENT_SAY
 		}
 	}
 
-sub EVENT_ITEM
-	{
-	if (plugin::check_handin(\%itemcount, 1378 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 0, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1379 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 1, 1);
-		}
-	elsif (plugin::check_handin(\%itemcount, 1380 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 2, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1381 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 3, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1382 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 4, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1383 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 5, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1384 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 6, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1385 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 7, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1386 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 8, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1387 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 9, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1388 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 10, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 1389 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 11, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 16828 => 1)) 
-		{
-		$client->UpdateTaskActivity(66, 12, 1);
-		}
-	if (plugin::check_handin(\%itemcount, 14514 => 1)) 
-		{
-		quest::emote("gazes at the murky substance");
-		quest::say("What is this?");
-		$haspotion=1;
-		}
-	plugin::return_items(\%itemcount);
-	}
-
 sub EVENT_SIGNAL
 	{
 	if ($signal == 1)

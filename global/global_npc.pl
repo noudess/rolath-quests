@@ -29,7 +29,7 @@ sub EVENT_TIMER
 		{
 		if ($been_fishing)
 			{
-			$bitch = int(rand(10));
+			$bitch = int(rand(100));
 			if ($bitch == 0)
 				{
 				quest::say("Damn it, spilled my beer again!");

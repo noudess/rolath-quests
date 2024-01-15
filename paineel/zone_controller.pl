@@ -7,17 +7,21 @@ sub EVENT_SIGNAL
 
 sub EVENT_TIMER
 	{
-	quest::stoptimer("Kolbok");
-
-	my @koboldlist = (75165, 75166, 75167, 75168);
-
-	# Get rid of all spawned kobold forces.
-	foreach (@koboldlist)
+	if ($timer eq "Kolbok")
 		{
-		quest::depopall($_);
-		}
+		quest::stoptimer("Kolbok");
+		quest::write("KolbokMovement.log", "It is over");
 
-	# Depop Captain also... so he is back to normal.
-	quest::depop_withtimer(101140);
-	quest::processmobswhilezoneempty(0);
+		my @koboldlist = (75165, 75166, 75167, 75168);
+
+		# Get rid of all spawned kobold forces.
+		foreach (@koboldlist)
+			{
+			quest::depopall($_);
+			}
+
+		# Depop Captain also... so he is back to normal.
+		quest::depop_withtimer(101140);
+		quest::processmobswhilezoneempty(0);
+		}
 	}

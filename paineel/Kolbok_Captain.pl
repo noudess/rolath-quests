@@ -13,7 +13,7 @@ sub EVENT_SPAWN
 sub EVENT_WAYPOINT_ARRIVE
 	{
 	my $date2 = localtime;
-	quest::write("/tmp/KolbokMovement", "$date2: arrived at waypoint($wp)");
+	quest::write("KolbokMovement.log", "$date2: arrived at waypoint($wp)");
 	}
 
 sub EVENT_TIMER
@@ -27,6 +27,7 @@ sub EVENT_TIMER
 	elsif ($timer eq "form")
 		{
 		$linecount = $linecount + 1;
+		quest::write("KolbokMovement.log", "$linecount : forming");
 		if ($linecount == 1)
 			{
 			quest::shout("The liars must pay for breaking the pact with Clan Kolbok!");
@@ -55,6 +56,7 @@ sub EVENT_TIMER
 		$curx = $npc->GetX();
 		$cury = $npc->GetY();
 
+		quest::write("KolbokMovement.log", "X ($curx) Y ($cury)");
 		if (abs($curx - $saveX) > .1  || abs($cury - $saveY) > .1)
 			{
 			$saveX=$curx;

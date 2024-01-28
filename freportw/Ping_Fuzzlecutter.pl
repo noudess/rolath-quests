@@ -17,13 +17,13 @@ sub EVENT_SAY
 		}
 	elsif ($text =~ /repair the toupee/i)
 		{
-		quest::say("Ah!! You have a toupee to repair. It must be the [Mane Attraction]. I gave a one out and it seems to always fall to pieces. Seeing as it has a 100 season warranty and I only created it 5 seasons ago, I suppose I can do it. Do you want me to [make the Mane Attraction].");
+		quest::say("Ah!! You have a toupee to repair. It must be the [Mane Attraction]. I gave a one out and it seems to always fall to pieces. Seeing as it has a 100 season warranty and I only created it 5 seasons ago, I suppose I can do it. Do you want me to [make the Mane] Attraction.");
 		}
 	elsif ($text =~ /mane attraction/i)
 		{
 		quest::say("The Mane Attraction is a special toupee I created for a Gnome junker. He wasn't getting much attention at the taverns till I created the eye catching toupee. He became one Charismatic Gnome after that. Unfortunately, it seems to fall to pieces to easy and since it has a warranty, I have to fix it for him every time at no charge!! I will never make another.");
 		}
-	elsif ($text =~ /make the mane attraction/i)
+	elsif ($text =~ /make the mane/i)
 		{
 		quest::say("If you have the original tattered toupee then I can do it. Before you give it to me I will also need three other items. I require two clumps of hair from a Hulking Gorilla and a strand of hair from a [certain mermaid].");
 		}

@@ -45,7 +45,6 @@ sub EVENT_SIGNAL
 
 sub EVENT_TIMER
 	{
-	#quest::debug("$timer fired");
 	if ($timer eq "DayTimer")
 		{
 		if ($qglobals{"CargoDays"} < 4)
@@ -58,6 +57,7 @@ sub EVENT_TIMER
 			$days = 0;
 			}
 		quest::setglobal("CargoDays", $days, 0, "F");
+		quest::debug("CargoDays is $days");
 		}
 	elsif ($timer eq "CargoTimer")
 		{
@@ -73,6 +73,9 @@ sub EVENT_TIMER
 				#:: Set the data bucket for 7200s (2 hours)
 				quest::set_data($key, 1, 7200);
 
+				quest::debug("Cargo Clockwork headed to windmills.");
+				quest::debug("Turning on zone processing.");
+
 				#:: Start path grid 177 - path to the windmills
 				quest::say("This unit requires oiling.");
 				quest::processmobswhilezoneempty(1);
@@ -83,6 +86,7 @@ sub EVENT_TIMER
 		# Arrived at Frebin (windmills)
 		if ($x == -400 && $y == -150 && $windmill == 0)
 			{
+			quest::debug("Cargo Clockwork At windmills");
 			$windmill = 1;
 			quest::emote("Chuga.. Chug..Chug..");
 			quest::say("This unit requires maintenance.");
@@ -91,6 +95,8 @@ sub EVENT_TIMER
 		#:: Match if at the spawnpoint (WP 0) and if delivery was completed
 		if ($x == 700 && $y == -1783 && $delivery == 1)
 			{
+			quest::debug("Cargo Clockwork Home");
+			quest::debug("Turning zone processing off");
 			#:: Stop pathing on path grid 177
 			quest::processmobswhilezoneempty(0);
 			quest::stop();
@@ -127,6 +133,8 @@ sub EVENT_TIMER
 			{
 			#:: Set delivery complete
 			$delivery = 1;
+			quest::debug("Cargo Clockwork Delivery Complete");
+			quest::debug("Spawning bandits");
 			quest::emote("Chuga.. Chug..Chug..");
 			quest::emote(
 						"The chugging of the Cargo Clockwork comes to a halt.");
@@ -166,13 +174,14 @@ sub EVENT_TIMER
 		#:: Match if the NPC has a highway bandit from its hate list targeted
 		if ($npc->GetTarget() && ($targetname =~ /highway_bandit/i))
 			{
+			quest::debug("Wiping hate for $targetname");
 			#:: Wipe the hate list (to cause a target switch)
 			$npc->WipeHateList();
 			}
 		}
 	elsif ($timer eq "helpme")
 		{
-		#quest::debug("inside helpme");
+		quest::debug("inside helpme");
 		quest::say("Click.. Click... Attacked on route, engaging regeneration device.  Requesting help from all nearby units!");
 		quest::signalwith(56106, $hatecharid);
 		quest::stoptimer("helpme");
@@ -182,6 +191,8 @@ sub EVENT_TIMER
 sub EVENT_DEATH_COMPLETE
 	{
 	#:: Stop the 5 second timer
+	quest::debug("Cargo Clockwork Dead");
+	quest::debug("Turning off zone quest override.");
 	quest::stoptimer("CargoTimer");
 
 	#:: Reset delivery status to 0
@@ -203,12 +214,18 @@ sub EVENT_COMBAT
 	{
 	if($combat_state == 1)
 		{
+		quest::debug("Cargo Clockwork enters Combat");
 		quest::setnexthpevent(30);
+		}
+	else
+		{
+		quest::debug("Cargo Clockwork exits Combat");
 		}
 	}
 
 sub EVENT_HP
 	{
+	quest::debug("Cargo Clockwork Fleeing. This leaves bandits up.");
 	quest::emote("looks concerned.");
 	my @hatelist = $npc->GetHateList();
 	@hatelist = sort {$b->GetHate() <=> $a->GetHate()} @hatelist;

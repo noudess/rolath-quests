@@ -22,7 +22,7 @@ sub EVENT_ITEM
 	{
 
 	# Rune of Fortune (Bottom)
-	if ($gold == 50 or $platinum = 5)
+	if ($gold == 50 or $platinum == 5)
 		{
 		quest::say("I see that Sultin has sent you to me.  Very well, here is your rune.");
 		quest::summonitem(10532);
@@ -39,7 +39,7 @@ sub EVENT_ITEM
 	#     291   Shadowed Men
 	# experience received:
 	#     1000
-	elsif ($itemcount{10791} == 1)
+	if ($itemcount{10791} == 1)
 		{
 		quest::say("Ah - the Coin of Tash - and already enchanted by.. ? Tarn? Very good! I have enchanted it further - you must now take the coin to Raine Beteria in the Library of Erudin to get the final enchantment.");
 		quest::summonitem(10792);

@@ -1,28 +1,52 @@
-sub EVENT_COMBAT {
-     if($combat_state == 1) {
-		quest::say("Guards! Guards! Help me!!");
- }
-}
+sub EVENT_SAY
+	{
+	if ($text =~ /hail/i)
+		{
+		quest::say("Hello. How nice to meet you, $name!");
+		}
+	}
 
-
-sub EVENT_WAYPOINT_ARRIVE {
-	if ($wp == 8) {
+sub EVENT_WAYPOINT_ARRIVE
+	{
+	#:: Match waypoint 8
+	if ($wp == 8)
+		{
 		quest::say("Would you please leave me alone?!");
-	}
-	if ($wp == 9) {
+		}
+
+	#:: Match waypoint 9
+	elsif ($wp == 9)
+		{
 		quest::say("I need to get out of here.");
-	}
-	if ($wp == 12) {
+		}
+
+	#:: Match waypoint 12
+	elsif ($wp == 12)
+		{
 		quest::say("Would you please stop following me!!");
-	}
-	if ($wp == 16) {
+		}
+
+	#:: Match waypoint 16
+	elsif ($wp == 16)
+		{
 		quest::say("I just adore this place.");
+
+		#:: Send a signal '1' to High Keep >> Dealer_Shonta (6064) with no delay
+		quest::signalwith(6064, 1, 0);
+		}
 	}
-}
 
-sub EVENT_SAY { 
-if($text=~/Hail/i){
-quest::say("Hello. How nice to meet you. $name!"); }
-}
-#END of FILE Zone:highkeep  ID:6082 -- Isabella_Cellus 
+sub EVENT_SIGNAL
+	{
+	#:: Match a signal '1' from /highkeep/Dealer_Shonta.pl
+	if ($signal == 1)
+		{
+		quest::say("This poor wretched man is no acquaintance of mine.");
+		}
+	}
 
+sub EVENT_ITEM
+	{
+	#:: Return unused items
+	plugin::returnUnusedItems();
+	}

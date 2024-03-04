@@ -43,37 +43,37 @@ quest::say("Bring us components for our research - We give [Word]s by tasks perf
 if($text=~/reward/i){
 quest::say("Bring us components for our research - We give [Word]s by tasks performed - [Possession], [Detachment], [Allure], [Haunting], [Rupturing], [Dark Paths], [Suffering], [Collection], [Obligation], [Requisition] and [Acquisition]."); 
 }
-if($text=~/words of detachment/i){
-quest::say("From the Estate of Unrest, bring dull bone chips - From Castle Mistmoore, a dagger charred - From a merchant bring a stone of blood - Words of Detachment will be your reward."); 
+if($text=~/detachment/i){
+quest::say("From the Estate of Unrest, bring 2 dull bone chips and a dagger charred - From a merchant bring a stone of blood - Words of Detachment will be your reward."); 
 }
-if($text=~/words of rupturing/i){
-quest::say("From the Estate of Unrest, bring a festering cloak - From Castle Mistmoore, ebon wands - From a merchant bring a jasper stone - Then Words of Rupturing will to you be given."); 
+if($text=~/rupturing/i){
+quest::say("From the Estate of Unrest, bring a festering cloak and 2 ebon wands - From a merchant bring a jasper stone - Then Words of Rupturing will to you be given."); 
 }
-if($text=~/words of requisition/i){
+if($text=~/requisition/i){
 quest::say("From the Plane of Fear, bring an Eye of Fright and a Stone of the Wraith - From a merchant bring a pearl - Then Words of Requisition will to you be given."); 
 }
-if($text=~/words of suffering/i){
+if($text=~/suffering/i){
 quest::say("From Befallen, bring Iced Bone Chips - From spectres, bring a Globe of Fear - From a merchant bring a Star Rose Quartz - Then Words of Suffering will to you be given."); 
 }
-if($text=~/words of possession/i){
+if($text=~/possession/i){
 quest::say("The answer to that question is held by another - Ask again of my sister..."); 
 }
-if($text=~/words of allure/i){
+if($text=~/allure/i){
 quest::say("The answer to that question is held by another - Ask again of my sister..."); 
 }
-if($text=~/words of dark paths/i){
+if($text=~/dark paths/i){
 quest::say("The answer to that question is held by another - Ask again of my sister..."); 
 }
-if($text=~/words of haunting/i){
+if($text=~/haunting/i){
 quest::say("The answer to that question is held by another - Ask again of my sister..."); 
 }
-if($text=~/words of obligation/i){
+if($text=~/obligation/i){
 quest::say("The answer to that question is held by another - Ask again of my sister..."); 
 }
-if($text=~/words of collection/i){
+if($text=~/collection/i){
 quest::say("The answer to that question is held by another - Ask again of my sister..."); 
 }
-if($text=~/words of acquisition/i){
+if($text=~/acquisition/i){
 quest::say("The answer to that question is held by another - Ask again of my sister..."); 
 }
 }

@@ -158,7 +158,6 @@ sub EVENT_ITEM
 
 	#do all other handins first with plugin
 	plugin::return_items(\%itemcount);
-	quest::say("Thanks, but I do not need this...");
 	}
 
 #END of FILE Zone:neriaka -- X`Ta_Tempi

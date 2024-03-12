@@ -2,16 +2,13 @@ sub EVENT_SAY {
 	if ($text=~/hail/i) {
 		quest::say("Leave me alone.");
 	}
-	elsif ($text=~/nachh/i) {
-		quest::say("Nach and his companion Vanikk are no more than my hired guardians. Do not speak to them.");
-	}
 	elsif ($text=~/paw of opolla/i) {
 		quest::say("What was that? The Paw of Opolla? Hmm... I might have heard of it.. But my information is valuable. I am a seeker of gems. I might offer up what I know if you were to give me three fine [jewels].");
 	}
 	elsif ($text=~/jewels/i) {
 		quest::say("I require three jewels; a Bloodstone, a Moonstone, and a Star Rose Quartz. Only then will I tell you what I know of the rare and powerful Paw of Opolla.");
 	}
-	elsif ($text=~/gynok moltor/i) {
+	elsif ($text=~/gynok/i) {
 		#:: Key a data bucket
 		$key = $npc->GetNPCTypeID() . "-turned-in";
 		#:: Match if data bucket exists

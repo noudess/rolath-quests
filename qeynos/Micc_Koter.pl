@@ -5,6 +5,9 @@ sub EVENT_SPAWN
 	{
 	quest::set_proximity($x - 50, $x + 50, $y - 50, $y + 50, $z - 50, $z + 50,1);
 
+	#:: Also, enable proximity say
+	quest::enable_proximity_say();
+
 	#:: Reset item count on spawn
 	$ItemCount = 0;
 	}
@@ -84,9 +87,4 @@ sub EVENT_ITEM
 
 	#:: Return unused items
 	plugin::returnUnusedItems();
-	}
-
-sub EVENT_ENTER
-	{
-	quest::say("who is that");
 	}

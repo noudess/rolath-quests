@@ -48,13 +48,17 @@ sub EVENT_ITEM
             {
             quest::summonitem(13185);
             }
+        elsif ($roll <= 22)
+			{
+			quest::summonitem(plugin::ChooseRandom(8011, 13081, 13014, 13015));
+			}
         elsif ($roll <= 75)
             {
             quest::summonitem(plugin::RandomRange(1001,1012));
             }
         elsif ($roll <= 100)
             {
-			$reward = plugin::RandomRange(13006,13009);
+			$reward = plugin::RandomRange(13004,13010);
             quest::summonitem($reward,4);
             }
 		}

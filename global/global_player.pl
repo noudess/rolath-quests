@@ -87,6 +87,12 @@ sub EVENT_POPUPRESPONSE{
 sub EVENT_ENTERZONE 
 	{
 	quest::debug("$name entered zone");
+
+	if ($race eq "Barbarian" && !plugin::check_hasitem($client, 85441))
+		{
+		quest::summonitem(85441);
+		}
+
 	$peebucket{$charid} = $charid . "-peepers-pee";
 	if (quest::get_data($peebucket{$charid}))
 		{

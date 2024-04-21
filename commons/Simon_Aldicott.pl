@@ -32,10 +32,10 @@ sub EVENT_ITEM
 		#:: Ding!
 		quest::ding();
 
-		#:: Set factions
-		quest::faction(362, 10);    #:: + Priests of Marr
-		quest::faction(330, -5);    #:: + The Freeport Militia
-		quest::faction(281, 10);    #:: + Knights of Truth
+		#:: Set factions - verified on live
+		quest::faction(362, 300);    #:: + Priests of Marr
+		quest::faction(330, -30);    #:: + The Freeport Militia
+		quest::faction(281, 45);    #:: + Knights of Truth
 									#:: Grant a moderate amount of experience
 		quest::exp(2000);
 		}
